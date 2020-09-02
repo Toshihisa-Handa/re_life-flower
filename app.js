@@ -10,11 +10,45 @@ connection.connect(function(err) {
   });
 
 
-app.get('/', (req, res) => res.send('Hello World2!'))
 
-app.get('/top',(req, res)=>{
+app.get('/',(req, res)=>{
     res.render('top.ejs')
 })
+
+app.get('/shops',(req, res)=>{
+    res.render('shops.ejs')
+})
+app.get('/shopDetail',(req, res)=>{
+    res.render('shopDetail.ejs')
+})
+
+app.get('/flowers',(req, res)=>{
+    res.render('flowers.ejs')
+})
+
+app.get('/flowerDetail',(req, res)=>{
+    res.render('flowerDetail.ejs')
+})
+
+app.get('/diary',(req, res)=>{
+    res.render('diary.ejs')
+})
+
+app.get('/diaryDetail',(req, res)=>{
+    res.render('diaryDetail.ejs')
+})
+
+app.get('/mypage',(req, res)=>{
+    res.render('mypage.ejs')
+})
+app.get('/register',(req, res)=>{
+    res.render('register.ejs')
+})
+app.get('/login',(req, res)=>{
+    res.render('login.ejs')
+})
+
+
 
 
 
