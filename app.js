@@ -1,16 +1,10 @@
-const express = require('express')
+const express = require('express');
+const connection = require('./mysqlConnection');//外部ファイルにてdb接続を定義している。それを読み取り。
 const app = express()
 const port = 3002
-const mysql = require('mysql');
-const con = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'lf_db'
-});
 
 
-con.connect(function(err) {
+connection.connect(function(err) {
     if (err) throw err;
     console.log('Connected');
   });
