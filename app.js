@@ -22,42 +22,29 @@ app.use(express.static('public'));
 /////////////////////////////
 //////////ルーティング定義//////////////////////////////////
 
-app.get('/',(req, res)=>{
-    res.render('top.ejs')
-})
+//routeフォルダにルーティングを設定
+var topRouter = require('./routes/top');
+var shopsRouter = require('./routes/shops');
+var shopRouter = require('./routes/shop');
+var flowersRouter = require('./routes/flowers');
+var flowerRouter = require('./routes/flower');
+var diarysRouter = require('./routes/diarys');
+var diaryRouter = require('./routes/diary');
+var mypageRouter = require('./routes/mypage');
+var registerRouter = require('./routes/register');
+var loginRouter = require('./routes/login');
 
-app.get('/shops',(req, res)=>{
-    res.render('shops.ejs')
-})
-app.get('/shopDetail',(req, res)=>{
-    res.render('shopDetail.ejs')
-})
+app.use('/', topRouter);
+app.use('/shops', shopsRouter);
+app.use('/shop', shopRouter);
+app.use('/flowers', flowersRouter);
+app.use('/flower', flowerRouter);
+app.use('/diarys', diarysRouter);
+app.use('/diary', diaryRouter);
+app.use('/mypage', mypageRouter);
+app.use('/register', registerRouter);
+app.use('/login', loginRouter);
 
-app.get('/flowers',(req, res)=>{
-    res.render('flowers.ejs')
-})
-
-app.get('/flowerDetail',(req, res)=>{
-    res.render('flowerDetail.ejs')
-})
-
-app.get('/diary',(req, res)=>{
-    res.render('diary.ejs')
-})
-
-app.get('/diaryDetail',(req, res)=>{
-    res.render('diaryDetail.ejs')
-})
-
-app.get('/mypage',(req, res)=>{
-    res.render('mypage.ejs')
-})
-app.get('/register',(req, res)=>{
-    res.render('register.ejs')
-})
-app.get('/login',(req, res)=>{
-    res.render('login.ejs')
-})
 
 
 
