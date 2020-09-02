@@ -9,6 +9,19 @@ connection.connect(function(err) {
     console.log('Connected');
   });
 
+
 app.get('/', (req, res) => res.send('Hello World2!'))
 
+app.get('/top',(req, res)=>{
+    res.render('top.ejs')
+})
+
+
+
+
+
+
+
+
+//3002番ポートを読み込み
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
