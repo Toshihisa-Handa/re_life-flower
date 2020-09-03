@@ -2,6 +2,7 @@ const express = require('express');
 const connection = require('./mysqlConnection');//外部ファイルにてdb接続を定義している。それを読み取り。
 const app = express()
 const port = 3002
+const path = require('path')
 
 
 connection.connect(function(err) {
@@ -16,6 +17,7 @@ connection.connect(function(err) {
 
 //publicフォルダ内のcssや画像フォルダの読み取りを可能にする
 app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')))
 
 
 
@@ -34,7 +36,7 @@ var diaryRouter = require('./routes/diary');
 var mypageRouter = require('./routes/mypage');
 var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
-// var fileupRouter = require('./routes/fileup');
+var fileupRouter = require('./routes/fileup');
 
 app.use('/', topRouter);
 app.use('/shops', shopsRouter);
@@ -47,7 +49,7 @@ app.use('/diary', diaryRouter);
 app.use('/mypage', mypageRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
-// app.use('/fileup', fileupRouter);
+app.use('/fileup', fileupRouter);
 
 
 

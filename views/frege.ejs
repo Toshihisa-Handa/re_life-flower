@@ -20,13 +20,9 @@
     <h1>花登録</h1>
 
 
-    <form action="fileup" method="post" enctype="multipart/form-data" class="board-form"> <!-- 変更 -->
-         タイトル<input type="text" name="message" class="input" required>
-        <button type="submit" class="submit">投稿</button>
-        <div class="file-wrap">
-            画像を追加
-            <input type="file" name="image_file" class="file">
-        </div>
+    <form action="/fileup" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit">送信</button>
     </form>
 
 

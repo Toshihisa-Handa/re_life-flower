@@ -12,3 +12,5 @@ app.jsにhello world記述しport3002を設定
 
 #db名
 lf_db
+
+var moment = require('moment');//この記述はmoment.jsを利用するためのもの
