@@ -28,22 +28,26 @@ var shopsRouter = require('./routes/shops');
 var shopRouter = require('./routes/shop');
 var flowersRouter = require('./routes/flowers');
 var flowerRouter = require('./routes/flower');
+var fregeRouter = require('./routes/frege');
 var diarysRouter = require('./routes/diarys');
 var diaryRouter = require('./routes/diary');
 var mypageRouter = require('./routes/mypage');
 var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
+// var fileupRouter = require('./routes/fileup');
 
 app.use('/', topRouter);
 app.use('/shops', shopsRouter);
 app.use('/shop', shopRouter);
 app.use('/flowers', flowersRouter);
 app.use('/flower', flowerRouter);
+app.use('/frege', fregeRouter);
 app.use('/diarys', diarysRouter);
 app.use('/diary', diaryRouter);
 app.use('/mypage', mypageRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
+// app.use('/fileup', fileupRouter);
 
 
 
