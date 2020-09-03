@@ -1,3 +1,22 @@
 h2{
     color:blue;
 }
+
+
+header{
+    height: 50px;
+    position: fixed;
+    width: 1200px;
+    background-color: rgba(0, 1, 3, 0.3);
+   
+   }
+   header ul{
+       display: flex;
+       list-style: none;
+       justify-content: space-around;
+   }
+   header ul li a{
+       color:rgb(216, 241, 235);
+       font:20px bold;
+       text-decoration: none;
+   }

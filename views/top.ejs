@@ -12,32 +12,63 @@
     min-height: 100vh;
     display: flex;
     flex-direction:column;
-    width: 800px;
+    width: 1200px;
 }
-header{
- height: 150px;
-}
-div{
+
+.yoko{
     display: flex;
     flex:1;
 }
 main{
     flex:1;
 }
-nav{
-    width: 150px;
+.topimg{
+background-image: url(https://images.unsplash.com/photo-1487070183336-b863922373d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60);
+background-size: cover;
+height: 100vh;
 }
 
-aside{
-    width: 200px;
+.title-box{
+margin-left:42%;
+margin-top:20%
+
 }
+.title{
+    font:50px bold;
+    color:white;
+}
+.subtitle{
+    font:36px bold;
+    color:white;
+}
+
+h1,h3{
+    text-align: center;
+}
+
+.top2img{
+width: 100%;
+}
+
+
+nav{
+    width: 600px;
+}
+aside{
+    width: 600px;
+}
+
 
 @media screen and (max-width:900px){
- body{
+ body,
+ nav,
+ aside {
      width: 100%;
  }
   
-
+div{
+    flex-direction: column;
+}
 
 
 }
@@ -47,15 +78,91 @@ aside{
 
 </style>
 <body>
-    <header>header</header>
+    <header>
+       <ul>
+         <li><a href="/shops">店舗</a></li>
+         <li><a href="/diarys">日記</a></li>
+         <li><a href="/flowers">お花</a></li>
+         <li><a href="">検索</a></li>
+         <li><a href="/login">ログイン</a></li>
+       </ul>
+    </header>
 
-    <div>
-        <nav>left</nav>
-        <main>center</main>
-        <aside>right</aside>
+    <div class='yoko'>
+        <main class='topimg'>
+          <div class="title-box">
+            <p class='title'>Life flower</p>
+            <p class='subtitle'>日々に彩り＋</p>
+          </div>
+        </main>
     </div>
+    <div class='yoko'>
+        <main>
+            <h1>いつもの場所に花を飾りませんか</h1>
+            <h3>Life Flower で花をもっと身近に<br>
+                 日常に一輪挿しの彩りを</h3>
+        </main>
+    </div>
+    <div class='yoko'>
+        <main>
+            <img class='top2img' src="images/top2rere.png" alt="">
+        </main>
+    </div>
+    <div class='yoko'>
+        <main>
+            <h1>使い方</h1>
+            <h3>現在地周辺のお花屋さんを簡単に検索<br>
+                気になるお店はフォロー可能<br>
+                販売している商品だけでなく、そのお店の日常の投稿も併せて閲覧<br>
+                お気に入りのお店を見つけてください。<br>
+                お花がちょっとでも身近になった方は、ぜひ、一度直接店舗へ遊びへ行ってみてください。</h3>
+        </main>
+    </div>
+    <div class='yoko'>
+        <main>
+            <img class='top2img' src="images/top3rere.png" alt="">
+        </main>
+    </div>
+    <div class='yoko'>
+        <main>
+            <h1>今週のお花屋さん</h1>
+            <img class='top2img' src="images/top4.jpg" alt="">
+            <h3>お店の最新トピック、お店の最新トピック、お店の最新トピック、お店の最新トピック、<br>
+                お店の最新トピック、お店の最新トピック、お店の最新トピック、お店の最新トピック、<br>
+                お店の最新トピック、お店の最新トピック、お店の最新トピック、お店の最新トピック、</h3>
+        </main>
+    </div>
+    <h1>新着情報</h1>
+    <div class='yoko'>
+  
 
-     <footer>footer</footer>
+        <nav>
+            <img class='top2img' src="images/topre.png" alt="">
+        </nav>
+        <aside>
+            <h2>花のあらい</h2>
+            <h3>お店の情報、お店の情報、お店の情報、<br>
+                お店の情報、お店の情報、お店の情報、お店の情報、<br>
+                お店の情報、お店の情報</h3>
+        </aside>
+    </div>
+    <div class='yoko'>
+        <nav>
+            <h2>花すずき</h2>
+            <h3>お店の情報、お店の情報、お店の情報、<br>
+                お店の情報、お店の情報、お店の情報、お店の情報、<br>
+                お店の情報、お店の情報</h3>
+        </nav>
+        <aside>
+            <img class='top2img' src="images/top6.jpg" alt="">
+        </aside>
+    </div>
+    <div class='yoko'>
+        <main><h1>近くのお店をみてみる</h1></main>
+    </div>
+  
+
+     <footer><h3>Copyright  second-cube</h3></footer>
 
 
 
