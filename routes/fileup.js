@@ -2,7 +2,17 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../mysqlConnection');
 const multer = require('multer')//multer読み込み
-const upload = multer({ dest: './public/images/uploads' })//ファイルの保存先指定
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './public/images/uploads')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname)
+    }
+  })
+//   const upload = multer({ dest: './public/images/uploads' })//ファイルの保存先指定
+  const upload = multer({ storage: storage })
+
 const path = require('path')
 
 router.get('/', (req, res) => res.sendFile(path.join(__dirname, 'views/frege.ejs')))	;
