@@ -42,7 +42,7 @@
 <% items.forEach((item) => { %>
  <div class='diary-card'>
      <div class="update"><a href="/diaryEdit/<%=item.id%>">編集</a></div>
-     <div class="delete"><a href="">削除</a></div>
+     <div class="delete"><a href="/diaryDelete/<%=item.id%>">削除</a></div>
      <h2><%= item.title%></h2>
      <p><%= item.tag%></p>
      <h3><%= item.text%></h3>

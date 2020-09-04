@@ -66,13 +66,15 @@ app.use('/fileup', fileupRouter);
 	connection.query('UPDATE imgtest SET title = ?, tag = ?, text = ? , created_at = ? WHERE id = ?',[req.body.title, req.body.tag, req.body.text, createdAt, req.params.id],function (error, result) {  
 		res.redirect('/frege');
   	});
-
-
-
 });
 
 
-
+//削除のルーティング
+app.get('/diaryDelete/:id',(req,res)=>{
+  connection.query('DELETE FROM imgtest WHERE id = ?',[req.params.id],(error,results)=>{
+    res.redirect('/frege')
+  })
+})
 
 
 //3002番ポートを読み込み
