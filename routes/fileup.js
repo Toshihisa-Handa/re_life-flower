@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../mysqlConnection');
-const multer = require('multer')//multer読み込み
+const multer = require('multer');//画像取得ようパッケージ（multer）読み込み
+const moment = require('moment');//日付取得用パッケージ読み込み
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, './public/images/uploads')
@@ -27,8 +29,9 @@ router.post('/', upload.single('file'), function (req, res, next) {
   var title = req.body.title;
   var tag = req.body.tag;
   var text = req.body.text;
-  var sql='INSERT INTO imgtest (title, image, tag, text) VALUES(?,?,?,?)';
-  connection.query(sql, [title, req.file.filename, tag, text],(error,result)=>{
+  var createdAt = moment().format('YYYY-MM-DD HH:mm:ss');
+  var sql='INSERT INTO imgtest (title, image, tag, text, created_at) VALUES(?,?,?,?,?)';
+  connection.query(sql, [title, req.file.filename, tag, text, createdAt],(error,result)=>{
     res.redirect('/frege')
   })
   })
