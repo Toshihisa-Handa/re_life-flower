@@ -18,7 +18,8 @@ connection.connect(function(err) {
 //publicフォルダ内のcssや画像フォルダの読み取りを可能にする
 app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, 'public')))
-
+//formからpostされた内容を取得可能にする（定型文）CRUDで使う部分
+app.use(express.urlencoded({extended: false}));
 
 
 /////////////////////////////
@@ -52,10 +53,22 @@ app.use('/login', loginRouter);
 app.use('/fileup', fileupRouter);
 
 
+//日記編集画面へのルーティング
+ app.get('/diaryEdit/:id',(req, res)=>{
+   connection.query('SELECT * FROM imgtest WHERE id = ?',[req.params.id],(error,result)=>{
+     res.render('diaryEdit.ejs',{item:result[0]});
+     console.log(result[0])
+   })
+ })
+
+ app.post('/diaryUpdate/:id',(req,res)=>{
+	connection.query('UPDATE imgtest SET title = ?, tag = ?, text = ? WHERE id = ?',[req.body.title, req.body.tag, req.body.text, req.params.id],function (error, result) {  
+		res.redirect('/frege');
+  	});
 
 
 
-
+});
 
 
 
