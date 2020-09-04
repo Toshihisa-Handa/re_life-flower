@@ -15,7 +15,9 @@ const storage = multer.diskStorage({
 
 const path = require('path')
 
-router.get('/', (req, res) => res.sendFile(path.join(__dirname, 'views/frege.ejs')))	;
+router.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views/frege.ejs'))
+})	;
 
 router.post('/', upload.single('file'), function (req, res, next) {
   console.log(req.file);

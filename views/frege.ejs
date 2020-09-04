@@ -27,6 +27,15 @@
         <button type="submit">送信</button>
     </form>
 
+<h2>画像表示</h2>
 
+<% items.forEach((item) => { %>
+ <div>
+     <h3><%= item.title%></h3>
+    <img src="images/uploads/<%= item.image %>" alt="">
+</div>
+<% }) %>
+<!-- <img src="images/top2rere.png" alt="">
+<img src="images/uploads/kasa.jpg" alt=""> -->
 </body>
 </html>
