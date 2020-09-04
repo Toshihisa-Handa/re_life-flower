@@ -25,8 +25,10 @@ router.post('/', upload.single('file'), function (req, res, next) {
   // var boardId = req.params.board_id;
   // var userId = req.session.user_id? req.session.user_id: 0;
   var title = req.body.title;
-  var sql='INSERT INTO imgtest (title, image) VALUES(?,?)';
-  connection.query(sql, [title,req.file.filename],(error,result)=>{
+  var tag = req.body.tag;
+  var text = req.body.text;
+  var sql='INSERT INTO imgtest (title, image, tag, text) VALUES(?,?,?,?)';
+  connection.query(sql, [title, req.file.filename, tag, text],(error,result)=>{
     res.redirect('/frege')
   })
   })

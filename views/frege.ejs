@@ -23,7 +23,10 @@
     <form action="/fileup" method="POST" enctype="multipart/form-data">
         
         <input type="file" name="file"><br>
-        タイトル<input type="text" name="title"><br><br>
+        タイトル<input type="text" name="title"><br>
+        タグ<input type="text" name="tag"><br>
+        テキスト<textarea name="text" ></textarea><br>
+    
         <button type="submit">送信</button>
     </form>
 
@@ -31,7 +34,9 @@
 
 <% items.forEach((item) => { %>
  <div>
-     <h3><%= item.title%></h3>
+     <h2><%= item.title%></h2>
+     <p><%= item.tag%></p>
+     <h3><%= item.text%></h3>
     <img src="images/uploads/<%= item.image %>" alt="">
 </div>
 <% }) %>
