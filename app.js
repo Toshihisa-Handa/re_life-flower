@@ -3,6 +3,7 @@ const connection = require('./mysqlConnection');//外部ファイルにてdb接�
 const app = express()
 const port = 3002
 const path = require('path')
+const moment = require('moment');//日付取得用パッケージ読み込み
 
 
 connection.connect(function(err) {
@@ -18,8 +19,7 @@ connection.connect(function(err) {
 //publicフォルダ内のcssや画像フォルダの読み取りを可能にする
 app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, 'public')))
-//formからpostされた内容を取得可能にする（定型文）CRUDで使う部分
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: false}));//formからpostされた内容を取得可能にする（定型文）CRUDで使う部分
 
 
 /////////////////////////////
@@ -62,7 +62,8 @@ app.use('/fileup', fileupRouter);
  })
 
  app.post('/diaryUpdate/:id',(req,res)=>{
-	connection.query('UPDATE imgtest SET title = ?, tag = ?, text = ? WHERE id = ?',[req.body.title, req.body.tag, req.body.text, req.params.id],function (error, result) {  
+  var createdAt = moment().format('YYYY-MM-DD HH:mm:ss');
+	connection.query('UPDATE imgtest SET title = ?, tag = ?, text = ? , created_at = ? WHERE id = ?',[req.body.title, req.body.tag, req.body.text, createdAt, req.params.id],function (error, result) {  
 		res.redirect('/frege');
   	});
 
