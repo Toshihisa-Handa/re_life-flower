@@ -7,7 +7,7 @@ const storage = multer.diskStorage({
       cb(null, './public/images/uploads')
     },
     filename: function (req, file, cb) {
-      cb(null, file.originalname)
+      cb(null, Date.now() + '-' + Math.round(Math.random() * 1E9)+file.originalname)
     }
   })
 //   const upload = multer({ dest: './public/images/uploads' })//ファイルの保存先指定
