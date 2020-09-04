@@ -18,7 +18,15 @@ const path = require('path')
 router.get('/', (req, res) => res.sendFile(path.join(__dirname, 'views/frege.ejs')))	;
 
 router.post('/', upload.single('file'), function (req, res, next) {
-    res.send(req.file.originalname +'ファイルのアップロードが完了しました。');
+  console.log(req.file);
+  console.log(req.file.filename);
+  // var boardId = req.params.board_id;
+  // var userId = req.session.user_id? req.session.user_id: 0;
+  var title = req.body.title;
+  var sql='INSERT INTO imgtest (title, image) VALUES(?,?)';
+  connection.query(sql, [title,req.file.filename],(error,result)=>{
+    res.redirect('/frege')
+  })
   })
 
   module.exports = router;
