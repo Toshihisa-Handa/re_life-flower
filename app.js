@@ -35,6 +35,7 @@ var fregeRouter = require('./routes/frege');
 var diarysRouter = require('./routes/diarys');
 var diaryRouter = require('./routes/diary');
 var diaryDeleteRouter = require('./routes/diaryDelete');
+var diaryEditRouter = require('./routes/diaryEdit');
 var diaryUpdateRouter = require('./routes/diaryUpdate');
 var mypageRouter = require('./routes/mypage');
 var registerRouter = require('./routes/register');
@@ -50,27 +51,13 @@ app.use('/frege', fregeRouter);
 app.use('/diarys', diarysRouter);
 app.use('/diary', diaryRouter);
 app.use('/diaryDelete/', diaryDeleteRouter);
-app.use('/diaryUpdate/:id', diaryUpdateRouter);
+app.use('/diaryEdit/', diaryEditRouter);
+app.use('/diaryUpdate/', diaryUpdateRouter);
 app.use('/mypage', mypageRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/fileup', fileupRouter);
 
-
-//日記編集画面へのルーティング
- app.get('/diaryEdit/:id',(req, res)=>{
-   connection.query('SELECT * FROM imgtest WHERE id = ?',[req.params.id],(error,result)=>{
-     res.render('diaryEdit.ejs',{item:result[0]});
-     console.log(result[0])
-   })
- })
-
- app.post('/diaryUpdate/:id',(req,res)=>{
-  var createdAt = moment().format('YYYY-MM-DD HH:mm:ss');
-	connection.query('UPDATE imgtest SET title = ?, tag = ?, text = ? , created_at = ? WHERE id = ?',[req.body.title, req.body.tag, req.body.text, createdAt, req.params.id],function (error, result) {  
-		res.redirect('/frege');
-  	});
-});
 
 
 
