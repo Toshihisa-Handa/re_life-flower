@@ -84,7 +84,11 @@ div{
          <li><a href="/diarys">日記</a></li>
          <li><a href="/flowers">お花</a></li>
          <li><a href="">検索</a></li>
+         <% if (typeof user == 'undefined') { %>
          <li><a href="/login">ログイン</a></li>
+         <% } else{%>
+         <li><a href="/logout">ログアウト</a></li>
+         <% } %>
        </ul>
        <% if (typeof user !== 'undefined') { %>
         <h2 class="login-user"><%= user.name %>さんとしてログインしています</h2>

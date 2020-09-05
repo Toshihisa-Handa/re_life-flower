@@ -48,6 +48,7 @@ var diaryUpdateRouter = require('./routes/diaryUpdate');
 var mypageRouter = require('./routes/mypage');
 var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
+var logoutRouter = require('./routes/logout');
 var fileupRouter = require('./routes/fileup');
 
 
@@ -70,6 +71,7 @@ app.use('/diaryUpdate/', diaryUpdateRouter);
 app.use('/mypage', mypageRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
+app.use('/logout', logoutRouter);
 app.use('/fileup', fileupRouter);
 
 
