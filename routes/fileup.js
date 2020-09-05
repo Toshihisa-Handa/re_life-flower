@@ -30,7 +30,7 @@ router.post('/', upload.single('file'), function (req, res, next) {
   var tag = req.body.tag;
   var text = req.body.text;
   var createdAt = moment().format('YYYY-MM-DD HH:mm:ss');
-  var sql='INSERT INTO imgtest (title, image, tag, text, created_at) VALUES(?,?,?,?,?)';
+  var sql='INSERT INTO diary (title, image, tag, text, created_at) VALUES(?,?,?,?,?)';
   connection.query(sql, [title, req.file.filename, tag, text, createdAt],(error,result)=>{
     res.redirect('/frege')
   })

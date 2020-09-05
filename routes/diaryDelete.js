@@ -4,7 +4,7 @@ const connection = require('../mysqlConnection');//db接続読み取り
 
 //削除のルーティング
 router.get('/:id',(req,res)=>{
-    connection.query('DELETE FROM imgtest WHERE id = ?',[req.params.id],(error,results)=>{
+    connection.query('DELETE FROM diary WHERE id = ?',[req.params.id],(error,results)=>{
       res.redirect('/frege')
     })
   })
