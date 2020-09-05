@@ -1,9 +1,12 @@
 const express = require('express');
 const connection = require('./mysqlConnection');//外部ファイルにてdb接続を定義している。それを読み取り。
-const app = express()
 const port = 3002
 const path = require('path')
 const moment = require('moment');//日付取得用パッケージ読み込み
+var session = require('express-session'); 
+var setUser = require('./setUser'); 
+
+const app = express()
 
 
 connection.connect(function(err) {
@@ -42,12 +45,23 @@ var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
 var fileupRouter = require('./routes/fileup');
 
-app.use('/', topRouter);
+
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}));
+
+
+
+
+app.use('/', setUser, topRouter);
 app.use('/shops', shopsRouter);
 app.use('/shop', shopRouter);
 app.use('/flowers', flowersRouter);
 app.use('/flower', flowerRouter);
-app.use('/frege', fregeRouter);
+app.use('/frege', setUser, fregeRouter);
 app.use('/diarys', diarysRouter);
 app.use('/diary', diaryRouter);
 app.use('/diaryDelete/', diaryDeleteRouter);

@@ -25,7 +25,9 @@
         </ul>
      </header>
     <h1>花登録</h1>
-
+    <% if (typeof user !== 'undefined') { %>
+        <span class="login-user"><%= user.name %>さんとしてログインしています</span>
+    <% } %>
 
     <form action="/fileup" method="POST" enctype="multipart/form-data">
         

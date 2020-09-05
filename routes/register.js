@@ -4,13 +4,13 @@ const connection = require('../mysqlConnection');//db接続読み取り
 const moment = require('moment');//日付取得用パッケージ読み込み
 
 
-router.get('/',(req, res)=>{
+router.get('/',(req, res, next)=>{
    res.render('register.ejs', {
        title:'新規会員登録'
    });
 });
 
-router.post('/', function(req, res) {
+router.post('/', function(req, res, next) {
   var name = req.body.name;
   var email = req.body.email;
   var password = req.body.password;

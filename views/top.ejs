@@ -86,6 +86,9 @@ div{
          <li><a href="">検索</a></li>
          <li><a href="/login">ログイン</a></li>
        </ul>
+       <% if (typeof user !== 'undefined') { %>
+        <h2 class="login-user"><%= user.name %>さんとしてログインしています</h2>
+    <% } %>
     </header>
 
     <div class='yoko'>
