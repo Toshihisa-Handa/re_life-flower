@@ -34,8 +34,8 @@ var flowerRouter = require('./routes/flower');
 var fregeRouter = require('./routes/frege');
 var diarysRouter = require('./routes/diarys');
 var diaryRouter = require('./routes/diary');
-var diaryUpdateRouter = require('./routes/diaryUpdate');
 var diaryDeleteRouter = require('./routes/diaryDelete');
+var diaryUpdateRouter = require('./routes/diaryUpdate');
 var mypageRouter = require('./routes/mypage');
 var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
@@ -49,8 +49,8 @@ app.use('/flower', flowerRouter);
 app.use('/frege', fregeRouter);
 app.use('/diarys', diarysRouter);
 app.use('/diary', diaryRouter);
-app.use('/diaryDelete/:id', diaryDeleteRouter);
-app.use('/diaryUpdate', diaryUpdateRouter);
+app.use('/diaryDelete/', diaryDeleteRouter);
+app.use('/diaryUpdate/:id', diaryUpdateRouter);
 app.use('/mypage', mypageRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
@@ -72,13 +72,6 @@ app.use('/fileup', fileupRouter);
   	});
 });
 
-
-//削除のルーティング
-app.get('/diaryDelete/:id',(req,res)=>{
-  connection.query('DELETE FROM imgtest WHERE id = ?',[req.params.id],(error,results)=>{
-    res.redirect('/frege')
-  })
-})
 
 
 //3002番ポートを読み込み
