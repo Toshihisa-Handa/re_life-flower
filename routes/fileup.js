@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
 const path = require('path')
 
 router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views/frege.ejs'))
+  res.sendFile(path.join(__dirname, 'views/drege.ejs'))
 })	;
 
 router.post('/', upload.single('file'), function (req, res, next) {
@@ -27,12 +27,13 @@ router.post('/', upload.single('file'), function (req, res, next) {
   // var boardId = req.params.board_id;
   // var userId = req.session.user_id? req.session.user_id: 0;
   var title = req.body.title;
+  var userId = req.session.user_id? req.session.user_id: 0; // 追加
   var tag = req.body.tag;
   var text = req.body.text;
   var createdAt = moment().format('YYYY-MM-DD HH:mm:ss');
-  var sql='INSERT INTO diary (title, image, tag, text, created_at) VALUES(?,?,?,?,?)';
-  connection.query(sql, [title, req.file.filename, tag, text, createdAt],(error,result)=>{
-    res.redirect('/frege')
+  var sql='INSERT INTO diary (user_id, title, image, tag, text, created_at) VALUES(?,?,?,?,?,?)';
+  connection.query(sql, [userId, title, req.file.filename, tag, text, createdAt],(error,result)=>{
+    res.redirect('/drege')
   })
   })
 
