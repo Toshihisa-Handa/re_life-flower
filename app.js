@@ -3,8 +3,8 @@ const connection = require('./mysqlConnection');//外部ファイルにてdb接�
 const port = 3002
 const path = require('path')
 const moment = require('moment');//日付取得用パッケージ読み込み
-var session = require('express-session'); 
-var setUser = require('./setUser'); 
+var session = require('express-session'); //セッションを使用する為の記述
+var setUser = require('./setUser'); //セッションを使用する為に必要なsetUser.jsの読み取り
 
 const app = express()
 
@@ -24,6 +24,11 @@ app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({extended: false}));//formからpostされた内容を取得可能にする（定型文）CRUDで使う部分
 
+app.use(session({//セッションの為の記述
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}));
 
 /////////////////////////////
 //////////ルーティング定義//////////////////////////////////
@@ -47,21 +52,16 @@ var fileupRouter = require('./routes/fileup');
 
 
 
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true
-}));
 
 
 
 
-app.use('/', setUser, topRouter);
+app.use('/', setUser, topRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
 app.use('/shops', shopsRouter);
 app.use('/shop', shopRouter);
 app.use('/flowers', flowersRouter);
 app.use('/flower', flowerRouter);
-app.use('/frege', setUser, fregeRouter);
+app.use('/frege', setUser, fregeRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
 app.use('/diarys', diarysRouter);
 app.use('/diary', diaryRouter);
 app.use('/diaryDelete/', diaryDeleteRouter);
