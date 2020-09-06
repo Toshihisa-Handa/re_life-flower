@@ -63,7 +63,7 @@ app.use('/shop', shopRouter);
 app.use('/flowers', flowersRouter);
 app.use('/flower', flowerRouter);
 app.use('/drege', setUser, dregeRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
-app.use('/diarys', diarysRouter);
+app.use('/diarys',setUser, diarysRouter);
 app.use('/diary', diaryRouter);
 app.use('/diaryDelete/', diaryDeleteRouter);
 app.use('/diaryEdit/', diaryEditRouter);
