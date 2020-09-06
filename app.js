@@ -37,6 +37,7 @@ app.use(session({//セッションの為の記述
 var topRouter = require('./routes/top');
 var shopsRouter = require('./routes/shops');
 var shopRouter = require('./routes/shop');
+var fregeRouter = require('./routes/frege');
 var flowersRouter = require('./routes/flowers');
 var flowerRouter = require('./routes/flower');
 var dregeRouter = require('./routes/drege');
@@ -50,6 +51,7 @@ var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
 var logoutRouter = require('./routes/logout');
 var fileupRouter = require('./routes/fileup');
+var f_insertRouter = require('./routes/f_insert');
 
 
 
@@ -60,6 +62,7 @@ var fileupRouter = require('./routes/fileup');
 app.use('/', setUser, topRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
 app.use('/shops', shopsRouter);
 app.use('/shop', shopRouter);
+app.use('/frege', setUser, fregeRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
 app.use('/flowers', flowersRouter);
 app.use('/flower', flowerRouter);
 app.use('/drege', setUser, dregeRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
@@ -73,6 +76,7 @@ app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/fileup', fileupRouter);
+app.use('/f_insert', f_insertRouter);
 
 
 

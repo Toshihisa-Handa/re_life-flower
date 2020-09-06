@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日記登録ページ</title>
+    <title>花登録ページ</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
         .diary-card{
@@ -24,15 +24,17 @@
           <li><a href="/login">ログイン</a></li>
         </ul>
      </header>
-    <h1>日記登録</h1>
+    <h1>花登録</h1>
     <% if (typeof user !== 'undefined') { %>
         <span class="login-user"><%= user.name %>さんとしてログインしています</span>
     <% } %>
 
-    <form action="/fileup" method="POST" enctype="multipart/form-data">
+    <form action="/f_insert" method="POST" enctype="multipart/form-data">
         
         <input type="file" name="file"><br>
-        タイトル<input type="text" name="title"><br>
+        品名<input type="text" name="name"><br>
+        価格<input type="text" name="price"><br>
+        特徴<input type="text" name="feature"><br>
         タグ<input type="text" name="tag"><br>
         テキスト<textarea name="text" ></textarea><br>
     
@@ -43,15 +45,17 @@
 
 <% items.forEach((item) => { %>
  <div class='diary-card'>
-     <div class="update"><a href="/diaryEdit/<%=item.id%>">編集</a></div>
-     <div class="delete"><a href="/diaryDelete/<%=item.id%>">削除</a></div>
-     <h2><%= item.title%></h2>
+
+     <h2><%= item.name%></h2>
+     <h2><%= item.price%>円</h2>
+     <h2><%= item.feature%></h2>
      <p><%= item.tag%></p>
      <h3><%= item.text%></h3>
      <p><%= item.created_at%></p>
     <img src="images/uploads/<%= item.image %>" alt="">
-    <h2><%= item.name %></h2> 
+    <h2><%= item.uname %></h2>
 </div>
 <% }) %>
+
 </body>
 </html>
