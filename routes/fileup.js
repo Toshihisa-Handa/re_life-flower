@@ -27,7 +27,7 @@ router.post('/', upload.single('file'), function (req, res, next) {
   // var boardId = req.params.board_id;
   // var userId = req.session.user_id? req.session.user_id: 0;
   var title = req.body.title;
-  var userId = req.session.user_id? req.session.user_id: 0; // 追加
+  var userId = req.session.user_id? req.session.user_id: 0; 
   var tag = req.body.tag;
   var text = req.body.text;
   var createdAt = moment().format('YYYY-MM-DD HH:mm:ss');
