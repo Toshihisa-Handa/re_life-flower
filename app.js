@@ -40,6 +40,9 @@ var shopRouter = require('./routes/shop');
 var fregeRouter = require('./routes/frege');
 var flowersRouter = require('./routes/flowers');
 var flowerRouter = require('./routes/flower');
+var flowerDeleteRouter = require('./routes/flowerDelete');
+var flowerEditRouter = require('./routes/flowerEdit');
+var flowerUpdateRouter = require('./routes/flowerUpdate');
 var dregeRouter = require('./routes/drege');
 var diarysRouter = require('./routes/diarys');
 var diaryRouter = require('./routes/diary');
@@ -65,6 +68,9 @@ app.use('/shop', shopRouter);
 app.use('/frege', setUser, fregeRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
 app.use('/flowers', flowersRouter);
 app.use('/flower', flowerRouter);
+app.use('/flowerDelete/', flowerDeleteRouter);
+app.use('/flowerEdit/', flowerEditRouter);
+app.use('/flowerUpdate/', flowerUpdateRouter);
 app.use('/drege', setUser, dregeRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
 app.use('/diarys',setUser, diarysRouter);
 app.use('/diary', diaryRouter);

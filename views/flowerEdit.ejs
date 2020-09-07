@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お花編集画面</title>
+</head>
+<body>
+    <h1>お花編集画面</h1>
+
+
+    <form action='/flowerUpdate/<%=item.id%>' method="post">
+        品名<input type="text" name="name" value='<%=item.name%>'><br>
+        価格 <input type="text" name="price" value='<%=item.price%>'><br>
+        特徴<input type="text" name="feature" value='<%=item.feature%>'><br>
+        タグ<input type="text" name="tag" value='<%=item.tag%>'><br>
+        テキスト<textarea name="text"><%=item.text%></textarea><br>
+    
+        <button type="submit">送信</button>
+    </form>
+
+
+</body>
+</html>
