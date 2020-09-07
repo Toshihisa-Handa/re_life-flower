@@ -53,7 +53,7 @@ var mypageRouter = require('./routes/mypage');
 var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
 var logoutRouter = require('./routes/logout');
-var fileupRouter = require('./routes/fileup');
+var d_insertRouter = require('./routes/d_insert');
 var f_insertRouter = require('./routes/f_insert');
 
 
@@ -81,7 +81,7 @@ app.use('/mypage', mypageRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
-app.use('/fileup', fileupRouter);
+app.use('/d_insert', d_insertRouter);
 app.use('/f_insert', f_insertRouter);
 
 
