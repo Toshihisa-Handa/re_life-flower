@@ -46,6 +46,7 @@ var flowerUpdateRouter = require('./routes/flowerUpdate');
 var dregeRouter = require('./routes/drege');
 var diarysRouter = require('./routes/diarys');
 var diaryRouter = require('./routes/diary');
+var d_searchRouter = require('./routes/d_search.js');
 var diaryDeleteRouter = require('./routes/diaryDelete');
 var diaryEditRouter = require('./routes/diaryEdit');
 var diaryUpdateRouter = require('./routes/diaryUpdate');
@@ -74,6 +75,7 @@ app.use('/flowerUpdate/', flowerUpdateRouter);
 app.use('/drege', setUser, dregeRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
 app.use('/diarys',setUser, diarysRouter);
 app.use('/diary', diaryRouter);
+app.use('/d_search', d_searchRouter);
 app.use('/diaryDelete/', diaryDeleteRouter);
 app.use('/diaryEdit/', diaryEditRouter);
 app.use('/diaryUpdate/', diaryUpdateRouter);
