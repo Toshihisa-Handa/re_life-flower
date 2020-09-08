@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>店舗情報編集</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+   
+    </style>
+</head>
+<body>
+    <header>
+        <ul>
+          <li><a href="/">ホーム</a></li>
+          <li><a href="/shops">店舗</a></li>
+          <li><a href="/diarys">日記</a></li>
+          <li><a href="/flowers">お花</a></li>
+          <li><a href="">検索</a></li>
+          <li><a href="/login">ログイン</a></li>
+        </ul>
+     </header>
+    <h1>店舗情報編集</h1>
+
+
+ 
+    <form action='/myprofileUpdate' method="post" enctype="multipart/form-data">
+        <input type="file" name="file"><span>プロフィール写真の変更</span><br>
+        店舗名<input type="text" name="title" value=''><br>
+        店舗サブタイトル<input type="text" name="tag" value=''><br>
+        アカウント名<input type="text" name="tag" value=''><br>
+        ウェブサイト<input type="text" name="tag" value=''><br>
+        メールアドレス<input type="text" name="tag" value=''><br>
+        電話番号<input type="text" name="tag" value=''><br>
+        営業時間
+        オープン<input type="text" name="tag" value=''><br>
+        クローズ<input type="text" name="tag" value=''><br>
+        定休日<input type="text" name="tag" value=''><br>
+        住所<input type="text" name="tag" value=''><br>
+        地図<input type="text" name="tag" value=''><br>
+        店舗詳細画像<input type="file" name="file"><br>
+        店舗写真①<input type="file" name="file"><br>
+        店舗写真②<input type="file" name="file"><br>
+        店舗タイトル<input type="text" name="tag" value=''><br>
+        店舗コメント<textarea name="text"></textarea><br>
+    
+        <button type="submit">送信</button>
+    </form>
+
+
+</body>
+</html>

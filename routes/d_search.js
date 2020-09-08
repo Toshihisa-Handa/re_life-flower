@@ -11,7 +11,7 @@ const moment = require('moment');//日付取得用パッケージ読み込み
 router.post('/', (req, res) => {
   // export let search = req.body.search;
     console.log(req.body.search)//inputタグの値が入る
-    console.log("post検索："+ search)
+    console.log("post検索："+ req.body.search)
     res.redirect('/d_search')//ここで下のget処理に移動する
   });
 
