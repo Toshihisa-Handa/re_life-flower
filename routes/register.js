@@ -28,10 +28,12 @@ router.post('/', function(req, res, next) {
       connection.query(registerQuery, function(err, rows) {//userテーブルの記述
         var userId = rows.insertId;
         console.log(userId)
+        console.log(name)
+        // console.log(rows.affectedRows)
         // console.log(rows)
         // console.log(rows.insertId)
         // console.log('欲しい情報：'+ rows.insertId)
-        connection.query('INSERT INTO shop(user_id) VALUES(?)',[userId],(error,results)=>{
+        connection.query('INSERT INTO shop(user_id, account_name) VALUES(?,?)',[userId, name],(error,results)=>{
             
           res.redirect('/login');
         });
