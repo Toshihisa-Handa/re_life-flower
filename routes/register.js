@@ -25,8 +25,15 @@ router.post('/', function(req, res, next) {
         emailExists: '既に登録されているメールアドレスです'
       });
     } else {
-      connection.query(registerQuery, function(err, rows) {
-        res.redirect('/login');
+      connection.query(registerQuery, function(err, rows) {//userテーブルの記述
+        var userId = 'SELECT LAST_INSERT_ID()';
+        console.log(userId)
+        console.log(rows)
+        // console.log('欲しい情報：'+ OkPacket)
+        connection.query('INSERT INTO shop(user_id) SELECT LAST_INSERT_ID();',(error,results)=>{
+            
+          res.redirect('/login');
+        });
       });
     }
   });
