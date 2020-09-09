@@ -26,11 +26,12 @@ router.post('/', function(req, res, next) {
       });
     } else {
       connection.query(registerQuery, function(err, rows) {//userテーブルの記述
-        var userId = 'SELECT LAST_INSERT_ID()';
+        var userId = rows.insertId;
         console.log(userId)
-        console.log(rows)
-        // console.log('欲しい情報：'+ OkPacket)
-        connection.query('INSERT INTO shop(user_id) SELECT LAST_INSERT_ID();',(error,results)=>{
+        // console.log(rows)
+        // console.log(rows.insertId)
+        // console.log('欲しい情報：'+ rows.insertId)
+        connection.query('INSERT INTO shop(user_id) VALUES(?)',[userId],(error,results)=>{
             
           res.redirect('/login');
         });
