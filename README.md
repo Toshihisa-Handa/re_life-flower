@@ -31,3 +31,9 @@ mysql -u root
 ```
 などを実行しmysqlサーバーを立ち上げてサイド確認する。
 そうするとしばらくすると使えるようにこれまではなった（確証はない）
+
+
+#iframeの実装の参考にしたサイト
+https://olein-design.com/blog/google-map-iframe-for-responsive
+
+＃update文でformタグに「enctype="multipart/form-data"」を入れるとpostが効かなかった（2020/9/10記述）
