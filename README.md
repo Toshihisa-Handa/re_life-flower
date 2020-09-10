@@ -18,3 +18,16 @@ npx nodemon app.js
 lf_db
 
 var moment = require('moment');//この記述はmoment.jsを利用するためのもの
+
+#tableplusnのバグについて
+PCを再起動させたり、PCの不具合で強制終了したときなど、再起動するとデータベースへの接続ができない時がある
+「Access denied for user 'root'@'localhost' 」←このようなエラーが出る
+
+こういったときはターミナルで
+
+```
+mysql.server start
+mysql -u root
+```
+などを実行しmysqlサーバーを立ち上げてサイド確認する。
+そうするとしばらくすると使えるようにこれまではなった（確証はない）
