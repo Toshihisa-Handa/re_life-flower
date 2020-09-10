@@ -23,7 +23,7 @@
     <h1>店舗情報編集</h1>
 
 
-    <form action='/myprofileUpdate/<%=item.id%>' method="post" enctype="multipart/form-data">
+    <form action='/myprofileUpdate/<%=item.id%>' method="post" >
         <img src="images/uploads/<%= item.account_img %>" alt="">
         <input type="file" name="account_img"><span>プロフィール写真の変更</span><br>
         店舗名<input type="text" name="name" value='<%= item.name%>'><br>
