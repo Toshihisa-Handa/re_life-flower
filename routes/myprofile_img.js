@@ -18,24 +18,18 @@ const storage = multer.diskStorage({
 const path = require('path')
 
 router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views/drege.ejs'))
+  res.sendFile(path.join(__dirname, 'views/myprofile.ejs'))
 })	;
 
-router.post('/', upload.single('image'), function (req, res, next) {
-  console.log('スタートスタートスタートスタートスタートスタートスタートスタートスタートスタート')
+router.post('/', upload.single('file'), function (req, res, next) {
+  console.log(req.file);
   console.log(req.file.filename);
-  // console.log(req.image.id);
-
-  var boardId = req.params.board_id;
-  var userId = req.session.user_id? req.session.user_id: 0;
-  var title = req.body.title;
   var userId = req.session.user_id? req.session.user_id: 0; 
-  var tag = req.body.tag;
-  var text = req.body.text;
-  var createdAt = moment().format('YYYY-MM-DD HH:mm:ss');
-  var sql='INSERT INTO diary (user_id, title, image, tag, text, created_at) VALUES(?,?,?,?,?,?)';
-  connection.query(sql, [userId, title, req.file.filename, tag, text, createdAt],(error,result)=>{
-    res.redirect('/drege')
+
+//   var sql='INSERT INTO shop (account_img) VALUES(?)';
+  var sql='UPDATE shop SET account_img = ? WHERE id = '+ userId +''; 
+  connection.query(sql, [req.file.filename],(error,result)=>{
+    res.redirect('/myprofile')
   })
   })
 
