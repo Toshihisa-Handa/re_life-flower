@@ -51,8 +51,6 @@ var diaryDeleteRouter = require('./routes/diaryDelete');
 var diaryEditRouter = require('./routes/diaryEdit');
 var diaryUpdateRouter = require('./routes/diaryUpdate');
 var mypageRouter = require('./routes/mypage');
-var profileRouter = require('./routes/profile');
-
 var myprofileRouter = require('./routes/myprofile');
 var myprofileEditRouter = require('./routes/myprofileEdit');
 var registerRouter = require('./routes/register');
@@ -84,8 +82,6 @@ app.use('/diaryDelete/', diaryDeleteRouter);
 app.use('/diaryEdit/', diaryEditRouter);
 app.use('/diaryUpdate/', diaryUpdateRouter);
 app.use('/mypage', mypageRouter);
-app.use('/profile', profileRouter);
-
 app.use('/myprofile', myprofileRouter);
 app.use('/myprofileEdit', myprofileEditRouter);
 app.use('/register', registerRouter);
