@@ -21,13 +21,13 @@ router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'views/myprofile.ejs'))
 })	;
 
-router.post('/', upload.single('file'), function (req, res, next) {
+router.post('/', upload.single('account_img'), function (req, res, next) {
   console.log(req.file);
   console.log(req.file.filename);
   var userId = req.session.user_id? req.session.user_id: 0; 
 
 //   var sql='INSERT INTO shop (account_img) VALUES(?)';
-  var sql='UPDATE shop SET account_img = ? WHERE id = '+ userId +''; 
+  var sql='UPDATE shop SET account_img = ? WHERE user_id = '+ userId +''; 
   connection.query(sql, [req.file.filename],(error,result)=>{
     res.redirect('/myprofile')
   })
