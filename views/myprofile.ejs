@@ -24,7 +24,7 @@
 
   <% items.forEach((item) => { %>
 
-   <a href="/myprofileEdit">編集画面へ</a>
+   <a href="/myprofileEdit/<%=item.id%>">編集画面へ</a>
    <img src="images/uploads/<%= item.account_img %>" alt=""><span>プロフィール写真の変更</span><br>
    <h1>店舗名：<%= item.shop %></h1>
    <h2>店舗サブタイトル：<%= item.title %></h2>

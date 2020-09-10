@@ -23,29 +23,33 @@
     <h1>店舗情報編集</h1>
 
 
- 
-    <form action='/myprofileUpdate' method="post" enctype="multipart/form-data">
-        <input type="file" name="file"><span>プロフィール写真の変更</span><br>
-        店舗名<input type="text" name="title" value=''><br>
-        店舗サブタイトル<input type="text" name="tag" value=''><br>
-        アカウント名<input type="text" name="tag" value=''><br>
-        ウェブサイト<input type="text" name="tag" value=''><br>
-        メールアドレス<input type="text" name="tag" value=''><br>
-        電話番号<input type="text" name="tag" value=''><br>
+    <form action='/myprofileUpdate/<%=item.id%>' method="post" enctype="multipart/form-data">
+        <img src="images/uploads/<%= item.account_img %>" alt="">
+        <input type="file" name="account_img"><span>プロフィール写真の変更</span><br>
+        店舗名<input type="text" name="name" value='<%= item.name%>'><br>
+        店舗サブタイトル<input type="text" name="title" value='<%= item.title%>'><br>
+        アカウント名<input type="text" name="account_name" value='<%= item.account_name%>'><br>
+        ウェブサイト<input type="text" name="web" value='<%= item.web%>'><br>
+        メールアドレス<input type="text" name="email" value='<%= item.email%>'><br>
+        電話番号<input type="text" name="tell" value='<%= item.tell%>'><br>
         営業時間
-        オープン<input type="text" name="tag" value=''><br>
-        クローズ<input type="text" name="tag" value=''><br>
-        定休日<input type="text" name="tag" value=''><br>
-        住所<input type="text" name="tag" value=''><br>
-        地図<input type="text" name="tag" value=''><br>
-        店舗詳細画像<input type="file" name="file"><br>
-        店舗写真①<input type="file" name="file"><br>
-        店舗写真②<input type="file" name="file"><br>
-        店舗タイトル<input type="text" name="tag" value=''><br>
-        店舗コメント<textarea name="text"></textarea><br>
+        オープン<input type="text" name="open" value='<%= item.open%>'><br>
+        クローズ<input type="text" name="close" value='<%= item.close%>'><br>
+        定休日<input type="text" name="holiday" value='<%= item.holiday%>'><br>
+        住所<input type="text" name="location" value='<%= item.location%>'><br>
+        地図<input type="text" name="map" value='<%= item.map%>'><br>
+        店舗詳細画像<img src="images/uploads/<%= item.shop_img %>" alt="">
+        <input type="file" name="shop_img"><br>
+        店舗写真①<img src="images/uploads/<%= item.img1 %>" alt="">
+        <input type="file" name="img1"><br>
+        店舗写真②<img src="images/uploads/<%= item.img2 %>" alt="">
+        <input type="file" name="img2"><br>
+        店舗タイトル<input type="text" name="message" value='<%= item.message%>'><br>
+        店舗コメント<textarea name="comment"><%= item.comment%></textarea><br>
     
         <button type="submit">送信</button>
     </form>
+
 
 
 </body>
