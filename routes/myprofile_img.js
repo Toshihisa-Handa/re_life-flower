@@ -35,12 +35,15 @@ var cpUpload = upload.fields([{
 
 //送信する画像が1つの時第二引数は 「upload.single('account_img')」を使う
 router.post('/', cpUpload, function (req, res, next) {
-
+  
   var userId = req.session.user_id? req.session.user_id: 0; 
-
-//   var sql='INSERT INTO shop (account_img) VALUES(?)';
+  var image1 = req.files.account_img[0].filename
+  var image2 = req.files.shop_img[0].filename
+  var image3 = req.files.img1[0].filename
+  var image4 = req.files.img2[0].filename
+  
   var sql='UPDATE shop SET account_img = ?, shop_img = ?, img1 = ?, img2 = ? WHERE user_id = '+ userId +''; 
-  connection.query(sql, [req.files.account_img[0].filename, req.files.shop_img[0].filename, req.files.img1[0].filename, req.files.img2[0].filename],(error,result)=>{
+  connection.query(sql, [image1,image2,image3,image4],(error,result)=>{
     console.log(req.files)
     res.redirect('/myprofile')
   })
@@ -50,7 +53,11 @@ router.post('/', cpUpload, function (req, res, next) {
 // console.log(req.files.account_img)//ok
 // console.log(req.files.account_img[0])//ok
 // console.log(req.files.account_img[0].filename)//1599803609347-263008020image.png
-// // res.redirect('/myprofile')
+
+// console.log("検証検証検証検証検証検証検証検証検証検証検証検証検証")
+// console.log(req.files.shop_img)
+
+// res.redirect('/myprofile')
 
   })
 
