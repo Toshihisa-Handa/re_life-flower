@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
   
   connection.query(sql,(error,results)=>{
       res.render('myprofile.ejs',{items:results})
-      console.log(results)
+      // console.log(results)
     })
 })	;
 

@@ -37,17 +37,42 @@ var cpUpload = upload.fields([{
 router.post('/', cpUpload, function (req, res, next) {
   
   var userId = req.session.user_id? req.session.user_id: 0; 
-  var image1 = req.files.account_img[0].filename
-  var image2 = req.files.shop_img[0].filename
-  var image3 = req.files.img1[0].filename
-  var image4 = req.files.img2[0].filename
+  var image1 = req.files.account_img
+  var image2 = req.files.shop_img
+  var image3 = req.files.img1
+  var image4 = req.files.img2
+ 
+  if(image1 == undefined && image2 == undefined && image3 == undefined && image4 == undefined){
+    res.redirect('/myprofile')
+    return//ここでリターンをしないと下のif文がリダイレクト処理後も動作してしまいエラーになる。ちゃんとリターンで止めてあげる。参考：https://casualdevelopers.com/tech-tips/how-to-fix-the-error-of-cannot-set-headers-after-they-are-sent-to-the-client/
+  }
+  if(image1 == undefined){//アカウント画像があるかチェック
+    image1 = ''
+  }else{
+    image1 = req.files.account_img[0].filename
+  }
+  if(image2 == undefined){//ショップ画像があるかチェック
+    image2 = ''
+  }else{
+    image2 = req.files.shop_img[0].filename
+  }
+  if(image3 == undefined){//画像1があるかチェック
+    image3 = ''
+  }else{
+    image3 = req.files.img1[0].filename
+  }
+  if(image4 == undefined){//画像2があるかチェック
+    image4 = ''
+  }else{
+    image4 = req.files.img2[0].filename
+  }
+
+
   var inputF = [image1,image2,image3,image4]
-
-
   var sql='UPDATE shop SET account_img = ?, shop_img = ?, img1 = ?, img2 = ? WHERE user_id = '+ userId +''; 
   connection.query(sql,inputF,(error,result)=>{
-    console.log(req.files)
     res.redirect('/myprofile')
+
   })
 // console.log('req.filesここからここからここからここからここからここから')
 // console.log(req.files)
@@ -58,6 +83,8 @@ router.post('/', cpUpload, function (req, res, next) {
 
 // console.log("検証検証検証検証検証検証検証検証検証検証検証検証検証")
 // console.log(req.files.shop_img)
+// console.log(req.files.shop_img[0])
+// console.log(req.files.shop_img[0].filename)
 
 // res.redirect('/myprofile')
 

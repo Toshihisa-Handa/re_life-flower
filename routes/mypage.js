@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     var sql = 'SELECT * FROM shop'; // 変更
     connection.query(sql,(error,results)=>{
         res.render('mypage.ejs',{items:results})
-        console.log(results)
+        // console.log(results)
       })
   })	;
 module.exports = router;
