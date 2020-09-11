@@ -37,13 +37,23 @@ var cpUpload = upload.fields([{
 router.post('/', cpUpload, function (req, res, next) {
 //   console.log(req.file);
 //   console.log(req.file.filename);
-  var userId = req.session.user_id? req.session.user_id: 0; 
+//   var userId = req.session.user_id? req.session.user_id: 0; 
 
-//   var sql='INSERT INTO shop (account_img) VALUES(?)';
-  var sql='UPDATE shop SET account_img = ?, shop_img = ?, img1 = ?, img2 = ?, WHERE user_id = '+ userId +''; 
-  connection.query(sql, [req.files['account_img'].filename, req.files['shop_img'].filename, req.files['img1'].filename, req.files['img2'].filename],(error,result)=>{
-    res.redirect('/myprofile')
-  })
+// //   var sql='INSERT INTO shop (account_img) VALUES(?)';
+//   var sql='UPDATE shop SET account_img = ?, shop_img = ?, img1 = ?, img2 = ?, WHERE user_id = '+ userId +''; 
+//   connection.query(sql, [req.files['account_img'].filename, req.files['shop_img'].filename, req.files['img1'].filename, req.files['img2'].filename],(error,result)=>{
+//     console.log(req.files)
+    // res.redirect('/myprofile')
+//   })
+console.log('req.filesここからここからここからここからここからここから')
+console.log(req.files)
+console.log("req.files000000000000000000000000000000")
+console.log(req.files.account_img)//ok
+console.log(req.files.account_img[0])//ok
+console.log(req.files.account_img[0].filename)//1599803609347-263008020image.png
+// res.redirect('/myprofile')
+
   })
 
   module.exports = router;
+
