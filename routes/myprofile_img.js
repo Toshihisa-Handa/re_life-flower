@@ -21,14 +21,27 @@ router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'views/myprofile.ejs'))
 })	;
 
-router.post('/', upload.single('account_img'), function (req, res, next) {
-  console.log(req.file);
-  console.log(req.file.filename);
+var cpUpload = upload.fields([{
+                  name:'account_img', maxCount:1
+                },{
+                  name:'shop_img', maxCount:1
+                },{
+                    name:'img1', maxCount:1
+                  },{
+                    name:'img2', maxCount:1
+                  }
+            ]);
+
+
+//送信する画像が1つの時第二引数は 「upload.single('account_img')」を使う
+router.post('/', cpUpload, function (req, res, next) {
+//   console.log(req.file);
+//   console.log(req.file.filename);
   var userId = req.session.user_id? req.session.user_id: 0; 
 
 //   var sql='INSERT INTO shop (account_img) VALUES(?)';
-  var sql='UPDATE shop SET account_img = ? WHERE user_id = '+ userId +''; 
-  connection.query(sql, [req.file.filename],(error,result)=>{
+  var sql='UPDATE shop SET account_img = ?, shop_img = ?, img1 = ?, img2 = ?, WHERE user_id = '+ userId +''; 
+  connection.query(sql, [req.files['account_img'].filename, req.files['shop_img'].filename, req.files['img1'].filename, req.files['img2'].filename],(error,result)=>{
     res.redirect('/myprofile')
   })
   })
