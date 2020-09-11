@@ -41,9 +41,11 @@ router.post('/', cpUpload, function (req, res, next) {
   var image2 = req.files.shop_img[0].filename
   var image3 = req.files.img1[0].filename
   var image4 = req.files.img2[0].filename
-  
+  var inputF = [image1,image2,image3,image4]
+
+
   var sql='UPDATE shop SET account_img = ?, shop_img = ?, img1 = ?, img2 = ? WHERE user_id = '+ userId +''; 
-  connection.query(sql, [image1,image2,image3,image4],(error,result)=>{
+  connection.query(sql,inputF,(error,result)=>{
     console.log(req.files)
     res.redirect('/myprofile')
   })
