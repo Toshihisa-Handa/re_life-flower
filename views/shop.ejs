@@ -43,6 +43,7 @@
      </header>
     <h1>店舗詳細ページ</h1>
       <h2><%=item.name%></h2>
+     
       <h3><%=item.title%></h3>
       <div><img src="images/uploads/<%= item.shop_img %>" alt=""></div>
       <div><img src="images/uploads/<%= item.img1 %>" alt=""></div>
@@ -51,10 +52,15 @@
       <a href="#">店舗詳細へ</a>
 
       <!-- ここに花一覧の記述 -->
+      <h2><%=item.name%>のお花一覧</h2>
+      <div><img src="images/uploads/<%= item.fimg %>" alt=""></div>
+
+
 
 
       <!-- ここに日記一覧の記述 -->
-
+      <h2><%=item.name%>の日記一覧</h2>
+      <div><img src="images/uploads/<%= item.dimg %>" alt=""></div>
 
 
 
