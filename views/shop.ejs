@@ -4,7 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>店舗詳細ページ</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <style>
+        header{
+            height: 50px;
+            position: fixed;
+            width: 1200px;
+            background-color: rgba(0, 1, 3, 0.3);
+        
+        }
+        header ul{
+            display: flex;
+            list-style: none;
+            justify-content: space-around;
+        }
+        header ul li a{
+            color:rgb(216, 241, 235);
+            font:20px bold;
+            text-decoration: none;
+        }
+
+        img{
+            width: 300px;
+        }
+  
+    </style>
 </head>
 <body>
     <header>
@@ -18,5 +42,42 @@
         </ul>
      </header>
     <h1>店舗詳細ページ</h1>
+      <h2><%=item.name%></h2>
+      <h3><%=item.title%></h3>
+      <div><img src="images/uploads/<%= item.shop_img %>" alt=""></div>
+      <div><img src="images/uploads/<%= item.img1 %>" alt=""></div>
+      <div><%=item.message%></div>
+      <div><%=item.comment%></div>
+      <a href="#">店舗詳細へ</a>
+
+      <!-- ここに花一覧の記述 -->
+
+
+      <!-- ここに日記一覧の記述 -->
+
+
+
+
+      <h2>店舗詳細</h2>
+      <div><img src="images/uploads/<%= item.img2 %>" alt=""></div>
+      <div>
+          <h3>営業時間：<%=item.open%>〜<%=item.close%></h3>
+          <h3>定休日：<%=item.holiday%></h3>
+          <h3>住所：<%=item.location%></h3>
+          <iframe src="<%=item.map %>" width='300px' frameborder="0"></iframe>
+
+      </div>
+
+  
+    
+
+
+
+
+
+
+
+
+
 </body>
 </html>

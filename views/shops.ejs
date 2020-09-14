@@ -18,6 +18,9 @@
             background-color: rgb(189, 236, 201);
             width: 450px;
         }
+        .shop-card:hover{
+            opacity:0.7;
+        }
     </style>
     <header>
         <ul>
@@ -40,13 +43,13 @@
 <div class="shop-container">
 <% items.forEach((item) => { %>
 
-     <div class="shop-card">
-    <img src="images/uploads/<%= item.account_img %>" alt="" style='width:300px'>  
+     <div class="shop-card"><a href="/shop/<%=item.id%>">
+    <img src="images/uploads/<%= item.shop_img %>" alt="" style='width:300px'>  
     <p><%= item.name%></p>
      <h3>営業時間：<%= item.open%>~<%= item.close%></h3>
      <p>休業日：<%= item.holiday%></p>
      <p>特徴：<%= item.feature%></p>
-    </div>
+    </a></div>
 
 <% }) %>
 </div>
