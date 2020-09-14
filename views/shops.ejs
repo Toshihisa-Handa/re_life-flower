@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <style>
+        .shop-container{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .shop-card{
+            margin-top: 50px;
+            margin-right: 50px;
+            background-color: rgb(189, 236, 201);
+            width: 450px;
+        }
+    </style>
     <header>
         <ul>
             <li><a href="/">ホーム</a></li>
@@ -18,5 +30,29 @@
         </ul>
      </header>
     <h1>店舗一覧ページ</h1>
+
+    <% if (typeof user !== 'undefined') { %>
+        <h2 class="login-user"><%= user.name %>さんとしてログインしています</h2>
+    <% } %>
+
+   
+
+<div class="shop-container">
+<% items.forEach((item) => { %>
+
+     <div class="shop-card">
+    <img src="images/uploads/<%= item.account_img %>" alt="" style='width:300px'>  
+    <p><%= item.name%></p>
+     <h3>営業時間：<%= item.open%>~<%= item.close%></h3>
+     <p>休業日：<%= item.holiday%></p>
+     <p>特徴：<%= item.feature%></p>
+    </div>
+
+<% }) %>
+</div>
+
+
+
+
 </body>
 </html>

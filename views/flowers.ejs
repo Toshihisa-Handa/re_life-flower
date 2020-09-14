@@ -6,14 +6,20 @@
     <title>花一覧ページ</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .diary-card{
-            background-color:rgba(202, 211, 214, 0.555);
-            width:600px;
-            margin-bottom: 30px;
+         .flower-container{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .flower-card{
+            margin-top: 50px;
+            margin-right: 50px;
+            background-color: rgb(247, 162, 235);
+            width: 300px;
         }
     </style>
 </head>
 <body>
+    
     <header>
         <ul>
           <li><a href="/">ホーム</a></li>
@@ -31,9 +37,9 @@
 
 
    
-
+    <div class="flower-container">
     <% items.forEach((item) => { %>
-        <div class='diary-card'>
+        <div class='flower-card'>
        
             <h2><%= item.name%></h2>
             <h2><%= item.price%>円</h2>
@@ -45,6 +51,6 @@
            <h2><%= item.uname %></h2>
        </div>
        <% }) %>
-       
+    </div>
 </body>
 </html>
