@@ -28,6 +28,11 @@
             width: 300px;
         }
   
+       .flowers ,.diarys{
+           display: flex;
+           flex-wrap: wrap;
+       }
+
     </style>
 </head>
 <body>
@@ -42,35 +47,41 @@
         </ul>
      </header>
     <h1>店舗詳細ページ</h1>
-      <h2><%=item.name%></h2>
+      <h2><%=item[0].name%></h2>
      
       <h3><%=item.title%></h3>
-      <div><img src="images/uploads/<%= item.shop_img %>" alt=""></div>
-      <div><img src="images/uploads/<%= item.img1 %>" alt=""></div>
-      <div><%=item.message%></div>
-      <div><%=item.comment%></div>
+      <div><img src="images/uploads/<%= item[0].shop_img %>" alt=""></div>
+      <div><img src="images/uploads/<%= item[0].img1 %>" alt=""></div>
+      <div><%=item[0].message%></div>
+      <div><%=item[0].comment%></div>
       <a href="#">店舗詳細へ</a>
 
       <!-- ここに花一覧の記述 -->
-      <h2><%=item.name%>のお花一覧</h2>
-      <div><img src="images/uploads/<%= item.fimg %>" alt=""></div>
-
-
+      <h2><%=item[0].name%>のお花一覧</h2>
+      <div class="flowers">
+      <% item.forEach((ite) => { %>
+      <div class="flower"><img src="images/uploads/<%= ite.fimg %>" alt=""></div>
+      <% }) %>
+    </div>
 
 
       <!-- ここに日記一覧の記述 -->
-      <h2><%=item.name%>の日記一覧</h2>
-      <div><img src="images/uploads/<%= item.dimg %>" alt=""></div>
+      <h2><%=item[0].name%>の日記一覧</h2>
+    <div class="diarys">
+      <% item.forEach((ite) => { %>
+      <div class="diary"><img src="images/uploads/<%= ite.dimg %>" alt=""></div>
+      <% }) %>
+    </div>
 
 
 
       <h2>店舗詳細</h2>
-      <div><img src="images/uploads/<%= item.img2 %>" alt=""></div>
+      <div><img src="images/uploads/<%= item[0].img2 %>" alt=""></div>
       <div>
-          <h3>営業時間：<%=item.open%>〜<%=item.close%></h3>
-          <h3>定休日：<%=item.holiday%></h3>
-          <h3>住所：<%=item.location%></h3>
-          <iframe src="<%=item.map %>" width='300px' frameborder="0"></iframe>
+          <h3>営業時間：<%=item[0].open%>〜<%=item[0].close%></h3>
+          <h3>定休日：<%=item[0].holiday%></h3>
+          <h3>住所：<%=item[0].location%></h3>
+          <iframe src="<%=item[0].map %>" width='300px' frameborder="0"></iframe>
 
       </div>
 
