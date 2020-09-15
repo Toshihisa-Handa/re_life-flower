@@ -37,6 +37,7 @@ app.use(session({//セッションの為の記述
 var topRouter = require('./routes/top');
 var shopsRouter = require('./routes/shops');
 var shopRouter = require('./routes/shop');
+var s_searchRouter = require('./routes/s_search');
 var fregeRouter = require('./routes/frege');
 var flowersRouter = require('./routes/flowers');
 var flowerRouter = require('./routes/flower');
@@ -72,6 +73,7 @@ var f_insertRouter = require('./routes/f_insert');
 
 app.use('/', setUser, topRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
 app.use('/shops', setUser, shopsRouter);
+app.use('/s_search', s_searchRouter);
 app.use('/shop', shopRouter);
 app.use('/frege', setUser, fregeRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
 app.use('/flowers', flowersRouter);

@@ -100,7 +100,7 @@ div{
          <li><a href="/shops">店舗</a></li>
          <li><a href="/diarys">日記</a></li>
          <li><a href="/flowers">お花</a></li>
-         <li><div href="" id='search'>検索</div></li>
+         <li><div id='search'>検索</div></li>
          <% if (typeof user == 'undefined') { %>
          <li><a href="/login">ログイン</a></li>
          <% } else{%>
@@ -111,7 +111,7 @@ div{
 
        <div class="search">
            <div class="search-area">
-           <form action="/d_search" method='post'>
+           <form action="/s_search" method='post'>
             <span class='search-bar'>店舗検索</span><input type="text" name='search' placeholder="ワード入力" required>
                <input type="submit" value='検索'>
            </form>
