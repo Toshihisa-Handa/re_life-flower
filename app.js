@@ -37,7 +37,6 @@ app.use(session({//セッションの為の記述
 var topRouter = require('./routes/top');
 var shopsRouter = require('./routes/shops');
 var shopRouter = require('./routes/shop');
-var s_searchRouter = require('./routes/s_search');
 var fregeRouter = require('./routes/frege');
 var flowersRouter = require('./routes/flowers');
 var flowerRouter = require('./routes/flower');
@@ -64,6 +63,9 @@ var loginRouter = require('./routes/login');
 var logoutRouter = require('./routes/logout');
 var d_insertRouter = require('./routes/d_insert');
 var f_insertRouter = require('./routes/f_insert');
+var s_searchRouter = require('./routes/s_search');
+var d_searchRouter = require('./routes/d_search');
+var f_searchRouter = require('./routes/f_search');
 
 
 
@@ -73,7 +75,6 @@ var f_insertRouter = require('./routes/f_insert');
 
 app.use('/', setUser, topRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
 app.use('/shops', setUser, shopsRouter);
-app.use('/s_search', s_searchRouter);
 app.use('/shop', shopRouter);
 app.use('/frege', setUser, fregeRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
 app.use('/flowers', flowersRouter);
@@ -101,6 +102,9 @@ app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/d_insert', d_insertRouter);
 app.use('/f_insert', f_insertRouter);
+app.use('/s_search', s_searchRouter);
+app.use('/d_search', d_searchRouter);
+app.use('/f_search', f_searchRouter);
 
 
 

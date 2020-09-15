@@ -115,8 +115,12 @@ div{
             <span class='search-bar'>店舗検索</span><input type="text" name='kensaku' placeholder="ワード入力" required>
                <input type="submit" value='検索'>
            </form>
-           <form action="">
-            <span class='search-bar'>お花検索</span><input type="text" placeholder="ワード入力" required>
+           <form action="/d_search" method='get'>
+            <span class='search-bar'>日記検索</span><input type="text" name='kensaku' placeholder="ワード入力" required>
+               <input type="submit" value='検索'>
+           </form>
+           <form action="/f_search" method='get'>
+            <span class='search-bar'>お花検索</span><input type="text" name='kensaku' placeholder="ワード入力" required>
                <input type="submit" value='検索'>
            </form>
          </div>
