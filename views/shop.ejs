@@ -59,8 +59,8 @@
       <!-- ここに花一覧の記述 -->
       <h2><%=item[0].name%>のお花一覧</h2>
       <div class="flowers">
-      <% item.forEach((ite) => { %>
-      <div class="flower"><img src="images/uploads/<%= ite.fimg %>" alt=""></div>
+      <% fitem.forEach((fite) => { %>
+      <div class="flower"><img src="images/uploads/<%= fite.fimg %>" alt=""></div>
       <% }) %>
     </div>
 
@@ -68,8 +68,8 @@
       <!-- ここに日記一覧の記述 -->
       <h2><%=item[0].name%>の日記一覧</h2>
     <div class="diarys">
-      <% item.forEach((ite) => { %>
-      <div class="diary"><img src="images/uploads/<%= ite.dimg %>" alt=""></div>
+      <% ditem.forEach((dite) => { %>
+      <div class="diary"><img src="images/uploads/<%= dite.dimg %>" alt=""></div>
       <% }) %>
     </div>
 

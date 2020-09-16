@@ -75,7 +75,7 @@ var f_searchRouter = require('./routes/f_search');
 
 app.use('/', setUser, topRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
 app.use('/shops', setUser, shopsRouter);
-app.use('/shop', shopRouter);
+app.use('/shop', setUser , shopRouter);
 app.use('/frege', setUser, fregeRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
 app.use('/flowers', flowersRouter);
 app.use('/flower', flowerRouter);
