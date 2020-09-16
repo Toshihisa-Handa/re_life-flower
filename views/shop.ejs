@@ -60,7 +60,7 @@
       <h2><%=item[0].name%>のお花一覧</h2>
       <div class="flowers">
       <% fitem.forEach((fite) => { %>
-      <div class="flower"><img src="images/uploads/<%= fite.fimg %>" alt=""></div>
+      <div class="flower"><img src="images/uploads/<%= fite.image %>" alt=""></div>
       <% }) %>
     </div>
 
@@ -69,7 +69,7 @@
       <h2><%=item[0].name%>の日記一覧</h2>
     <div class="diarys">
       <% ditem.forEach((dite) => { %>
-      <div class="diary"><img src="images/uploads/<%= dite.dimg %>" alt=""></div>
+      <div class="diary"><img src="images/uploads/<%= dite.image %>" alt=""></div>
       <% }) %>
     </div>
 
