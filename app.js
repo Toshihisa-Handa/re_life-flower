@@ -34,7 +34,6 @@ app.use(session({//セッションの為の記述
 //////////ルーティング定義//////////////////////////////////
 
 //routeフォルダにルーティングを設定
-var topRouter = require('./routes/top');
 var shopsRouter = require('./routes/shops');
 var shopRouter = require('./routes/shop');
 var fregeRouter = require('./routes/frege');
@@ -55,14 +54,18 @@ var myprofileRouter = require('./routes/myprofile');
 var myprofileEditRouter = require('./routes/myprofileEdit');
 var myprofileUpdateRouter = require('./routes/myprofileUpdate');
 var myprofile_imgRouter = require('./routes/myprofile_img');
-var registerRouter = require('./routes/register');
-var loginRouter = require('./routes/login');
-var logoutRouter = require('./routes/logout');
 var d_insertRouter = require('./routes/d_insert');
 var f_insertRouter = require('./routes/f_insert');
 var s_searchRouter = require('./routes/s_search');
 var d_searchRouter = require('./routes/d_search');
 var f_searchRouter = require('./routes/f_search');
+
+//コントローラーを使ってファイルをまとめる実践練習
+var mainRouter = require('./routes/main');
+app.use('/', setUser, mainRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
+
+
+
 
 //練習用
 var hogeRouter = require('./routes/hoge');
@@ -72,7 +75,6 @@ app.use('/hoge', hogeRouter);
 
 
 
-app.use('/', setUser, topRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
 app.use('/shops', setUser, shopsRouter);
 app.use('/shop', setUser , shopRouter);
 app.use('/frege', setUser, fregeRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
@@ -93,9 +95,6 @@ app.use('/myprofile', myprofileRouter);
 app.use('/myprofileEdit', myprofileEditRouter);
 app.use('/myprofileUpdate', myprofileUpdateRouter);
 app.use('/myprofile_img', myprofile_imgRouter);
-app.use('/register', registerRouter);
-app.use('/login', loginRouter);
-app.use('/logout', logoutRouter);
 app.use('/d_insert', d_insertRouter);
 app.use('/f_insert', f_insertRouter);
 app.use('/s_search', s_searchRouter);
