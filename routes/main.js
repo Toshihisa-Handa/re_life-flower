@@ -5,10 +5,6 @@ let diary_c = require('../controllers/diary')//コントローラーフォルダ
 let flower_c = require('../controllers/flower')//コントローラーフォルダのflowerファイルを読み取る
 let shop_c = require('../controllers/shop')//コントローラーフォルダのshopファイルを読み取る
 
-// const path = require('path')
-// router.use(express.static('public'));
-// router.use(express.static(path.join(__dirname, 'public')))
-
 //mainカテゴリのルーティング＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 router.get('/',main_c.top);//top  トップ画面表示
 router.get('/login',main_c.login );//login  店舗ログイン画面表示
