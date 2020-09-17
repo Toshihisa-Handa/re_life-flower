@@ -10,3 +10,8 @@ console.log('email:'+req.body.email)
  res.redirect('/hoge')
 
 }
+
+exports.pract = (req, res) => {
+ res.render('pract.ejs',{text:'hogehoge'})
+
+}
