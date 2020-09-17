@@ -17,9 +17,10 @@ const storage = multer.diskStorage({
 
 const path = require('path')
 
-router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views/drege.ejs'))
-})	;
+let diary_c = require('../controllers/diary')//コントローラーフォルダの指定ファイルを読み取る
+
+
+router.get('/',diary_c.d_insert)	;
 
 router.post('/', upload.single('image'), function (req, res, next) {
   console.log('スタートスタートスタートスタートスタートスタートスタートスタートスタートスタート')

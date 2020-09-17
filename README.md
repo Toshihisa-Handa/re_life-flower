@@ -37,3 +37,10 @@ mysql -u root
 https://olein-design.com/blog/google-map-iframe-for-responsive
 
 ＃update文でformタグに「enctype="multipart/form-data"」を入れるとpostが効かなかった（2020/9/10記述）
+
+
+＃ルーティングをまとめたことによってcssとimgタグのsrcのパスが通らなくなった。
+今まで：href="css/style.css"　→　href="../css/style.css"　に変更
+今まで：mages/uploads　→　../images/uploads　変更
+
+これで画像とcssのパスが通った。

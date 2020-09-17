@@ -50,8 +50,8 @@
       <h2><%=item[0].name%></h2>
      
       <h3><%=item.title%></h3>
-      <div><img src="images/uploads/<%= item[0].shop_img %>" alt=""></div>
-      <div><img src="images/uploads/<%= item[0].img1 %>" alt=""></div>
+      <div><img src="../images/uploads/<%= item[0].shop_img %>" alt=""></div>
+      <div><img src="../images/uploads/<%= item[0].img1 %>" alt=""></div>
       <div><%=item[0].message%></div>
       <div><%=item[0].comment%></div>
       <a href="#">店舗詳細へ</a>
@@ -61,7 +61,7 @@
       <div class="flowers">
       <% fitem.forEach((fite) => { %>
       <div><a href="/flower/<%=fite.id%>">
-        <div class="flower"><img src="images/uploads/<%= fite.image %>" alt=""></div>
+        <div class="flower"><img src="../images/uploads/<%= fite.image %>" alt=""></div>
         <h3><%=fite.name%></h3>
         <p><%=fite.price%></p>
         <p><%=fite.feature%></p>
@@ -75,8 +75,8 @@
     <div class="diarys">
       <% ditem.forEach((dite) => { %>
       <div><a href="/diary/<%=dite.id%>">
-        <div class="diary"><img src="images/uploads/<%= dite.image %>" alt=""></div><br>
-        <p><%=dite.titel%></p>
+        <div class="diary"><img src="../images/uploads/<%= dite.image %>" alt=""></div><br>
+        <p><%=dite.title%></p>
         <p><%=dite.text%></p>
     </a> </div>
       <% }) %>
@@ -85,7 +85,7 @@
 
 
       <h2>店舗詳細</h2>
-      <div><img src="images/uploads/<%= item[0].img2 %>" alt=""></div>
+      <div><img src="../images/uploads/<%= item[0].img2 %>" alt=""></div>
       <div>
           <h3>営業時間：<%=item[0].open%>〜<%=item[0].close%></h3>
           <h3>定休日：<%=item[0].holiday%></h3>

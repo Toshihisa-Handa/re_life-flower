@@ -74,19 +74,6 @@ router.post('/', cpUpload, function (req, res, next) {
     res.redirect('/myprofile')
 
   })
-// console.log('req.filesここからここからここからここからここからここから')
-// console.log(req.files)
-// console.log("req.files000000000000000000000000000000")
-// console.log(req.files.account_img)//ok
-// console.log(req.files.account_img[0])//ok
-// console.log(req.files.account_img[0].filename)//1599803609347-263008020image.png
-
-// console.log("検証検証検証検証検証検証検証検証検証検証検証検証検証")
-// console.log(req.files.shop_img)
-// console.log(req.files.shop_img[0])
-// console.log(req.files.shop_img[0].filename)
-
-// res.redirect('/myprofile')
 
   })
 
