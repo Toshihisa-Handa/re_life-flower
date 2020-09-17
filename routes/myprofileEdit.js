@@ -1,16 +1,11 @@
 var express = require('express');
 var router = express.Router();
-const connection = require('../mysqlConnection');//db接続読み取り
 const path = require('path')
 router.use(express.static('public'));
 router.use(express.static(path.join(__dirname, 'public')))
+let shop_c = require('../controllers/shop')//コントローラーフォルダの指定ファイルを読み取る
 
 
-router.get('/:id',(req, res)=>{
-  connection.query('SELECT * FROM shop WHERE id = ?',[req.params.id],(error,result)=>{
-    res.render('myprofileEdit.ejs',{item:result[0]});
-    // console.log(result[0])
-  })
-})
+router.get('/:id',shop_c.myprofileEdit)
 
 module.exports = router;

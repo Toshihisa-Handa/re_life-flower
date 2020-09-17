@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res, next) {
-  req.session.destroy();
-  res.redirect('/login');
-});
+let main_c = require('../controllers/main')//コントローラーフォルダの指定ファイルを読み取る
+
+router.get('/',main_c.logout);
 
 module.exports = router;

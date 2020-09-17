@@ -17,9 +17,12 @@ const storage = multer.diskStorage({
 
 const path = require('path')
 
-router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views/frege.ejs'))
-});
+
+let flower_c = require('../controllers/flower')//コントローラーフォルダの指定ファイルを読み取る
+
+
+
+router.get('/', flower_c.f_insert);
 
 router.post('/', upload.single('file'), function (req, res, next) {
   console.log(req.file);

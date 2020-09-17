@@ -1,14 +1,9 @@
 var express = require('express');
 var router = express.Router();
-const connection = require('../mysqlConnection');//db接続読み取り
 
+let diary_c = require('../controllers/diary')//コントローラーフォルダのhogeファイルを読み取る
 
 //日記編集画面へのルーティング
-router.get('/:id',(req, res)=>{
-    connection.query('SELECT * FROM diary WHERE id = ?',[req.params.id],(error,result)=>{
-      res.render('diaryEdit.ejs',{item:result[0]});
-      console.log(result[0])
-    })
-  })
+router.get('/:id',diary_c.diaryEdit)
  
   module.exports = router;
