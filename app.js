@@ -34,16 +34,9 @@ app.use(session({//セッションの為の記述
 //////////ルーティング定義//////////////////////////////////
 
 //routeフォルダにルーティングを設定
-var shopsRouter = require('./routes/shops');
-var shopRouter = require('./routes/shop');
-var mypageRouter = require('./routes/mypage');
-var myprofileRouter = require('./routes/myprofile');
-var myprofileEditRouter = require('./routes/myprofileEdit');
-var myprofileUpdateRouter = require('./routes/myprofileUpdate');
 var myprofile_imgRouter = require('./routes/myprofile_img');
 var d_insertRouter = require('./routes/d_insert');
 var f_insertRouter = require('./routes/f_insert');
-var s_searchRouter = require('./routes/s_search');
 
 //コントローラーを使ってファイルをまとめる実践練習
 var mainRouter = require('./routes/main');
@@ -60,16 +53,9 @@ app.use('/hoge', hogeRouter);
 
 
 
-app.use('/shops', setUser, shopsRouter);
-app.use('/shop', setUser , shopRouter);
-app.use('/mypage', mypageRouter);
-app.use('/myprofile', myprofileRouter);
-app.use('/myprofileEdit', myprofileEditRouter);
-app.use('/myprofileUpdate', myprofileUpdateRouter);
 app.use('/myprofile_img', myprofile_imgRouter);
 app.use('/d_insert', d_insertRouter);
 app.use('/f_insert', f_insertRouter);
-app.use('/s_search', s_searchRouter);
 
 
 
