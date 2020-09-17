@@ -67,7 +67,9 @@ var s_searchRouter = require('./routes/s_search');
 var d_searchRouter = require('./routes/d_search');
 var f_searchRouter = require('./routes/f_search');
 
-
+//練習用
+var hogeRouter = require('./routes/hoge');
+app.use('/hoge', hogeRouter);
 
 
 
