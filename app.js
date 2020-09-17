@@ -34,28 +34,22 @@ app.use(session({//セッションの為の記述
 //////////ルーティング定義//////////////////////////////////
 
 //routeフォルダにルーティングを設定
-var myprofile_imgRouter = require('./routes/myprofile_img');
-var d_insertRouter = require('./routes/d_insert');
-var f_insertRouter = require('./routes/f_insert');
-
-//コントローラーを使ってファイルをまとめる実践練習
-var mainRouter = require('./routes/main');
-app.use('/', setUser, mainRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
-
-
-
-
-//練習用
-var hogeRouter = require('./routes/hoge');
-app.use('/hoge', hogeRouter);
+var mainRouter = require('./routes/main');//ルーティングをまとめるファイル
+var myprofile_imgRouter = require('./routes/myprofile_img');//コントローラー化できていないファイル（やり方模索中）
+var d_insertRouter = require('./routes/d_insert');//コントローラー化できていないファイル（やり方模索中）
+var f_insertRouter = require('./routes/f_insert');//コントローラー化できていないファイル（やり方模索中）
 
 
 
 
 
-app.use('/myprofile_img', myprofile_imgRouter);
-app.use('/d_insert', d_insertRouter);
-app.use('/f_insert', f_insertRouter);
+
+
+
+app.use('/', setUser, mainRouter);//ルーティングをまとめるファイル(セッションを使用するページにはルーティングの前にsetUserを読み込ませる)
+app.use('/myprofile_img', myprofile_imgRouter);//コントローラー化できていないファイル（やり方模索中）
+app.use('/d_insert', d_insertRouter);//コントローラー化できていないファイル（やり方模索中）
+app.use('/f_insert', f_insertRouter);//コントローラー化できていないファイル（やり方模索中）
 
 
 
