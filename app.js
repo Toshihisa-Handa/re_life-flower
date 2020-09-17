@@ -36,19 +36,6 @@ app.use(session({//セッションの為の記述
 //routeフォルダにルーティングを設定
 var shopsRouter = require('./routes/shops');
 var shopRouter = require('./routes/shop');
-var fregeRouter = require('./routes/frege');
-var flowersRouter = require('./routes/flowers');
-var flowerRouter = require('./routes/flower');
-var flowerDeleteRouter = require('./routes/flowerDelete');
-var flowerEditRouter = require('./routes/flowerEdit');
-var flowerUpdateRouter = require('./routes/flowerUpdate');
-var dregeRouter = require('./routes/drege');
-var diarysRouter = require('./routes/diarys');
-var diaryRouter = require('./routes/diary');
-var d_searchRouter = require('./routes/d_search.js');
-var diaryDeleteRouter = require('./routes/diaryDelete');
-var diaryEditRouter = require('./routes/diaryEdit');
-var diaryUpdateRouter = require('./routes/diaryUpdate');
 var mypageRouter = require('./routes/mypage');
 var myprofileRouter = require('./routes/myprofile');
 var myprofileEditRouter = require('./routes/myprofileEdit');
@@ -57,8 +44,6 @@ var myprofile_imgRouter = require('./routes/myprofile_img');
 var d_insertRouter = require('./routes/d_insert');
 var f_insertRouter = require('./routes/f_insert');
 var s_searchRouter = require('./routes/s_search');
-var d_searchRouter = require('./routes/d_search');
-var f_searchRouter = require('./routes/f_search');
 
 //コントローラーを使ってファイルをまとめる実践練習
 var mainRouter = require('./routes/main');
@@ -77,19 +62,6 @@ app.use('/hoge', hogeRouter);
 
 app.use('/shops', setUser, shopsRouter);
 app.use('/shop', setUser , shopRouter);
-app.use('/frege', setUser, fregeRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
-app.use('/flowers', flowersRouter);
-app.use('/flower', flowerRouter);
-app.use('/flowerDelete/', flowerDeleteRouter);
-app.use('/flowerEdit/', flowerEditRouter);
-app.use('/flowerUpdate/', flowerUpdateRouter);
-app.use('/drege', setUser, dregeRouter);//セッションを使用するページにはルーティングの前にsetUserを読み込ませる
-app.use('/diarys',setUser, diarysRouter);
-app.use('/diary', diaryRouter);
-app.use('/d_search', d_searchRouter);
-app.use('/diaryDelete/', diaryDeleteRouter);
-app.use('/diaryEdit/', diaryEditRouter);
-app.use('/diaryUpdate/', diaryUpdateRouter);
 app.use('/mypage', mypageRouter);
 app.use('/myprofile', myprofileRouter);
 app.use('/myprofileEdit', myprofileEditRouter);
@@ -98,8 +70,6 @@ app.use('/myprofile_img', myprofile_imgRouter);
 app.use('/d_insert', d_insertRouter);
 app.use('/f_insert', f_insertRouter);
 app.use('/s_search', s_searchRouter);
-app.use('/d_search', d_searchRouter);
-app.use('/f_search', f_searchRouter);
 
 
 
