@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トップページ</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<style>
+  body{
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction:column;
+    width: 1200px;
+}
+
+.yoko{
+    display: flex;
+    flex:1;
+}
+main{
+    flex:1;
+}
+.topimg{
+background-image: url(https://images.unsplash.com/photo-1487070183336-b863922373d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60);
+background-size: cover;
+height: 100vh;
+}
+
+.title-box{
+margin-left:42%;
+margin-top:20%
+
+}
+.title{
+    font:50px bold;
+    color:white;
+}
+.subtitle{
+    font:36px bold;
+    color:white;
+}
+
+h1,h3{
+    text-align: center;
+}
+
+.top2img{
+width: 100%;
+}
+
+
+nav{
+    width: 600px;
+}
+aside{
+    width: 600px;
+}
+
+#search{
+   color:white;
+   font-size: 20px;
+}
+#search:active{
+    color:rgb(228, 164, 81)
+}
+.search{
+    display:none;
+}
+.search-area{
+    background-color: rgb(3, 3, 3,0.5);
+    width: 252px;
+}
+.search-bar{
+    color:white;
+}
+
+@media screen and (max-width:900px){
+ body,
+ nav,
+ aside {
+     width: 100%;
+ }
+  
+div{
+    flex-direction: column;
+}
+
+
+}
+
+
+
+
+</style>
+<body>
+    <header>
+       <ul>
+         <li><a href="/shops">店舗</a></li>
+         <li><a href="/diarys">日記</a></li>
+         <li><a href="/flowers">お花</a></li>
+         <li><div id='search'>検索</div></li>
+         <% if (typeof user == 'undefined') { %>
+         <li><a href="/login">ログイン</a></li>
+         <% } else{%>
+         <li><a href="/mypage">マイページ</a></li>
+         <li><a href="/logout">ログアウト</a></li>
+         <% } %>
+       </ul>
+
+       <div class="search">
+           <div class="search-area">
+           <form action="/s_search" method='get'>
+            <span class='search-bar'>店舗検索</span><input type="text" name='kensaku' placeholder="ワード入力" required>
+               <input type="submit" value='検索'>
+           </form>
+           <form action="/d_search" method='get'>
+            <span class='search-bar'>日記検索</span><input type="text" name='kensaku' placeholder="ワード入力" required>
+               <input type="submit" value='検索'>
+           </form>
+           <form action="/f_search" method='get'>
+            <span class='search-bar'>お花検索</span><input type="text" name='kensaku' placeholder="ワード入力" required>
+               <input type="submit" value='検索'>
+           </form>
+         </div>
+       </div>
+
+       <% if (typeof user !== 'undefined') { %>
+        <h2 class="login-user"><%= user.name %>さんとしてログインしています</h2>
+    <% } %>
+    </header>
+
+    <div class='yoko'>
+        <main class='topimg'>
+          <div class="title-box">
+            <p class='title'>Life flower</p>
+            <p class='subtitle'>日々に彩り＋</p>
+          </div>
+        </main>
+    </div>
+    <div class='yoko'>
+        <main>
+            <h1>いつもの場所に花を飾りませんか</h1>
+            <h3>Life Flower で花をもっと身近に<br>
+                 日常に一輪挿しの彩りを</h3>
+        </main>
+    </div>
+    <div class='yoko'>
+        <main>
+            <img class='top2img' src="images/top2rere.png" alt="">
+        </main>
+    </div>
+    <div class='yoko'>
+        <main>
+            <h1>使い方</h1>
+            <h3>現在地周辺のお花屋さんを簡単に検索<br>
+                気になるお店はフォロー可能<br>
+                販売している商品だけでなく、そのお店の日常の投稿も併せて閲覧<br>
+                お気に入りのお店を見つけてください。<br>
+                お花がちょっとでも身近になった方は、ぜひ、一度直接店舗へ遊びへ行ってみてください。</h3>
+        </main>
+    </div>
+    <div class='yoko'>
+        <main>
+            <img class='top2img' src="images/top3rere.png" alt="">
+        </main>
+    </div>
+    <div class='yoko'>
+        <main>
+            <h1>今週のお花屋さん</h1>
+            <img class='top2img' src="images/top4.jpg" alt="">
+            <h3>お店の最新トピック、お店の最新トピック、お店の最新トピック、お店の最新トピック、<br>
+                お店の最新トピック、お店の最新トピック、お店の最新トピック、お店の最新トピック、<br>
+                お店の最新トピック、お店の最新トピック、お店の最新トピック、お店の最新トピック、</h3>
+        </main>
+    </div>
+    <h1>新着情報</h1>
+    <div class='yoko'>
+  
+
+        <nav>
+            <img class='top2img' src="images/topre.png" alt="">
+        </nav>
+        <aside>
+            <h2>花のあらい</h2>
+            <h3>お店の情報、お店の情報、お店の情報、<br>
+                お店の情報、お店の情報、お店の情報、お店の情報、<br>
+                お店の情報、お店の情報</h3>
+        </aside>
+    </div>
+    <div class='yoko'>
+        <nav>
+            <h2>花すずき</h2>
+            <h3>お店の情報、お店の情報、お店の情報、<br>
+                お店の情報、お店の情報、お店の情報、お店の情報、<br>
+                お店の情報、お店の情報</h3>
+        </nav>
+        <aside>
+            <img class='top2img' src="images/top6.jpg" alt="">
+        </aside>
+    </div>
+    <div class='yoko'>
+        <main><h1>近くのお店をみてみる</h1></main>
+    </div>
+  
+
+     <footer><h3>Copyright  second-cube</h3></footer>
+
+
+
+
+
+
+
+<script>
+ const search = document.querySelector('#search')
+ const hideSearch = document.querySelector('.search')
+   search.onclick = function(){
+     hideSearch.classList.toggle('search')
+    // alert('hit')
+ }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>店舗一覧ページ</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <style>
+        .shop-container{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .shop-card{
+            margin-top: 50px;
+            margin-right: 50px;
+            background-color: rgb(189, 236, 201);
+            width: 450px;
+        }
+        .shop-card:hover{
+            opacity:0.7;
+        }
+    </style>
+    <header>
+        <ul>
+            <li><a href="/">ホーム</a></li>
+            <li><a href="/shops">店舗</a></li>
+            <li><a href="/diarys">日記</a></li>
+            <li><a href="/flowers">お花</a></li>
+            <li><a href="">検索</a></li>
+            <li><a href="/login">ログイン</a></li>
+        </ul>
+     </header>
+    <h1>店舗一覧ページ</h1>
+
+    <% if (typeof user !== 'undefined') { %>
+        <h2 class="login-user"><%= user.name %>さんとしてログインしています</h2>
+    <% } %>
+
+   
+
+<div class="shop-container">
+<% items.forEach((item) => { %>
+
+     <div class="shop-card"><a href="/shop/<%=item.id%>">
+    <img src="images/uploads/<%= item.shop_img %>" alt="" style='width:300px'>  
+    <p><%= item.shopname%></p>
+     <h3>営業時間：<%= item.open%>~<%= item.close%></h3>
+     <p>休業日：<%= item.holiday%></p>
+     <p>特徴：<%= item.feature%></p>
+    </a></div>
+
+<% }) %>
+</div>
+
+
+
+
+</body>
+</html>

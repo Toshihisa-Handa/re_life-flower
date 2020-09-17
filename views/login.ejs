@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログインページ</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <ul>
+          <li><a href="/">ホーム</a></li>
+          <li><a href="/shops">店舗</a></li>
+          <li><a href="/diarys">日記</a></li>
+          <li><a href="/flowers">お花</a></li>
+          <li><a href="">検索</a></li>
+          <li><a href="/login">ログイン</a></li>
+        </ul>
+     </header>
+    <h1>ログインページ</h1>
+
+      <div>
+        <p><%= title %></p>
+        <form action="/login" method="post">
+            <span class="label">Eメール</span><input type="email" name="email" class="input" required><br>
+            <br>
+            <span class="label">パスワード</span><input type="password" name="password" class="input" required><br>
+            <br>
+            <button type="submit" class="submit">ログイン</button>
+        </form>
+        <% if (typeof noUser !== 'undefined') { %>
+          <p class="error"><%= noUser %></p>
+      <% } %>
+        <a href="/register">新規登録画面へ</a>
+        <a href="/" class="btn">トップへもどる</a>
+    </div>
+</body>
+</html>
