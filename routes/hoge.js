@@ -5,5 +5,6 @@ let hoge = require('../controllers/hoge')//コントローラーフォルダのh
 
 
 router.get('/', hoge.test);//hogeファイルのtest関数を実行
+router.post('/', hoge.submit);//hogeファイルのsubmit関数を実行
 
 module.exports = router;
