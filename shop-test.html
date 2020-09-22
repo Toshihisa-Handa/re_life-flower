@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shop-test</title>
+    <style>
+
+      .container{
+        display:grid;
+        grid-template-rows: 50px 60px 900px 60px 900px 700px  60px 700px 100px ;
+        grid-template-columns: 0.5fr 0.5fr;
+        grid-template-areas: 
+           "header header"
+           "title  title"
+           "center center"
+           "title2  title2"
+           "left   right"
+           "flest  flist"
+           "title3  title3"
+           "dlist  dlist"
+           "footer footer";
+      }
+      
+      header{
+          grid-area: header;
+          background: #f88;
+
+        }
+
+      .title{
+          grid-area: title;
+          background: rgb(235, 227, 122);
+
+        }
+        
+        main{
+          grid-area: center;
+          background: rgb(127, 238, 151);
+
+        }
+        .title2{
+          grid-area: title;
+          background: rgb(65, 60, 85);
+
+        }
+       nav{
+        grid-area: left;
+        background: rgb(136, 221, 255);
+
+       }
+
+       aside{
+        grid-area: right;
+        background: rgb(68, 104, 10);
+
+       }
+
+       .flist{
+        grid-area: flist;
+        background: rgb(248, 141, 225);
+       }
+       .title3{
+          grid-area: title;
+          background: rgb(112, 112, 109);
+
+        }
+       .dlist{
+        grid-area: dlist;
+        background: rgb(221, 220, 165);
+       }
+
+       footer{
+        grid-area: footer;
+        background: rgb(106, 110, 109);
+       }
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <h1>test</h1>
+
+    <div class="container">
+        <header>ヘッダー</header>
+         <div class='title'>タイトル</div>
+         <main>メインイメージ</main>
+         <nav>left</nav>
+         <aside>right</aside>
+         <div class='title'>タイトル</div>
+         <div class='flist'>画像リスト</div>
+         <div class='title'>タイトル</div>
+         <div class='dlist'>日記リスト</div>
+         <footer>フッター</footer>
+     </div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
