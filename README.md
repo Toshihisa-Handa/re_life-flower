@@ -44,3 +44,27 @@ https://olein-design.com/blog/google-map-iframe-for-responsive
 今まで：mages/uploads　→　../images/uploads　変更
 
 これで画像とcssのパスが通った。
+
+
+
+1ファイルにまとめるとメンテナンス生を上げる。
+小規模であれば不要な場合あり
+
+view 表示（html表示）
+con 実行（処理を受けてモデルやviewに渡す役割）
+model dbに保存、ファイルに何か書き込む (mysql表示)
+routeに処理は書かない（どこにアクセスするかかくのみにする）
+
+fat controller（太ったコントローラー）という言葉がある。
+コントローラーのソースがどんどん増えてメンテナンスしづらくなること
+こだわりだすと止まらない
+
+
+      ```
+      con.end();
+      ```
+      でmysqlとの接続を切っている
+      なくても最近は切れることがある
+
+MVCで書くと自動テストも書きやすくなる
+
