@@ -280,8 +280,8 @@ a{
             </ul>
           </div>
           <div class="glide__arrows" data-glide-el="controls">
-              <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<">←</button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">→</button>
             </div>
         </div>
   </div>
@@ -297,19 +297,36 @@ a{
      </div>
 
      <!-- 日記一覧 -->
-     <div class='dlist'>
-      <div class="diarys">
-        <% ditem.forEach((dite) => { %>
-        <div>
-            <a href="/diary/<%=dite.id%>">
-              <div class="diary"><img src="../images/uploads/<%= dite.image %>" alt=""></div><br>
-              <p><%=dite.title%></p>
-              <p><%=dite.text%></p>
-            </a> 
+     <div class="dlist">
+      <div class="dglide">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <% ditem.forEach((dite) => { %>
+                <div class="glide__slide">
+                  <a href="/diary/<%=dite.id%>">
+                    <div class="diary"><img src="../images/uploads/<%= dite.image %>" alt=""></div><br>
+                    <p><%=dite.title%></p>
+                    <p><%=dite.text%></p>
+                  </a> 
+                </div>
+              <% }) %>
+            </ul>
+          </div>
+       
+          <div class="glide__arrows" data-glide-el="controls">
+            <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+          </div>
         </div>
-        <% }) %>
-      </div>
-      </div>
+  </div>
+
+
+
+
+
+
+
+
 
          <!-- タイトル4 -->
      <div class='title4'>
@@ -345,37 +362,39 @@ a{
 
     <h1>aaaa</h1>
 
-    <!-- <div class="container">
-      <div class="glide">
-          <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
-              <li class="glide__slide" ><img src="../images/300x350-1.png" alt=""><h3>aaa</h3></li>
-              <li class="glide__slide" ><img src="../images/300x350-2.png" alt="" ><h3>bbb</h3></li>
-              <li class="glide__slide" ><img src="../images/300x350-3.png" alt="" ><h3>ccc</h3></li>
-              <li class="glide__slide" ><img src="../images/300x350-1.png" alt="" ><h3>aaa</h3></li>
-              <li class="glide__slide" ><img src="../images/300x350-2.png" alt="" ><h3>bbb</h3></li>
-            </ul>
-          </div>
-          <div class="glide__arrows" data-glide-el="controls">
-              <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
-            </div>
-        </div>
-  </div> -->
 
-
- 
 <!-- glide.jsの読み込み -->
 <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
 <script>
 const config = {
+  //お花のカルーセルの設定
     type: 'carousel',
     perView: 5,
     breakpoints: {
-    1024: {
+    1600: {
+      perView: 4
+    },
+    1350: {
       perView: 3
     },
-    800: {
+    950: {
+      perView: 2
+    },
+    600: {
+      perView: 1
+    }
+  }
+}
+//日記のカルーセルの設定
+const dconfig = {
+    type: 'carousel',
+    perView: 4,
+    breakpoints: {
+    
+    1350: {
+      perView: 3
+    },
+    950: {
       perView: 2
     },
     600: {
@@ -386,6 +405,7 @@ const config = {
 
 
     new Glide('.glide', config).mount()
+    new Glide('.dglide', dconfig).mount()
   </script>
 </body>
 </html>
