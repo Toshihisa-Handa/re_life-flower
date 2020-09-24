@@ -7,90 +7,189 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <style>
-  body{
-    margin: 0 auto;
-    min-height: 100vh;
-    display: flex;
-    flex-direction:column;
-    width: 1200px;
-}
 
-.yoko{
-    display: flex;
-    flex:1;
-}
-main{
-    flex:1;
-}
-.topimg{
-background-image: url(https://images.unsplash.com/photo-1487070183336-b863922373d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60);
-background-size: cover;
-height: 100vh;
-}
 
-.title-box{
-margin-left:42%;
-margin-top:20%
-
+.grid-box{
+    display:grid;
+    grid-template-rows: 0 900px 300px 250px 700px 150px 450px 600px 250px 150px 100px  500px 500px 150px 300px ;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "header  header"
+        "main    main"
+        "title1  title1"
+        "tips1   tips1"
+        "img1    img1"
+        "title2  title2"
+        "tips2   tips2"
+        "img2    img2"
+        "link1   link1"
+        "title3  title3"
+        ".....   ....."
+        "left1   right1"
+        "left2   right2"
+        ".....   ....."
+        "footer  footer";
+      }
+/* ヘッダー */
+header{
+    grid-area:header;
+    background: rgba(177, 212, 238,0.3);
+    position: fixed;
+    width: 100%;
+    
 }
-.title{
-    font:50px bold;
-    color:white;
+/* メイン画像 */
+.main{
+    grid-area:main;
+    /* background: rgb(155, 153, 153); */
+    background-image: url(/images/top0.jpg);
+    background-size: cover;
 }
-.subtitle{
-    font:36px bold;
-    color:white;
+.mainTitle{
+    margin-top:20%;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 6rem;
+    /* color:wheat; */
+    color:rgb(241, 242, 232);
 }
-
-h1,h3{
+.mainSubtitle{
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 4.8rem;
+    /* color:wheat; */
+    color:rgb(241, 242, 232);
+}
+/* タイトル１ */
+.title1{
+    grid-area:title1;
+    /* background: #f88; */
+}
+.title1 h1{
+    line-height: 300px;
     text-align: center;
 }
 
-.top2img{
-width: 100%;
+.tips1{
+    grid-area:tips1;
+    /* background: rgb(155, 153, 153); */
+}
+.tips1 h3{
+    font-size: 2.6rem;
+    text-align: center;
+}
+
+/* 画像１ */
+.img1{
+    grid-area:img1;
+    /* background: #f88; */
+    background-image: url(/images/1-1.png);
+    background-size: cover;
+    margin:0 5% 5%;
 }
 
 
-nav{
-    width: 600px;
+.title2{
+    grid-area:title2;
+    /* background: rgb(155, 153, 153); */
 }
-aside{
-    width: 600px;
-}
-
-#search{
-   color:white;
-   font-size: 20px;
-}
-#search:active{
-    color:rgb(228, 164, 81)
-}
-.search{
-    display:none;
-}
-.search-area{
-    background-color: rgb(3, 3, 3,0.5);
-    width: 252px;
-}
-.search-bar{
-    color:white;
+.title2 h1{
+    text-align: center;
 }
 
-@media screen and (max-width:900px){
- body,
- nav,
- aside {
-     width: 100%;
- }
-  
-div{
-    flex-direction: column;
+.tips2{
+    grid-area:tips2;
+    /* background: #f88; */
+}
+.tips2 h3{
+    font-size: 2.6rem;
+    text-align: center;
+}
+
+.img2{
+    grid-area:img2;
+    /* background: rgb(155, 153, 153); */
+    background-image: url(/images/img2.png);
+    background-size: cover;
+    margin:0 5% 5%;
+}
+
+.link1{
+    grid-area:link1;
+    text-align: center;
+    /* background: #f88; */
+}
+.link1 h1{
+    border-bottom: 2px inset black;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+.title3{
+    grid-area:title3;
+    text-align: center;
+    line-height: 100px;
+    background: rgba(245, 243, 225, 0.3);
+}
+.title3 h1{
+    margin-left: 35%;
+    margin-right: 35%;
 }
 
 
+.left1{
+    grid-area:left1;
+    background-image: url(/images/img3.png);
+    background-size: cover;
+}
+
+.right1{
+    grid-area:right1;
+    /* background: rgb(155, 153, 153); */
+    margin-left: 5%;
+}
+.right1 h1{
+    font-size: 3.6rem;
+}
+.right1 h3{
+    margin-left: 2%;
+    font-size: 2.4rem;
+}
+
+.left2{
+    grid-area:left2;
+    /* background: rgb(155, 153, 153); */
+    margin-left: 5%;
+}
+.left2 h1{
+    font-size: 3.6rem;
+}
+.left2 h3{
+    margin-left: 2%;
+    font-size: 2.4rem;
+}
+.right2{
+    grid-area:right2;
+    background-image: url(/images/img4.png);
+    background-size: cover;
 }
 
 
+
+footer{
+        grid-area: footer;
+        margin-left: 5%;
+        margin-right: 5%;
+        padding-top: 3rem;
+        /* background: rgb(106, 110, 109); */
+        border-top: 2px inset black;
+        text-align: center;
+        font-size:3.2rem;
+       }
+img{
+    width: 300px;
+    height: 300px;
+}
 
 
 </style>
@@ -100,18 +199,18 @@ div{
 
     <header>
        <ul>
-         <li><a href="/shops">店舗</a></li>
-         <li><a href="/diarys">日記</a></li>
-         <li><a href="/flowers">お花</a></li>
-         <li><div id='search'>検索</div></li>
+         <li><a href="/shops">Shop</a></li>
+         <li><a href="/diarys">Diary</a></li>
+         <li><a href="/flowers">Flower</a></li>
+         <!-- <li><div id='search'>検索</div></li> -->
          <% if (typeof user == 'undefined') { %>
-         <li><a href="/login">ログイン</a></li>
+         <li><a href="/login">Login</a></li>
          <% } else{%>
-         <li><a href="/mypage">マイページ</a></li>
-         <li><a href="/logout">ログアウト</a></li>
+         <li><a href="/mypage">Mypage</a></li>
+         <li><a href="/logout">Logout</a></li>
          <% } %>
        </ul>
-
+<!-- 
        <div class="search">
            <div class="search-area">
            <form action="/s_search" method='get'>
@@ -127,88 +226,85 @@ div{
                <input type="submit" value='検索'>
            </form>
          </div>
-       </div>
+       </div> -->
 
        <% if (typeof user !== 'undefined') { %>
         <h2 class="login-user"><%= user.name %>さんとしてログインしています</h2>
     <% } %>
     </header>
 
-    <div class='yoko'>
-        <main class='topimg'>
-          <div class="title-box">
-            <p class='title'>Life flower</p>
-            <p class='subtitle'>日々に彩り＋</p>
-          </div>
-        </main>
+    <div class='main'>
+            <p class='mainTitle'>Life flower</p>
+            <p class='mainSubtitle'>日々に彩り＋</p>
     </div>
-    <div class='yoko'>
-        <main>
-            <h1>いつもの場所に花を飾りませんか</h1>
-            <h3>Life Flower で花をもっと身近に<br>
-                 日常に一輪挿しの彩りを</h3>
-        </main>
+    <div class='title1'>
+          <h1>いつもの場所に花を飾りませんか</h1>       
     </div>
-    <div class='yoko'>
-        <main>
-            <img class='top2img' src="images/top2rere.png" alt="">
-        </main>
+
+    <div class="tips1">
+        <h3>Life Flower で花をもっと身近に<br>
+            日常に一輪挿しの彩りを</h3>
     </div>
-    <div class='yoko'>
-        <main>
-            <h1>使い方</h1>
-            <h3>現在地周辺のお花屋さんを簡単に検索<br>
-                気になるお店はフォロー可能<br>
-                販売している商品だけでなく、そのお店の日常の投稿も併せて閲覧<br>
-                お気に入りのお店を見つけてください。<br>
-                お花がちょっとでも身近になった方は、ぜひ、一度直接店舗へ遊びへ行ってみてください。</h3>
-        </main>
+
+
+    <div class='img1'>
+            <!-- <img class='top2img' src="images/top2rere.png" alt=""> -->
     </div>
-    <div class='yoko'>
-        <main>
-            <img class='top2img' src="images/top3rere.png" alt="">
-        </main>
+
+    <div class='title2'>
+      <h1>使い方</h1>
     </div>
-    <div class='yoko'>
-        <main>
-            <h1>今週のお花屋さん</h1>
-            <img class='top2img' src="images/top4.jpg" alt="">
-            <h3>お店の最新トピック、お店の最新トピック、お店の最新トピック、お店の最新トピック、<br>
-                お店の最新トピック、お店の最新トピック、お店の最新トピック、お店の最新トピック、<br>
-                お店の最新トピック、お店の最新トピック、お店の最新トピック、お店の最新トピック、</h3>
-        </main>
+
+    <div class="tips2">
+        <h3>現在地周辺のお花屋さんを簡単に検索<br>
+            気になるお店はフォロー可能<br>
+            販売している商品だけでなく、そのお店の日常の投稿も併せて閲覧<br>
+            お気に入りのお店を見つけてください。<br>
+            お花がちょっとでも身近になった方は、ぜひ、一度直接店舗へ遊びへ行ってみてください。</h3>
     </div>
-    <h1>新着情報</h1>
-    <div class='yoko'>
+
+
+    <div class='img2'>
+    </div>
+
+
+    <div class='link1'>
+      <h1><a href="/shops">Check Shops→</a></h1>
+    </div>
+
+    <div class='title3'>
+      <h1>News</h1>
+    </div>
+
+    <div class='left1'>
+    </div>
+
+    <div class="right1">
+        <h1>花のあらい</h1>
+        <h3>お店の情報、お店の情報、お店の情報、<br>
+            お店の情報、お店の情報、お店の情報、お店の情報、<br>
+            お店の情報、お店の情報</h3>
+    </div>
+
+
+    <div class='left2'>
+        <h1>花すずき</h1>
+        <h3>お店の情報、お店の情報、お店の情報、<br>
+            お店の情報、お店の情報、お店の情報、お店の情報、<br>
+            お店の情報、お店の情報</h3>
+    </div>
+
+    <div class="right2">
+    
+    </div>
+
+
+
   
 
-        <nav>
-            <img class='top2img' src="images/topre.png" alt="">
-        </nav>
-        <aside>
-            <h2>花のあらい</h2>
-            <h3>お店の情報、お店の情報、お店の情報、<br>
-                お店の情報、お店の情報、お店の情報、お店の情報、<br>
-                お店の情報、お店の情報</h3>
-        </aside>
-    </div>
-    <div class='yoko'>
-        <nav>
-            <h2>花すずき</h2>
-            <h3>お店の情報、お店の情報、お店の情報、<br>
-                お店の情報、お店の情報、お店の情報、お店の情報、<br>
-                お店の情報、お店の情報</h3>
-        </nav>
-        <aside>
-            <img class='top2img' src="images/top6.jpg" alt="">
-        </aside>
-    </div>
-    <div class='yoko'>
-        <main><h1>近くのお店をみてみる</h1></main>
-    </div>
-  
-
-     <footer><h3>Copyright  second-cube</h3></footer>
+     <footer>
+         <h3>Copyright  second-cube</h3>
+     </footer>
 
 
 

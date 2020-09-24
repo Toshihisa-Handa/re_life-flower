@@ -1,13 +1,32 @@
+html{
+    font-size: 62.5%;/*フォント基準を10pxに。これで1rem=10pxになる*/
+}
+
+body{
+    margin:0;
+    font-size:1.6rem;/* 16px*/
+    line-height: 2;
+    /* font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif; */
+    font-family: "times new roman", times, serif;/*日本語*/
+    font-family: "ｍｓ 明朝","ms mincho","ヒラギノ明朝 pro w3","hiragino mincho pro",serif;/*英語*/
+
+  }
+
+  a{
+    text-decoration: none;
+    color:black;
+  }
+
 h2{
     color:blue;
 }
 
 
 header{
-    height: 50px;
+    /* height: 50px;
     position: fixed;
     width: 1200px;
-    background-color: rgba(0, 1, 3, 0.3);
+    background-color: rgba(0, 1, 3, 0.3); */
    
    }
    header ul{
@@ -16,7 +35,7 @@ header{
        justify-content: space-around;
    }
    header ul li a{
-       color:rgb(216, 241, 235);
+    color:#232323;
        font:20px bold;
        text-decoration: none;
    }
