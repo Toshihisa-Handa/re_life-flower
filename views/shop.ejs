@@ -10,14 +10,7 @@
     <link rel="stylesheet" href="../css/glide.core.min.css">
     <link rel="stylesheet" href="../css/glide.theme.min.css">
     <style>
-       .container{
-        height: 100vh;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding:15px;
-    }
+
 html{
     font-size: 62.5%;/*フォント基準を10pxに。これで1rem=10pxになる*/
 }
@@ -35,7 +28,7 @@ a{
 }
 .grid-box{
         display:grid;
-        grid-template-rows: 50px 80px 900px 900px 100px 700px  100px 700px 100px 900px 100px ;
+        grid-template-rows: 50px 150px 900px 900px 230px 700px  230px 700px 230px 900px 100px ;
         grid-template-columns: 1fr 1fr;
         grid-template-areas: 
            "header header"
@@ -50,7 +43,7 @@ a{
            "left2   right2"
            "footer footer";
       }
-
+/* ヘッダーの設定 */
         header{
           grid-area: header;
           background: #f88;
@@ -71,21 +64,25 @@ a{
             font:20px bold;
             text-decoration: none;
         }
+
+/* タイトル０〜メイン画像の設定 */
         .title0{
           grid-area: title0;
           /* background: rgb(235, 227, 122); */
-          margin:0 auto;
          }
-         .title0 h1{
-           margin-top: 0;
+         .title0 h2{
+          margin-top: 5rem;
+          margin-left: 60%;
+          font-size: 4.8rem;
          }
         .title1{
           grid-area: title1;
+          margin-top: 1rem;
+          font-size: 3.2rem;
+
           /* background: rgb(103, 101, 85); */
          }
-         .title1 h2 {
-           margin-top:1rem;
-         }
+      
         
         main{
           grid-area: center;
@@ -99,6 +96,7 @@ a{
           margin:0 auto;
         }
 
+/* 店舗のコメント欄の設定 */
         nav{
         grid-area: left;
         /* background: rgb(136, 221, 255); */
@@ -132,7 +130,9 @@ a{
          padding-left: 5%;
        }
 
+/* お花一覧の設定 */
         .title2{
+          margin-top: 3%;
           margin-left: 5%;
           grid-area: title2;
           /* background: rgb(65, 60, 85); */
@@ -140,7 +140,7 @@ a{
         .title2 h2, .title3 h2, .title4 h2 a{
           /* margin-top:0; */
           /* color:blue; */
-          font-size: 3rem;
+          font-size:4rem ;
           
         }
 
@@ -148,11 +148,47 @@ a{
 
        .flist{
         grid-area: flist;
-        background: rgb(248, 141, 225);
+        background: rgb(243, 245, 248);
         margin-left: 2%;
         margin-right:2%;
        }
+       
+
+       .flower-box{
+        /* background: rgb(179, 202, 236); */
+        width: 350px;
+        height: 620px;
+        border: 2px solid rgb(197, 213, 247);
+        box-shadow: 5px 5px 5px 1px rgb(163, 189, 197);
+       }
+       .flower {
+         width: 100%;
+       }
+       .fname{
+         font-size:2.8rem;
+         margin-top: 0;
+         margin-bottom: 0;
+         margin-left: 5%;
+       }
+       .fprice, .ffeature{
+         margin-top:0;
+         margin-bottom:0;
+         font-size: 2.4rem;
+         margin-left: 7%;
+
+       }
+       .flower img{
+         width: 100%;
+         height: 400px;
+       }
+       
+       .fbl, .fbr{
+         background-color: rgb(139, 173, 235);
+       }
+
+/* 日記一覧の設定 */
        .title3{
+          margin-top: 3%;
           margin-left: 5%;
           grid-area: title3;
           /* background: rgb(112, 112, 109); */
@@ -162,12 +198,48 @@ a{
         grid-area: dlist;
         margin-left: 2%;
         margin-right:2%;
-        background: rgb(221, 220, 165);
+        background: rgb(243, 245, 248);
         
        }
+
+       .diary-box{
+        /* background: rgb(179, 202, 236); */
+        width: 350px;
+        height: 700px;
+        border: 2px solid rgb(197, 213, 247);
+        box-shadow: 5px 5px 5px 1px rgb(163, 189, 197);
+       }
+       .diary {
+         width: 100%;
+       }
+
+       .dtitle{
+         font-size:2.8rem;
+         font-weight: bold;
+         margin-top: 0;
+         margin-bottom: 0;
+         margin-left: 5%;
+       }
+       .dtext{
+         margin-top:0;
+         margin-bottom:0;
+         font-size: 2rem;
+         margin-left: 7%;
+
+       }
+       .diary img{
+         width: 100%;
+         height: 400px;
+       }
+
+/* 店舗詳細の設定 */
        .title4{
+          margin-top: 5%;
           margin-left: 5%;
+          margin-right: 5%;
+          margin-bottom:1%;
           grid-area: title4;
+          border-bottom: 2px inset black;
           /* background: rgb(112, 112, 109); */
 
         }
@@ -175,21 +247,41 @@ a{
 
        .left2{
         grid-area: left2;
-        background: rgb(136, 221, 255);
-        margin-left: 5%;
+        background: rgb(243, 245, 248);
+        margin-left: 10%;
 
+       }
+       .left2 img {
+         margin:5%;
+         width: 90%;
+         height: 90%;
        }
 
        .right2{
         grid-area: right2;
-        background: rgb(68, 104, 10);
-        margin-right:5%;
-
+        background: rgb(243, 245, 248);
+        margin-right:10%;
+       }
+       .shopd-area{
+         margin:5%;
+         font-size:3rem ;
        }
 
+       .shopmap{
+         width: 100%;
+         height: 480px;
+       }
+
+/* フッターの設定 */
        footer{
         grid-area: footer;
-        background: rgb(106, 110, 109);
+        margin-left: 5%;
+        margin-right: 5%;
+        padding-top: 3rem;
+        /* background: rgb(106, 110, 109); */
+        border-top: 2px inset black;
+        text-align: center;
+        font-size:3.2rem;
        }
 
 
@@ -198,19 +290,10 @@ a{
             width: 300px;
         }
   
-       .flowers ,.diarys{
-           display: flex;
-           flex-wrap: wrap;
-       }
+   
   
-        img{
-            width: 300px;
-        }
-  
-       .flowers ,.diarys{
-           display: flex;
-           flex-wrap: wrap;
-       }
+   
+
 
     </style>
 </head>
@@ -233,7 +316,7 @@ a{
 
     <!-- タイトル0 -->
      <div class='title0'> 
-        <h1><%=item[0].name%></h1>
+        <h2><%=item[0].name%></h2>
      </div>
     <!-- タイトル1 -->
      <div class='title1'> 
@@ -268,20 +351,20 @@ a{
           <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
               <% fitem.forEach((fite) => { %>
-                <div class="glide__slide">
+                <div class="glide__slide flower-box">
                   <a href="/flower/<%=fite.id%>">
                       <div class="flower"><img src="../images/uploads/<%= fite.image %>" alt=""></div>
-                      <h3><%=fite.name%></h3>
-                      <p><%=fite.price%></p>
-                      <p><%=fite.feature%></p>
+                      <h3 class='fname'><%=fite.name%></h3>
+                      <p class='fprice'><%=fite.price%>円</p>
+                      <p class='ffeature'><%=fite.feature%></p>
                   </a>
                 </div>
               <% }) %>
             </ul>
           </div>
           <div class="glide__arrows" data-glide-el="controls">
-              <button class="glide__arrow glide__arrow--left" data-glide-dir="<">←</button>
-              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">→</button>
+              <button class="glide__arrow glide__arrow--left fbl" data-glide-dir="<">←</button>
+              <button class="glide__arrow glide__arrow--right fbr" data-glide-dir=">">→</button>
             </div>
         </div>
   </div>
@@ -302,11 +385,11 @@ a{
           <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
               <% ditem.forEach((dite) => { %>
-                <div class="glide__slide">
+                <div class="glide__slide diary-box">
                   <a href="/diary/<%=dite.id%>">
                     <div class="diary"><img src="../images/uploads/<%= dite.image %>" alt=""></div><br>
-                    <p><%=dite.title%></p>
-                    <p><%=dite.text%></p>
+                    <div class='dtitle'><%=dite.title%></div>
+                    <div class='dtext'><%=dite.text%></div>
                   </a> 
                 </div>
               <% }) %>
@@ -314,10 +397,10 @@ a{
           </div>
        
           <div class="glide__arrows" data-glide-el="controls">
-            <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+            <button class="glide__arrow glide__arrow--left " data-glide-dir="<">prev</button>
+            <button class="glide__arrow glide__arrow--right " data-glide-dir=">">next</button>
           </div>
-        </div>
+      </div>
   </div>
 
 
@@ -340,11 +423,11 @@ a{
 
     <!-- 右2 -->
     <div class='right2'>
-      <div>
+      <div class="shopd-area">
         <h3>営業時間：<%=item[0].open%>〜<%=item[0].close%></h3>
         <h3>定休日：<%=item[0].holiday%></h3>
         <h3>住所：<%=item[0].location%></h3>
-        <iframe src="<%=item[0].map %>" width='300px' frameborder="0"></iframe>
+        <iframe src="<%=item[0].map %>" class='shopmap'  frameborder="0"></iframe>
     </div>
   </div>
 
@@ -352,15 +435,9 @@ a{
 
 
       <!-- フッター -->
-     <footer>フッター</footer>
+     <footer>Copyright  second-cube</footer>
 
     </div>
-
-
-
-
-
-    <h1>aaaa</h1>
 
 
 <!-- glide.jsの読み込み -->
@@ -371,13 +448,13 @@ const config = {
     type: 'carousel',
     perView: 5,
     breakpoints: {
-    1600: {
+    1400: {
       perView: 4
     },
-    1350: {
+    1250: {
       perView: 3
     },
-    950: {
+    850: {
       perView: 2
     },
     600: {
