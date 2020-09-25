@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>店舗一覧ページ</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+
+.shopSearch{
+    min-width: 240px;
+    padding: 5px 10px;
+    background: none;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    color: #333;
+}
+
+
+
+    </style>
 </head>
 <body>
     <style>
@@ -24,12 +38,13 @@
     </style>
     <header>
         <ul>
-            <li><a href="/">ホーム</a></li>
-            <li><a href="/shops">店舗</a></li>
-            <li><a href="/diarys">日記</a></li>
-            <li><a href="/flowers">お花</a></li>
-            <li><a href="">検索</a></li>
-            <li><a href="/login">ログイン</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/diarys">Diary</a></li>
+            <li><a href="/flowers">Flower</a></li>
+            <form action="/s_search" method='get'>
+                <span class='search-bar'>Shop Search</span><input  class='shopSearch' type="text" name='kensaku' placeholder="検索ワード入力" required>
+               </form>
+            <li><a href="/login">login</a></li>
         </ul>
      </header>
     <h1>店舗一覧ページ</h1>

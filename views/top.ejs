@@ -11,7 +11,7 @@
 
 .grid-box{
     display:grid;
-    grid-template-rows: 0 900px 300px 250px 700px 150px 450px 600px 250px 150px 100px  500px 500px 150px 300px ;
+    grid-template-rows: 0 900px 300px 250px 700px 150px 450px 600px 250px 150px 100px  500px 100px 500px 150px 300px ;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
         "header  header"
@@ -26,6 +26,7 @@
         "title3  title3"
         ".....   ....."
         "left1   right1"
+        ".....   ....."
         "left2   right2"
         ".....   ....."
         "footer  footer";
@@ -145,9 +146,9 @@ header{
 
 .right1{
     grid-area:right1;
-    /* background: rgb(155, 153, 153); */
-    margin-left: 5%;
-    margin-top:3%;
+    background:rgba(223, 198, 217, 0.2);
+    padding-left: 5%;
+    padding-top:3%;
 }
 .right1 h1{
     font-size: 3.6rem;
@@ -159,9 +160,9 @@ header{
 
 .left2{
     grid-area:left2;
-    /* background: rgb(155, 153, 153); */
-    margin-left: 5%;
-    margin-top:3%;
+    background:rgba(223, 198, 217, 0.2);
+    padding-left: 5%;
+    padding-top:3%;
 
 }
 .left2 h1{
@@ -232,6 +233,7 @@ img{
        </div> -->
 
        <% if (typeof user !== 'undefined') { %>
+        <img src="images/uploads/<%= items[0].account_img %>" alt="" style='width:300px'>  
         <h2 class="login-user"><%= user.name %>さんとしてログインしています</h2>
     <% } %>
     </header>
