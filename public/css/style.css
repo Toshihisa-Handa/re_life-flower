@@ -29,6 +29,14 @@ body{
     background: rgb(255, 251, 243);
 
   }
+
+.aimg{
+    width: 40px;
+    border-radius: 50%;
+    height: 40px;
+  filter: drop-shadow(0 0px 5px silver);
+}
+
    header ul{
        display: flex;
        list-style: none;

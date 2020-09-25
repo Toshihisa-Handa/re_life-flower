@@ -203,6 +203,13 @@ img{
 
     <header>
        <ul>
+         <li>
+             <a href="/mypage">
+                <% if (typeof user !== 'undefined') { %>
+                    <img src="images/uploads/<%= items[0].account_img %>" class='aimg' alt="" >  
+                  <% } %>
+            </a>
+        </li>
          <li><a href="/shops">Shop</a></li>
          <li><a href="/diarys">Diary</a></li>
          <li><a href="/flowers">Flower</a></li>
@@ -210,7 +217,6 @@ img{
          <% if (typeof user == 'undefined') { %>
          <li><a href="/login">Login</a></li>
          <% } else{%>
-         <li><a href="/mypage">Mypage</a></li>
          <li><a href="/logout">Logout</a></li>
          <% } %>
        </ul>
@@ -232,10 +238,7 @@ img{
          </div>
        </div> -->
 
-       <% if (typeof user !== 'undefined') { %>
-        <img src="images/uploads/<%= items[0].account_img %>" alt="" style='width:300px'>  
-        <h2 class="login-user"><%= user.name %>さんとしてログインしています</h2>
-    <% } %>
+    
     </header>
 
     <div class='main'>
