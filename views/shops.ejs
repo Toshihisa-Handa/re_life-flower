@@ -51,11 +51,11 @@ header{
     /* grid-template-rows: 0 70px 150px 100px  ; */
     grid-template-columns: 0.5fr 9fr 0.1fr;
     grid-template-areas: 
-        "left list  right"
+        "left shopList  right"
 }
 
-.list{
-    grid-area:list;
+.shopList{
+    grid-area:shopList;
     /* background: rgba(63, 98, 122, 0.3); */
 }
 
@@ -126,11 +126,6 @@ header{
        <h1>Shop List</h1>
      </div>
      
-    
-
-     <div class="lists">
-
-     </div>
 
 </div>
 
@@ -140,7 +135,7 @@ header{
 
 
 <div class="shop-list">
-    <div class="list">
+    <div class="shopList">
         <div class="shop-container">
         <% items.forEach((item) => { %>
 
