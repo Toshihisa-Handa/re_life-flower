@@ -97,6 +97,13 @@ header{
 <div class="shops-glid">
     <header>
         <ul>
+            <li>
+                <a href="/mypage">
+                   <% if (typeof user !== 'undefined') { %>
+                       <img src="images/account.jpg" class='aimg' alt="" >  
+                     <% } %>
+               </a>
+           </li>
             <li><a href="/">Home</a></li>
             <li><a href="/shops">Shop</a></li>
             <li><a href="/diarys">Diary</a></li>
@@ -107,7 +114,7 @@ header{
                <% if (typeof user == 'undefined') { %>
                 <li><a href="/login">Login</a></li>
                 <% } else{%>
-                <li><a href="/mypage">mypage</a></li>
+                <!-- <li><a href="/mypage">mypage</a></li> -->
                 <li><a href="/logout">Logout</a></li>
                 <% } %>
         </ul>
