@@ -105,11 +105,12 @@ header{
 
 .flower-glid{
   display:grid;
-    grid-template-rows:150px 550px 180px 570px;
+    grid-template-rows:150px 550px 50px 150px 570px;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
         "title2  title2"
         "flist  flist"
+        "...     ..."
         "title3  title3"
         "dlist   dlist";
 }
@@ -182,15 +183,6 @@ header{
 
 
 
-/* 日記一覧の設定 */
-.title3{
-  margin-top: 3%;
-  margin-left: 5%;
-  grid-area: title3;
-  /* background: rgb(112, 112, 109); */
-
-    }
-
 .dlist{
 padding-top:2%;
 grid-area: dlist;
@@ -241,9 +233,10 @@ text-overflow: ellipsis;/*...を末尾にいれる(overflow:hiddenとセット)*
 
 .access-glid{
    display:grid;
-    grid-template-rows:150px 100px 
+    grid-template-rows:100px 150px 100px ;
     grid-template-columns: 1fr 8fr 1fr;
     grid-template-areas: 
+    "...  ... ..."
     "...  title4 ..."
     "...  shopName  ...";
 }
@@ -417,10 +410,7 @@ height: 100%;
         </ul>
       </div>
    
-      <div class="glide__arrows" data-glide-el="controls">
-        <button class="glide__arrow glide__arrow--left " data-glide-dir="<">prev</button>
-        <button class="glide__arrow glide__arrow--right " data-glide-dir=">">next</button>
-      </div>
+    
   </div>
 </div>
 </div>
