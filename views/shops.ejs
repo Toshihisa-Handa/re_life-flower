@@ -7,14 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <style>
 
-.shopSearch{
-    min-width: 240px;
-    padding: 5px 10px;
-    background: none;
-    border: 1px solid #e5e5e5;
-    border-radius: 3px;
-    color: #333;
-}
+
 
 
 .shops-glid{
@@ -109,7 +102,7 @@ header{
             <li><a href="/diarys">Diary</a></li>
             <li><a href="/flowers">Flower</a></li>
             <form action="/s_search" method='get'>
-                <span class='search-bar'>Search</span><input  class='shopSearch' type="text" name='kensaku' placeholder="検索ワード入力" required>
+                <span class='search-bar'>Search</span><input  class='search' type="text" name='kensaku' placeholder="検索ワード入力" required>
             </form>
                <% if (typeof user == 'undefined') { %>
                 <li><a href="/login">Login</a></li>
