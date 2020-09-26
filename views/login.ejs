@@ -99,8 +99,10 @@ header{
 
 .rlink{
   margin-top:15%;
-  margin-left:25%;
-  margin-right: 20%;
+  text-align: center;
+}
+.underbar{
+  padding-bottom:10px;
   border-bottom: 1px inset rgba(48, 50, 53, 0.4);
 }
 .rlink:hover{
@@ -168,7 +170,7 @@ header{
           <p class="error"><%= noUser %></p>
       <% } %>
       <div class="rlink">
-        <a href="/register">&nbsp;&nbsp;新規御登録の方はこちらへ</a>
+        <a href="/register"><span class='underbar'>&nbsp;&nbsp;新規御登録の方はこちらへ</span></a>
       </div>
     </div>
   </div>
