@@ -11,7 +11,7 @@
 /* メインここから */
 .main-glid{
     display:grid;
-    grid-template-rows: 0 100px auto  auto auto 250px  ;
+    grid-template-rows: 0 100px auto  auto  ;
     grid-template-columns: 0.1fr 0.35fr 0.1fr 0.35fr 0.1fr;
     grid-template-areas:
         "header header header header header"
@@ -55,20 +55,22 @@ header{
 
 .container {
   grid-area:container;
-  width: 1000px;
   display: -webkit-flex;
   display: flex;
 }
 .main {
   display: block;
-  width: 660px;
+  width: 60%;
   margin-right: 20px;
 }
 .sidebar {
-  width: 320px;
+  width: 40%;
+  background-color: rgb(94, 227, 112);
+
 }
 .sidebar__item {
   margin-bottom: 20px;
+  background-color: blue;
 }
 .sidebar__item--fixed {
   position: sticky;
