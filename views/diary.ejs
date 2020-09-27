@@ -3,27 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日記の詳細ページ</title>
+    <title>トップページ</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
-    <header>
-        <ul>
-          <li><a href="/">ホーム</a></li>
-          <li><a href="/shops">店舗</a></li>
-          <li><a href="/diarys">日記</a></li>
-          <li><a href="/flowers">お花</a></li>
-          <li><a href="">検索</a></li>
-          <li><a href="/login">ログイン</a></li>
-        </ul>
-     </header>
-    <h1>日記の詳細ページ</h1>
+<style>
 
-<div><img src="../images/uploads/<%= item.image %>" alt="" style="width: 300px;"></div>
-<h2><%=item.shopname%></h2>
-<h2><%=item.title%></h2>
-<h3><%=item.tag%></h3>
-<textarea name="" id="" cols="30" rows="10"><%=item.text%></textarea>
+/* メインここから */
+.main-glid{
+    display:grid;
+    grid-template-rows: 0 100px auto  auto 250px  ;
+    grid-template-columns: 0.1fr 0.35fr 0.1fr 0.35fr 0.1fr;
+    grid-template-areas:
+        "header header header header header"
+        "...    ...     ...    ...    ..."
+        "...  title1 title1   title1  ..."
+        "...  img       img   editar  ..."
+        "... footer footer footer  ...";
+      }
+/* ヘッダー */
+header{
+    grid-area:header;
+    background: rgba(177, 212, 238,0.3);
+    position: fixed;
+    width: 100%;
+    
+}
+/* メイン画像 */
+
+
+/* タイトル１ */
+.title1{
+    grid-area:title1;
+    /* background: #f88; */
+}
+.title1 h1{
+        background: #f88;
+}
+
+.img{
+    grid-area:img;
+    background: rgb(121, 103, 103);
+    /* width: 100%; */
+}
+.img img{
+    width: 80%;
+}
+
+.editar{
+    grid-area:editar;
+    background: rgb(86, 82, 139);
+}
+
+</style>
+<body>
+<div class="main-glid">
+
+
+    <header>
+       <ul>
+         <li>
+             <a href="/mypage">
+                <% if (typeof user !== 'undefined') { %>
+                    <img src="../images/account.jpg" class='aimg' alt="" >  
+                  <% } %>
+            </a>
+        </li>
+        <li><a href="/">Home</a></li>
+         <li><a href="/shops">Shop</a></li>
+         <li><a href="/diarys">Diary</a></li>
+         <li><a href="/flowers">Flower</a></li>
+         <!-- <li><div id='search'>検索</div></li> -->
+         <% if (typeof user == 'undefined') { %>
+         <li><a href="/login">Login</a></li>
+         <% } else{%>
+         <li><a href="/logout">Logout</a></li>
+         <% } %>
+       </ul>
+    </header>
+
+   <div class="title1">
+       <h1>diary</h1>
+   </div>
+
+   <div class='img'>
+    <img src="../images/uploads/<%= item.image %>" alt="">
+  </div>
+
+   <div class='editar'>
+       <h1>editar</h1>
+  </div>
+
+
+
+     <footer>
+         <h3>Copyright  second-cube</h3>
+     </footer>
+
+</div>
+
+
+
+
 
 
 </body>
