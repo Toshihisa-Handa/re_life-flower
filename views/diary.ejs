@@ -39,8 +39,7 @@ header{
     background: rgba(250, 237, 207, 0.6);
 }
 
-
-
+/* エディターエリア */
 .editar-area{
     display:grid;
     grid-template-rows: auto   ;
@@ -120,6 +119,24 @@ header{
   top: 10px;
   z-index: 1;
 }
+
+/* エディタここまで ＝＝＝＝＝＝＝＝＝＝＝＝*/
+
+/* コメント */
+.comment-area{
+    display:grid;
+    grid-template-rows: auto   ;
+    grid-template-columns: 0.1fr 0.35fr 0.1fr 0.35fr 0.1fr;
+    grid-template-areas:
+        "... dcomment dcomment ... ..."
+     
+}
+
+.dcomment{
+    grid-area:dcomment;
+    background-color: rgba(235, 228, 161, 0.5);
+}
+
 </style>
 <body>
 <div class="main-glid">
@@ -183,7 +200,14 @@ header{
 </div>
 
 
+<div class="comment-area">
+  <div class="dcomment">
+      <p>名前</p> <p>こめんと</p>
+   
+  </div>
 
+
+</div>
 
 
 
