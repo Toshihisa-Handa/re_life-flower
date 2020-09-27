@@ -11,14 +11,15 @@
 
 .grid-box{
     display:grid;
-    grid-template-rows: 0 100vh auto auto 70px;
+    grid-template-rows: 0 100vh 100px auto auto 70px;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
         "header  header "
         "main    main"
+        "...     ..."
         "title1  title1"
         "tips1   tips1"
-        "...     ..."
+        "...     ...";
       }
 /* ヘッダー */
 header{
@@ -59,7 +60,6 @@ header{
     /* background: #f88; */
 }
 .title1 h1{
-    line-height: 300px;
     text-align: center;
 }
 
@@ -75,7 +75,7 @@ header{
 
 .glid-box2{
     display:grid;
-    grid-template-rows:auto 70px auto auto 70px 600px auto 70px auto 100px  ;
+    grid-template-rows:auto 70px auto auto 70px auto 50px auto 70px auto 100px  ;
     grid-template-columns: 1fr 3.5fr 1fr 3.5fr 1fr;
     grid-template-areas: 
     
@@ -85,6 +85,7 @@ header{
         "... tips2 tips2  tips2 ..."
         "... ... ... ... ..."
         "... img2 img2 img2 ..."
+        "... ... ... ... ..."
         "link1 link1 link1  link1 link1"
         "... ... ... ... ..."
         "... title3 title3 title3 ..."
@@ -135,11 +136,12 @@ header{
     text-align: center;
     /* background: #f88; */
 }
-.link1 h1{
-    border-bottom: 2px inset black;
-    margin-left: 35%;
-    margin-right: 35%;
+.underbar{
+    padding-bottom:2rem;
+  border-bottom: 1px inset rgba(48, 50, 53, 0.4);
+ 
 }
+
 
 .title3{
     grid-area:title3;
@@ -147,26 +149,26 @@ header{
     line-height: 100px;
     background: rgba(245, 243, 225, 0.3);
 }
-.title3 h1{
-    margin-left: 35%;
-    margin-right: 35%;
-}
+
 
 .glid-box3{
     display:grid;
-    grid-template-rows: 500px 100px 500px 150px 300px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 100px auto 150px 300px;
+    grid-template-columns: 1fr 3fr 1fr 3fr 1fr;
     grid-template-areas: 
-        "left1   right1"
-        ".....   ....."
-        "left2   right2"
-        ".....   ....."
-        "footer  footer";
+        "... left1 right1 right1 ..."
+        "... ... ... ... ..."
+        "... left2 left2 right2 ..."
+        "... ... ... ... ..."
+        "footer  footer footer  footer  footer ";
       }
 .left1{
     grid-area:left1;
-    background-image: url(/images/img3.png);
-    background-size: cover;
+    width: 100%;
+}
+.left1 img{
+    width: 100%;
+    /* max-height: 700px; */
 }
 
 .right1{
@@ -199,8 +201,12 @@ header{
 }
 .right2{
     grid-area:right2;
-    background-image: url(/images/img4.png);
-    background-size: cover;
+    width: 100%;
+
+}
+.right2 img{
+    width: 100%;
+    /* max-height: 700px; */
 }
 
 
@@ -274,7 +280,7 @@ header{
 
 
     <div class='link1'>
-      <h1><a href="/shops">Check Shops→</a></h1>
+      <h1><a href="/shops"><span class='underbar'>&nbsp;&nbsp;&nbsp;Check Shops→&nbsp;&nbsp;</span></a></h1>
     </div>
 
     <div class='title3'>
@@ -286,6 +292,7 @@ header{
 <div class="glid-box3">
 
     <div class='left1'>
+        <img src="../images/topimg6.png" alt="">
     </div>
 
     <div class="right1">
@@ -297,14 +304,14 @@ header{
 
 
     <div class='left2'>
-        <h1>WILD FLOWER</h1>
+        <h1>Sun Flowers</h1>
         <h3>お店の情報、お店の情報、お店の情報、<br>
             お店の情報、お店の情報、お店の情報、お店の情報、<br>
             お店の情報、お店の情報</h3>
     </div>
 
     <div class="right2">
-    
+        <img src="../images/topimg5.jpg" alt="">
     </div>
 
 
