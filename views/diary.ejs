@@ -11,14 +11,14 @@
 /* メインここから */
 .main-glid{
     display:grid;
-    grid-template-rows: 0 100px auto  auto 250px  ;
+    grid-template-rows: 0 100px auto  auto auto 250px  ;
     grid-template-columns: 0.1fr 0.35fr 0.1fr 0.35fr 0.1fr;
     grid-template-areas:
         "header header header header header"
         "...    ...     ...    ...    ..."
-        "...  title1 title1   title1  ..."
-        "...  img       img   editar  ..."
-        "... footer footer footer  ...";
+        "...  title1 title1   title1  ...";
+
+       
       }
 /* ヘッダー */
 header{
@@ -40,20 +40,42 @@ header{
         background: #f88;
 }
 
-.img{
-    grid-area:img;
-    background: rgb(121, 103, 103);
-    /* width: 100%; */
-}
-.img img{
-    width: 80%;
-}
 
-.editar{
-    grid-area:editar;
-    background: rgb(86, 82, 139);
-}
 
+.editar-area{
+    display:grid;
+    grid-template-rows: auto   ;
+    grid-template-columns: 0.1fr 0.35fr 0.1fr 0.35fr 0.1fr;
+    grid-template-areas:
+        "... container container container ..."
+     
+
+       
+      }
+
+.container {
+  grid-area:container;
+  width: 1000px;
+  display: -webkit-flex;
+  display: flex;
+}
+.main {
+  display: block;
+  width: 660px;
+  margin-right: 20px;
+}
+.sidebar {
+  width: 320px;
+}
+.sidebar__item {
+  margin-bottom: 20px;
+}
+.sidebar__item--fixed {
+  position: sticky;
+  margin-bottom: 0;
+  top: 10px;
+  z-index: 1;
+}
 </style>
 <body>
 <div class="main-glid">
@@ -81,17 +103,42 @@ header{
        </ul>
     </header>
 
+
    <div class="title1">
        <h1>diary</h1>
    </div>
 
-   <div class='img'>
-    <img src="../images/uploads/<%= item.image %>" alt="">
-  </div>
+</div>
 
-   <div class='editar'>
-       <h1>editar</h1>
+
+<div class="editar-area">
+   <div class="container">
+    <main class="main">
+      <!-- メインコンテンツ -->
+      <div><img src="../images/uploads/<%= item.image %>"></div>
+      <h2><%=item.title%></h2>
+      <h3><%=item.tag%></h3>
+      <p name="" id="" cols="30" rows="10"><%=item.text%></p>
+
+    </main>
+    <div class="sidebar">
+      <div class="sidebar__item">
+        <!-- 中身 -->
+      </div>
+      <div class="sidebar__item sidebar__item--fixed">
+        <!-- 固定・追従させたいエリア -->
+        <h1>editar</h1>
+        <img src="../images/img1.jpg" alt="" style='height: 300px;'>
+      </div>
+    </div>
   </div>
+</div>
+
+
+
+
+
+
 
 
 
@@ -99,7 +146,7 @@ header{
          <h3>Copyright  second-cube</h3>
      </footer>
 
-</div>
+
 
 
 
