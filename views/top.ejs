@@ -11,13 +11,14 @@
 
 .grid-box{
     display:grid;
-    grid-template-rows: 0 900px 300px 250px 700px 150px 450px 600px 250px 150px 100px  500px 100px 500px 150px 300px ;
+    grid-template-rows: 0 100vh auto auto 70px 700px 150px 450px 600px 250px 150px 100px  500px 100px 500px 150px 300px ;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
         "header  header"
         "main    main"
         "title1  title1"
         "tips1   tips1"
+        "...     ..."
         "img1    img1"
         "title2  title2"
         "tips2   tips2"
@@ -53,6 +54,7 @@ header{
     font-size: 6rem;
     /* color:wheat; */
     color:rgb(241, 242, 232);
+    max-height: 300px;
 }
 .mainSubtitle{
     margin-top: 2rem;
@@ -60,6 +62,8 @@ header{
     font-size: 4.8rem;
     /* color:wheat; */
     color:rgb(241, 242, 232);
+    max-height: 250px;
+
 }
 /* タイトル１ */
 .title1{
