@@ -63,6 +63,9 @@ header{
   width: 60%;
   margin-right: 20px;
 }
+.diaryImg{
+    width: 100%;
+}
 .sidebar {
   width: 40%;
   background-color: rgb(94, 227, 112);
@@ -117,7 +120,7 @@ header{
    <div class="container">
     <main class="main">
       <!-- メインコンテンツ -->
-      <div><img src="../images/uploads/<%= item.image %>"></div>
+      <div><img class='diaryImg' src="../images/uploads/<%= item.image %>"></div>
       <h2><%=item.title%></h2>
       <h3><%=item.tag%></h3>
       <p name="" id="" cols="30" rows="10"><%=item.text%></p>
