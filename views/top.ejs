@@ -11,26 +11,14 @@
 
 .grid-box{
     display:grid;
-    grid-template-rows: 0 100vh auto auto 70px 700px 150px 450px 600px 250px 150px 100px  500px 100px 500px 150px 300px ;
+    grid-template-rows: 0 100vh auto auto 70px;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
-        "header  header"
+        "header  header "
         "main    main"
         "title1  title1"
         "tips1   tips1"
         "...     ..."
-        "img1    img1"
-        "title2  title2"
-        "tips2   tips2"
-        "img2    img2"
-        "link1   link1"
-        "title3  title3"
-        ".....   ....."
-        "left1   right1"
-        ".....   ....."
-        "left2   right2"
-        ".....   ....."
-        "footer  footer";
       }
 /* ヘッダー */
 header{
@@ -84,15 +72,36 @@ header{
     text-align: center;
 }
 
+
+.glid-box2{
+    display:grid;
+    grid-template-rows:auto 70px auto auto 70px 600px auto 70px auto 100px  ;
+    grid-template-columns: 1fr 3.5fr 1fr 3.5fr 1fr;
+    grid-template-areas: 
+    
+        "... img1 img1  img1 ..."
+        "... ... ... ... ..."
+        "... title2 title2 title2 ..."
+        "... tips2 tips2  tips2 ..."
+        "... ... ... ... ..."
+        "... img2 img2 img2 ..."
+        "link1 link1 link1  link1 link1"
+        "... ... ... ... ..."
+        "... title3 title3 title3 ..."
+        "... ...  ... ... ..."
+       
+      }
+
 /* 画像１ */
 .img1{
     grid-area:img1;
     /* background: #f88; */
-    background-image: url(/images/1-1.png);
-    background-size: cover;
-    margin:0 5% 5%;
+    width: 100%;
 }
-
+.img1 img{
+    width: 100%;
+    max-height: 500px;
+}
 
 .title2{
     grid-area:title2;
@@ -114,11 +123,13 @@ header{
 .img2{
     grid-area:img2;
     /* background: rgb(155, 153, 153); */
-    background-image: url(/images/img2.png);
-    background-size: cover;
-    margin:0 5% 5%;
-}
+    width: 100%;
 
+}
+.img2 img{
+    width: 100%;
+    max-height: 500px;
+}
 .link1{
     grid-area:link1;
     text-align: center;
@@ -141,7 +152,17 @@ header{
     margin-right: 35%;
 }
 
-
+.glid-box3{
+    display:grid;
+    grid-template-rows: 500px 100px 500px 150px 300px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "left1   right1"
+        ".....   ....."
+        "left2   right2"
+        ".....   ....."
+        "footer  footer";
+      }
 .left1{
     grid-area:left1;
     background-image: url(/images/img3.png);
@@ -225,9 +246,12 @@ header{
         <h3>Life Flower で花をもっと身近に<br>
             日常に一輪挿しの彩りを</h3>
     </div>
+</div>
 
+<div class="glid-box2">
 
     <div class='img1'>
+        <img src="../images/1-1.png" alt="">
     </div>
 
     <div class='title2'>
@@ -244,6 +268,8 @@ header{
 
 
     <div class='img2'>
+        <img src="../images/img2.png" alt="">
+
     </div>
 
 
@@ -254,6 +280,10 @@ header{
     <div class='title3'>
       <h1>News</h1>
     </div>
+</div>
+
+
+<div class="glid-box3">
 
     <div class='left1'>
     </div>
@@ -284,13 +314,13 @@ header{
      <footer>
          <h3>Copyright  second-cube</h3>
      </footer>
+    </div>
 
 
 
 
 
 
-</div>
 <script>
  const search = document.querySelector('#search')
  const hideSearch = document.querySelector('.search')
