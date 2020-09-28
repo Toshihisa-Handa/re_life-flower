@@ -12,7 +12,7 @@
 
 .shops-glid{
     display:grid;
-    grid-template-rows: 0 65px 200px 50px  ;
+    grid-template-rows: 0 65px auto 50px  ;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
         "header  header"
@@ -27,9 +27,14 @@ header{
 }
 .img1{
     grid-area:img1;
-    background: rgba(18, 100, 163, 0.3);
-    background-image: url(/images/shopsimg1.png);
-
+    /* background: rgba(18, 100, 163, 0.3); */
+    /* background-image: url(/images/shopsimg1.png); */
+     background-size: cover;
+     width: 100%;
+}
+.img1 img{
+    width: 100%;
+    max-height: 200px;
 }
 .title1{
     grid-area:title1;
@@ -120,8 +125,9 @@ header{
         </ul>
      </header>
      <div class="img1">
-
+        <img src="../images/shopsimg1.png" alt="">
     </div>
+    
      <div class="title1">
        <h1>Shop List</h1>
      </div>
