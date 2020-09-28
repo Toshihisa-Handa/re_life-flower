@@ -90,7 +90,7 @@ header{
 }
 
 .form{
-    margin-top:0;
+    margin-top:-20px;
     width: 100%;
     padding: 15px;
     background:rgba(255, 217, 238, 0.5);
@@ -131,7 +131,7 @@ header{
 .sidebar__item--fixed {
   position: sticky;
   margin-bottom: 0;
-  top: 10px;
+  top: 100px;
   z-index: 1;
 }
 
@@ -197,7 +197,24 @@ header{
     <p>価格：<%=item.price%>円（税抜き）</p>
     <p>特徴：<%=item.feature%></p>
     <p><%=item.text%></p>
-
+    <div class="dcomment">
+        <p>名前</p> <p>こめんと</p>
+        <p>名前</p> <p>こめんと</p>
+        <p>名前</p> <p>こめんと</p>
+        <p>名前</p> <p>こめんと</p>
+        <p>名前</p> <p>こめんと</p>
+        <p>名前</p> <p>こめんと</p>
+        <p>名前</p> <p>こめんと</p>
+        <p>名前</p> <p>こめんと</p>
+        <p>名前</p> <p>こめんと</p>
+        <p>名前</p> <p>こめんと</p>
+        <p>名前</p> <p>こめんと</p>
+        <p>名前</p> <p>こめんと</p>
+        <p>名前</p> <p>こめんと</p>
+        <p>名前</p> <p>こめんと</p>
+        <p>名前</p> <p>こめんと</p>
+     
+    </div>
 
     </main>
     <div class="sidebar">
@@ -209,6 +226,7 @@ header{
         <form action="/dcomment/<%= item.id %>" method="post">
             <textarea name="message" id="message" class="form textarea"  placeholder="Message"></textarea>
             <button class="lbutton" type="submit" class="submit">submit</button>
+            
         </form>
         
         <!-- <img src="../images/img1.jpg" alt="" style='height: 300px;'> -->
@@ -218,11 +236,25 @@ header{
 </div>
 
 
-<div class="comment-area">
+<!-- <div class="comment-area">
   <div class="dcomment">
       <p>名前</p> <p>こめんと</p>
+      <p>名前</p> <p>こめんと</p>
+      <p>名前</p> <p>こめんと</p>
+      <p>名前</p> <p>こめんと</p>
+      <p>名前</p> <p>こめんと</p>
+      <p>名前</p> <p>こめんと</p>
+      <p>名前</p> <p>こめんと</p>
+      <p>名前</p> <p>こめんと</p>
+      <p>名前</p> <p>こめんと</p>
+      <p>名前</p> <p>こめんと</p>
+      <p>名前</p> <p>こめんと</p>
+      <p>名前</p> <p>こめんと</p>
+      <p>名前</p> <p>こめんと</p>
+      <p>名前</p> <p>こめんと</p>
+      <p>名前</p> <p>こめんと</p>
    
-  </div>
+  </div> -->
 
 
 </div>
