@@ -40,6 +40,21 @@ exports.diary = (req, res)=>{
       })
     }
 
+
+//dcomment_post
+exports.dcomment_post =  (req, res) => {
+  var userId = req.session.user_id? req.session.user_id: 0; 
+  var diaryId = req.params.diary_id;
+  var dcomment = req.body.dcomment;
+  var createdAt = moment().format('YYYY-MM-DD HH:mm:ss');
+  var sql = 'INSERT INTO dcomment (diary_id, dcomment, created_at, user_id) VALUES (?,?,?,?)';
+  connection.query(sql,[diaryId, dcomment, createdAt, userId],(error,results)=>{
+    res.redirect('/diary/' + diaryId);
+    console.log('insert=============')
+    console.log(diaryId)
+  })
+}
+
 //diaryDelete
 exports.diaryDelete = (req,res)=>{
     connection.query('DELETE FROM diary WHERE id = ?',[req.params.id],(error,results)=>{
@@ -83,17 +98,4 @@ exports.drege =  (req, res) => {
   }
 
 
-//dcomment_post
-exports.dcomment_post =  (req, res) => {
-    var userId = req.session.user_id? req.session.user_id: 0; 
-    var diaryId = req.params.diary_id;
-    var dcomment = req.body.dcomment;
-    var createdAt = moment().format('YYYY-MM-DD HH:mm:ss');
-    var sql = 'INSERT INTO dcomment (diary_id, dcomment, created_at, user_id) VALUES (?,?,?,?)';
-    connection.query(sql,[diaryId, dcomment, createdAt, userId],(error,results)=>{
-      res.redirect('/diary/' + diaryId);
-      console.log('insert=============')
-      console.log(diaryId)
-    })
-  }
 

@@ -25,6 +25,23 @@ exports.f_search = (req, res) => {
     })
   }
 
+
+  
+//fcomment_post
+exports.fcomment_post =  (req, res) => {
+  var userId = req.session.user_id? req.session.user_id: 0; 
+  var flowerId = req.params.flower_id;
+  var fcomment = req.body.fcomment;
+  var createdAt = moment().format('YYYY-MM-DD HH:mm:ss');
+  var sql = 'INSERT INTO fcomment (flower_id, fcomment, created_at, user_id) VALUES (?,?,?,?)';
+  connection.query(sql,[flowerId, fcomment, createdAt, userId],(error,results)=>{
+    res.redirect('/flower/' + flowerId);
+    console.log('insert=============')
+    console.log(flowerId)
+  })
+}
+
+
   //flowerDelete
   exports.flowerDelete = (req,res)=>{
     connection.query('DELETE FROM flower WHERE id = ?',[req.params.id],(error,results)=>{
@@ -67,3 +84,4 @@ exports.f_search = (req, res) => {
         console.log(results)
       })
   }
+

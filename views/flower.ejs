@@ -223,8 +223,8 @@ header{
       </div>
       <div class="sidebar__item sidebar__item--fixed">
         <!-- 固定・追従させたいエリア -->
-        <form action="/dcomment/<%= item.id %>" method="post">
-            <textarea name="message" id="message" class="form textarea"  placeholder="Message"></textarea>
+        <form action="/fcomment_post/<%= item.id %>" method="post">
+            <textarea name="fcomment" id="message" class="form textarea"  placeholder="Message"></textarea>
             <button class="lbutton" type="submit" class="submit">submit</button>
             
         </form>
