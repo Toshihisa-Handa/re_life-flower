@@ -68,3 +68,23 @@ exports.drege =  (req, res) => {
         res.render('drege.ejs',{items:results})
       })
   }
+
+  //dcomment.js
+exports.dcomment = (req, res)=>{
+  connection.query('SELECT S.name AS shopname, D.id, D.user_id, D.image, D.title, D.tag, D.text FROM diary AS D LEFT JOIN shop S ON D.user_id = S.user_id WHERE D.id = ?',[req.params.id],(error,result)=>{
+    res.render('diary.ejs',{item:result[0]});
+      console.log(result[0])
+    })
+  }
+
+//dcomment_post
+exports.dcomment_post =  (req, res) => {
+    var diaryId = req.params.diary_id;
+    var dcomment = req.body.dcomment;
+    var createdAt = moment().format('YYYY-MM-DD HH:mm:ss');
+    var sql = 'INSERT INTO dcomment (diary_id, dcomment, created_at) VALUES (?,?,?)';
+    connection.query(sql,[diaryId, dcomment, createdAt],(error,results)=>{
+      res.redirect('/diary/' + diaryId);
+    })
+  }
+

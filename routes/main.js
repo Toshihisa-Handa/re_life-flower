@@ -22,6 +22,7 @@ router.get('/diaryEdit/:id',diary_c.diaryEdit);//diaryEdit  日記編集画面�
 router.get('/diarys', diary_c.diarys);//diarys  日記一覧表示
 router.post('/diaryUpdate/:id',diary_c.diaryUpdate);//diaryUpdate  日記編集機能
 router.get('/drege',diary_c.drege);//drege  日記投稿画面表示
+router.post('/dcomment_post/:diary_id',diary_c.dcomment_post);//drege  日記投稿画面表示
 
 //diaryここまで========================================================
 //flowerカテゴリのルーティング＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
