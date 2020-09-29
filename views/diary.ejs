@@ -26,8 +26,6 @@ header{
     width: 100%;
     
 }
-/* メイン画像 */
-
 
 /* タイトル１ */
 .title1{
@@ -46,9 +44,7 @@ header{
     grid-template-columns: 0.1fr 0.35fr 0.1fr 0.35fr 0.1fr;
     grid-template-areas:
         "... container container container ..."
-     
-
-       
+    
       }
 
 .container {
@@ -227,12 +223,9 @@ opacity: 0.7;
       <h2><%=item.title%></h2>
       <h3><%=item.tag%></h3>
       <p class='diaryText'><%=item.text%></p>
- 
-       
-        <div id='cbtn'><span class='btnClick'>▶︎</span>コメント（<%=ditems.length %>）</div>
+      <div id='cbtn'><span class='btnClick'>▶︎</span>コメント（<%=ditems.length %>）</div>
  
       <div class="dcomment">
-
         <% if (ditems.length) { %>
                   <% ditems.forEach(function(ditem) { %>
                    <div class="comment-box">
@@ -241,10 +234,8 @@ opacity: 0.7;
                     <div class="dccomment"><%= ditem.dcomment %></div>
                   </div> 
                   <% }); %>
-      <% } %>
-
-     
-    </div>
+         <% } %>
+     </div>
     </main>
     <div class="sidebar">
       <div class="sidebar__item">
