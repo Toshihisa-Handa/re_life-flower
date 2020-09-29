@@ -66,6 +66,51 @@ header{
     max-height: 500px;
 
 }
+
+/* コメント欄 */
+.dcomment{
+    /* background-color: rgba(235, 228, 161, 0.5); */
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+}
+.comment-box{
+  margin-top:2rem;
+  margin-left:1rem;
+}
+.dcname{
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #222;
+}
+.dccreatedAt{
+  font-size: 1.2rem;
+  display: block;
+  line-height: 1;
+  color: #787c7b;
+}
+.dccomment{
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: #222;
+}
+.btnClick{
+  color:black;
+}
+#cbtn{
+   color:black;
+   font-size: 1.4rem;
+   font-weight: 700;
+   line-height: 1;
+   color: #a8abb1;
+}
+#cbtn:active{
+    color:rgb(228, 164, 81)
+}
+.dcomment{
+    display:none;
+}
+
 .sidebar {
   width: 35%;
   /* background-color: rgb(94, 227, 112); */
@@ -124,20 +169,7 @@ header{
 
 /* エディタここまで ＝＝＝＝＝＝＝＝＝＝＝＝*/
 
-/* コメント */
-.comment-area{
-    display:grid;
-    grid-template-rows: auto   ;
-    grid-template-columns: 0.1fr 0.35fr 0.1fr 0.35fr 0.1fr;
-    grid-template-areas:
-        "... dcomment dcomment ... ..."
-     
-}
 
-.dcomment{
-    grid-area:dcomment;
-    background-color: rgba(235, 228, 161, 0.5);
-}
 
 </style>
 <body>
@@ -182,12 +214,19 @@ header{
       <h2><%=item.title%></h2>
       <h3><%=item.tag%></h3>
       <p name="" id="" cols="30" rows="10"><%=item.text%></p>
+ 
+       
+        <div id='cbtn'><span class='btnClick'>▶︎</span>コメント（<%=ditems.length %>）</div>
+ 
       <div class="dcomment">
 
         <% if (ditems.length) { %>
                   <% ditems.forEach(function(ditem) { %>
-                              <p class="message__title"><%= ditem.dcomment %></p>
-                              <p class="message__date"><%= ditem.user_name %> <%= ditem.created_at %></p>                    
+                   <div class="comment-box">
+                    <div class="dcname"><%= ditem.user_name %></div>             
+                    <div class='dccreatedAt'> <%= ditem.created_at %></div>       
+                    <div class="dccomment"><%= ditem.dcomment %></div>
+                  </div> 
                   <% }); %>
       <% } %>
 
@@ -205,26 +244,10 @@ header{
             <button class="lbutton" type="submit" class="submit">submit</button>
         </form>
         
-        <!-- <img src="../images/img1.jpg" alt="" style='height: 300px;'> -->
       </div>
     </div>
   </div>
 </div>
-
-<!-- 
-<div class="comment-area">
-  <div class="dcomment">
-      <p>名前</p> <p>こめんと</p>
-   
-  </div>
-
-
-</div> -->
-
-
-
-
-
 
      <footer>
          <h3>Copyright  second-cube</h3>
@@ -236,6 +259,14 @@ header{
 
 
 
+<script>
+ const cbtn = document.querySelector('#cbtn')
+ const hideComment = document.querySelector('.dcomment')
+   cbtn.onclick = function(){
+     hideComment.classList.toggle('dcomment')
+    // alert('hit')
+ }
 
+</script>
 </body>
 </html>

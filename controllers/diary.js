@@ -23,7 +23,7 @@ exports.d_search = (req, res) => {
 exports.diary = (req, res)=>{
     var diaryId = req.params.id;
     var sql = 'SELECT S.name AS shopname, D.id, D.user_id, D.image, D.title, D.tag, D.text FROM diary AS D LEFT JOIN shop S ON D.user_id = S.user_id WHERE D.id = ?';
-    var dcsql = 'SELECT Dc.dcomment, ifnull(U.name, \'名無し\') AS user_name, DATE_FORMAT(Dc.created_at, \'%Y年%m月%d日 %k時%i分%s秒\') AS created_at FROM dcomment Dc LEFT OUTER JOIN user U ON Dc.user_id = U.user_id WHERE Dc.diary_id = ' + diaryId + ' ORDER BY Dc.created_at ASC'; 
+    var dcsql = 'SELECT Dc.dcomment, ifnull(U.name, \'名無し\') AS user_name, DATE_FORMAT(Dc.created_at, \'%Y/%m/%d  %k:%i\') AS created_at FROM dcomment Dc LEFT OUTER JOIN user U ON Dc.user_id = U.user_id WHERE Dc.diary_id = ' + diaryId + ' ORDER BY Dc.created_at ASC'; 
     connection.query(sql,[req.params.id],(error,result)=>{
       connection.query(dcsql,(error, dcomment)=>{
         res.render('diary.ejs',{
