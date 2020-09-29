@@ -183,6 +183,15 @@ header{
       <h3><%=item.tag%></h3>
       <p name="" id="" cols="30" rows="10"><%=item.text%></p>
       <div class="dcomment">
+
+        <% if (ditems.length) { %>
+                  <% ditems.forEach(function(ditem) { %>
+                              <p class="message__title"><%= ditem.dcomment %></p>
+                              <p class="message__date"><%= ditem.created_at %></p>                    
+                  <% }); %>
+      <% } %>
+
+
         <p>名前</p> <p>こめんと</p>
         <p>名前</p> <p>こめんと</p>
         <p>名前</p> <p>こめんと</p>

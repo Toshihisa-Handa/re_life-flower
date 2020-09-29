@@ -21,11 +21,51 @@ exports.d_search = (req, res) => {
 
 //diary.js
 exports.diary = (req, res)=>{
-    connection.query('SELECT S.name AS shopname, D.id, D.user_id, D.image, D.title, D.tag, D.text FROM diary AS D LEFT JOIN shop S ON D.user_id = S.user_id WHERE D.id = ?',[req.params.id],(error,result)=>{
-      res.render('diary.ejs',{item:result[0]});
+    var diaryId = req.params.id;
+    var sql = 'SELECT S.name AS shopname, D.id, D.user_id, D.image, D.title, D.tag, D.text FROM diary AS D LEFT JOIN shop S ON D.user_id = S.user_id WHERE D.id = ?';
+    var dcsql = 'SELECT *, DATE_FORMAT(created_at, \'%Y年%m月%d日 %k時%i分%s秒\') AS created_at FROM dcomment WHERE diary_id = ' + diaryId;
+    connection.query(sql,[req.params.id],(error,result)=>{
+      connection.query(dcsql,(error, dcomment)=>{
+        res.render('diary.ejs',{
+          item:result[0],
+          ditems:dcomment
+        });
+        // console.log(result[0])
+        console.log('hoge=================================')
+        console.log(req.params.diary_id)
+        console.log(req.params.id)
+      })
+     
         console.log(result[0])
       })
     }
+
+    // router.get('/:board_id', function(req, res, next) {
+    //   var boardId = req.params.board_id;
+    //   var query = 'SELECT * FROM boards WHERE board_id = ' + boardId;
+    //   connection.query(query, function(err, rows) {
+    //     res.render('board', {
+    //       title: rows[0].title,
+    //       board: rows[0]
+    //     });
+    //   });
+    // });
+
+    // router.get('/:board_id', function(req, res, next) {
+    //   var boardId = req.params.board_id;
+    //   var getBoardQuery = 'SELECT * FROM boards WHERE board_id = ' + boardId;
+    //   var getMessagesQuery = 'SELECT *, DATE_FORMAT(created_at, \'%Y年%m月%d日 %k時%i分%s秒\') AS created_at FROM messages WHERE board_id = ' + boardId;
+    //   connection.query(getBoardQuery, function(err, board) {
+    //     connection.query(getMessagesQuery, function(err, messages) {
+    //       res.render('board', {
+    //         title: board[0].title,
+    //         board: board[0],
+    //         messageList: messages
+    //       });
+    //     });
+    //   });
+
+
 
 //diaryDelete
 exports.diaryDelete = (req,res)=>{
@@ -69,13 +109,13 @@ exports.drege =  (req, res) => {
       })
   }
 
-  //dcomment.js
-exports.dcomment = (req, res)=>{
-  connection.query('SELECT S.name AS shopname, D.id, D.user_id, D.image, D.title, D.tag, D.text FROM diary AS D LEFT JOIN shop S ON D.user_id = S.user_id WHERE D.id = ?',[req.params.id],(error,result)=>{
-    res.render('diary.ejs',{item:result[0]});
-      console.log(result[0])
-    })
-  }
+//   //dcomment.js
+// exports.dcomment = (req, res)=>{
+//   connection.query('SELECT S.name AS shopname, D.id, D.user_id, D.image, D.title, D.tag, D.text FROM diary AS D LEFT JOIN shop S ON D.user_id = S.user_id WHERE D.id = ?',[req.params.id],(error,result)=>{
+//     res.render('diary.ejs',{item:result[0]});
+//       console.log(result[0])
+//     })
+//   }
 
 //dcomment_post
 exports.dcomment_post =  (req, res) => {
@@ -85,6 +125,8 @@ exports.dcomment_post =  (req, res) => {
     var sql = 'INSERT INTO dcomment (diary_id, dcomment, created_at) VALUES (?,?,?)';
     connection.query(sql,[diaryId, dcomment, createdAt],(error,results)=>{
       res.redirect('/diary/' + diaryId);
+      console.log('insert=============')
+      console.log(diaryId)
     })
   }
 
