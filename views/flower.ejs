@@ -198,24 +198,19 @@ header{
     <p>特徴：<%=item.feature%></p>
     <p><%=item.text%></p>
     <div class="dcomment">
-        <p>名前</p> <p>こめんと</p>
-        <p>名前</p> <p>こめんと</p>
-        <p>名前</p> <p>こめんと</p>
-        <p>名前</p> <p>こめんと</p>
-        <p>名前</p> <p>こめんと</p>
-        <p>名前</p> <p>こめんと</p>
-        <p>名前</p> <p>こめんと</p>
-        <p>名前</p> <p>こめんと</p>
-        <p>名前</p> <p>こめんと</p>
-        <p>名前</p> <p>こめんと</p>
-        <p>名前</p> <p>こめんと</p>
-        <p>名前</p> <p>こめんと</p>
-        <p>名前</p> <p>こめんと</p>
-        <p>名前</p> <p>こめんと</p>
-        <p>名前</p> <p>こめんと</p>
-     
-    </div>
 
+      <% if (fitems.length) { %>
+                <% fitems.forEach(function(fitem) { %>
+                 <div class="comment-box">
+                  <div class="dcname"><%= fitem.user_name %></div>             
+                  <div class='dccreatedAt'> <%= fitem.created_at %></div>       
+                  <div class="dccomment"><%= fitem.fcomment %></div>
+                </div> 
+                <% }); %>
+    <% } %>
+
+   
+  </div>
     </main>
     <div class="sidebar">
       <div class="sidebar__item">
@@ -229,32 +224,11 @@ header{
             
         </form>
         
-        <!-- <img src="../images/img1.jpg" alt="" style='height: 300px;'> -->
       </div>
     </div>
   </div>
 </div>
 
-
-<!-- <div class="comment-area">
-  <div class="dcomment">
-      <p>名前</p> <p>こめんと</p>
-      <p>名前</p> <p>こめんと</p>
-      <p>名前</p> <p>こめんと</p>
-      <p>名前</p> <p>こめんと</p>
-      <p>名前</p> <p>こめんと</p>
-      <p>名前</p> <p>こめんと</p>
-      <p>名前</p> <p>こめんと</p>
-      <p>名前</p> <p>こめんと</p>
-      <p>名前</p> <p>こめんと</p>
-      <p>名前</p> <p>こめんと</p>
-      <p>名前</p> <p>こめんと</p>
-      <p>名前</p> <p>こめんと</p>
-      <p>名前</p> <p>こめんと</p>
-      <p>名前</p> <p>こめんと</p>
-      <p>名前</p> <p>こめんと</p>
-   
-  </div> -->
 
 
 </div>
