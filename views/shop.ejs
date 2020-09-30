@@ -390,31 +390,39 @@ height: 100%;
 
 
     <!-- お花一覧 -->
-    <div class="flist">
-      <div class="glide">
-          <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
-              <% fitem.forEach((fite) => { %>
-                <div class="glide__slide">
-                  <div class="flower-box">
-                  <a href="/flower/<%=fite.id%>">
-                      <div class="flower"><img src="../images/uploads/<%= fite.image %>" alt=""></div>
-                      <h3 class='fname'><%=fite.name%></h3>
-                      <p class='fprice'><%=fite.price%>円（税別）</p>
-                      <p class='ffeature'><%=fite.feature%></p>
-                  </a>
-                </div>
-                </div>
-              <% }) %>
-            </ul>
-        
-          </div>
-          <div class="glide__arrows" data-glide-el="controls">
-              <button class="glide__arrow glide__arrow--left fbl" data-glide-dir="<">←</button>
-              <button class="glide__arrow glide__arrow--right fbr" data-glide-dir=">">→</button>
+
+
+    <% if (fitem.length) { %>
+      <div class="flist">
+        <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                <% fitem.forEach((fite) => { %>
+                  <div class="glide__slide">
+                    <div class="flower-box">
+                    <a href="/flower/<%=fite.id%>">
+                        <div class="flower"><img src="../images/uploads/<%= fite.image %>" alt=""></div>
+                        <h3 class='fname'><%=fite.name%></h3>
+                        <p class='fprice'><%=fite.price%>円（税別）</p>
+                        <p class='ffeature'><%=fite.feature%></p>
+                    </a>
+                  </div>
+                  </div>
+                <% }) %>
+
+              </ul>
+          
             </div>
-        </div>
-  </div>
+            <div class="glide__arrows" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--left fbl" data-glide-dir="<">←</button>
+                <button class="glide__arrow glide__arrow--right fbr" data-glide-dir=">">→</button>
+              </div>
+          </div>
+    </div>
+<% }else{ %>
+ <p>お花は登録されてません</p>
+
+  <% } %>
 <!-- お花一覧ここまで -->
 
   <div class='title3'>
@@ -422,27 +430,39 @@ height: 100%;
   </div>
     
 <!-- 日記一覧 -->
-<div class="dlist">
-  <div class="dglide">
-      <div class="glide__track" data-glide-el="track">
-        <ul class="glide__slides">
-          <% ditem.forEach((dite) => { %>
-            <div class="glide__slide">
-              <div class="diary-box">
-              <a href="/diary/<%=dite.id%>">
-                <div class="diary"><img src="../images/uploads/<%= dite.image %>" alt=""></div>
-                <div class='dtitle'><%=dite.title%></div>
-                <div class='dtext'><%=dite.text%></div>
-              </a> 
+
+<% if (ditem.length) { %>
+  <div class="dlist">
+    <div class="dglide">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            <% ditem.forEach((dite) => { %>
+              <div class="glide__slide">
+                <div class="diary-box">
+                <a href="/diary/<%=dite.id%>">
+                  <div class="diary"><img src="../images/uploads/<%= dite.image %>" alt=""></div>
+                  <div class='dtitle'><%=dite.title%></div>
+                  <div class='dtext'><%=dite.text%></div>
+                </a> 
+              </div>
             </div>
-          </div>
-          <% }) %>
-        </ul>
-      </div>
-   
-    
+            <% }) %>
+          </ul>
+        </div>
+     
+      
+    </div>
   </div>
-</div>
+
+
+
+<% } %>
+
+
+
+
+
+
 </div>
 <!-- 日記一覧ここまで -->
 
