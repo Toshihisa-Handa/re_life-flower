@@ -52,20 +52,11 @@ exports.s_search = (req, res)=>{
 exports.shop = (req, res)=>{
       var sql = 'SELECT D.image AS dimg, F.image AS fimg, S.id, S.user_id, S.name, S.title, S.account_name, S.web, S.email, S.tell, S.open, S.close, S.holiday, S.location, S.map, S.account_img, S.shop_img, S.img1, S.img2, S.message, S.comment, S.created_at FROM shop S LEFT JOIN diary D ON S.user_id = D.user_id LEFT JOIN flower F ON S.user_id = F.user_id WHERE S.id = ?';
       connection.query(sql,[req.params.id],(error,result)=>{
-        console.log('リザルトの情報を下でとりたい＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝')
-        console.log(result[0])
-        console.log('リザルトの情報をとった＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝')
-
           let uid = result[0].user_id;
           var flowers = 'SELECT * FROM flower WHERE user_id = '+ uid +''
           var diarys = 'SELECT * FROM diary WHERE user_id = '+ uid +''
             connection.query(flowers,(error,flower)=>{
-              console.log('お花の情報を取得＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝')
-              console.log(flowers)
                 connection.query(diarys,(error,diary)=>{
-                  console.log('日記の情報を取得＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝')
-                  console.log(diarys)
-
                     res.render('shop.ejs',{fitem:flower, ditem:diary, item:result});
           })
         })
@@ -77,7 +68,5 @@ exports.shops = (req, res) => {
     var sql = 'SELECT S.id, S.user_id, S.name AS shopname, S.location AS basyo, S.account_img, S.shop_img, S.close, S.open, S.feature, ifnull(U.name, \'名無し\') AS username, DATE_FORMAT(S.created_at, \'%Y年%m月%d日 %k時%i分%s秒\') AS created_at FROM shop S LEFT OUTER JOIN user U ON S.user_id = U.user_id  ORDER BY S.created_at DESC'; 
       connection.query(sql,(error,results)=>{
         res.render('shops.ejs',{items:results})
-        console.log('ショプのデーター＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝')
-        console.log(results)
       })
   }

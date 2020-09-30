@@ -97,6 +97,8 @@ header{
 .tips1{
   margin-top:0;
     grid-area:tips1;
+    white-space: pre-wrap;
+
     /* background: rgb(155, 153, 153); */
 }
 .tips1 h3{
@@ -199,7 +201,9 @@ header{
   }
 
 /* 花一覧ここまで＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
-
+.notAlert{
+  text-align: center;
+}
       
 /* 日記一覧ここから */
 .title3{
@@ -420,7 +424,9 @@ height: 100%;
           </div>
     </div>
 <% }else{ %>
- <p>お花は登録されてません</p>
+  <div class="flist">
+ <p class='notAlert'>お花は登録されてません</p>
+</div>
 
   <% } %>
 <!-- お花一覧ここまで -->
@@ -449,15 +455,15 @@ height: 100%;
             <% }) %>
           </ul>
         </div>
-     
-      
     </div>
   </div>
-
-
+ 
+<% }else{ %>
+  <div class="dlist">
+ <p class='notAlert'>日記は登録されてません</p>
+</div>
 
 <% } %>
-
 
 
 
