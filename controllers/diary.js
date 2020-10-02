@@ -21,11 +21,39 @@ exports.d_search = (req, res) => {
 
 //diary.js
 exports.diary = (req, res)=>{
-    connection.query('SELECT S.name AS shopname, D.id, D.user_id, D.image, D.title, D.tag, D.text FROM diary AS D LEFT JOIN shop S ON D.user_id = S.user_id WHERE D.id = ?',[req.params.id],(error,result)=>{
-      res.render('diary.ejs',{item:result[0]});
+    var diaryId = req.params.id;
+    var sql = 'SELECT S.name AS shopname, D.id, D.user_id, D.image, D.title, D.tag, D.text FROM diary AS D LEFT JOIN shop S ON D.user_id = S.user_id WHERE D.id = ?';
+    var dcsql = 'SELECT Dc.dcomment, ifnull(U.name, \'名無し\') AS user_name, DATE_FORMAT(Dc.created_at, \'%Y/%m/%d  %k:%i\') AS created_at FROM dcomment Dc LEFT OUTER JOIN user U ON Dc.user_id = U.user_id WHERE Dc.diary_id = ' + diaryId + ' ORDER BY Dc.created_at ASC'; 
+    connection.query(sql,[req.params.id],(error,result)=>{
+      connection.query(dcsql,(error, dcomment)=>{
+        res.render('diary.ejs',{
+          item:result[0],
+          ditems:dcomment
+        });
+        // console.log(result[0])
+        console.log('hoge=================================')
+        console.log(req.params.diary_id)
+        console.log(req.params.id)
+      })
+     
         console.log(result[0])
       })
     }
+
+
+//dcomment_post
+exports.dcomment_post =  (req, res) => {
+  var userId = req.session.user_id? req.session.user_id: 0; 
+  var diaryId = req.params.diary_id;
+  var dcomment = req.body.dcomment;
+  var createdAt = moment().format('YYYY-MM-DD HH:mm:ss');
+  var sql = 'INSERT INTO dcomment (diary_id, dcomment, created_at, user_id) VALUES (?,?,?,?)';
+  connection.query(sql,[diaryId, dcomment, createdAt, userId],(error,results)=>{
+    res.redirect('/diary/' + diaryId);
+    console.log('insert=============')
+    console.log(diaryId)
+  })
+}
 
 //diaryDelete
 exports.diaryDelete = (req,res)=>{
@@ -68,3 +96,6 @@ exports.drege =  (req, res) => {
         res.render('drege.ejs',{items:results})
       })
   }
+
+
+

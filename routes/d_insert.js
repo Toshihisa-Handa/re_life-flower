@@ -23,10 +23,6 @@ let diary_c = require('../controllers/diary')//コントローラーフォルダ
 router.get('/',diary_c.d_insert)	;
 
 router.post('/', upload.single('image'), function (req, res, next) {
-  console.log('スタートスタートスタートスタートスタートスタートスタートスタートスタートスタート')
-  console.log(req.file.filename);
-  // console.log(req.image.id);
-
   var boardId = req.params.board_id;
   var userId = req.session.user_id? req.session.user_id: 0;
   var title = req.body.title;
@@ -35,7 +31,7 @@ router.post('/', upload.single('image'), function (req, res, next) {
   var text = req.body.text;
   var createdAt = moment().format('YYYY-MM-DD HH:mm:ss');
   var sql='INSERT INTO diary (user_id, title, image, tag, text, created_at) VALUES(?,?,?,?,?,?)';
-  connection.query(sql, [userId, title, req.file.filename, tag, text, createdAt],(error,result)=>{
+  connection.query(sql, [userId, title, req.file.filename, tag, text, createdAt],(error,result)=>{//diaryMOdelに処理を投げる（コントローラーとモデルの処理を分ける）
     res.redirect('/drege')
   })
   })

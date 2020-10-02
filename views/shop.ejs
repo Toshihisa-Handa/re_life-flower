@@ -3,99 +3,518 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>店舗詳細ページ</title>
-    <link rel="stylesheet" href="../public/css/style.css">
-    <style>
-        header{
-            height: 50px;
-            position: fixed;
-            width: 1200px;
-            background-color: rgba(0, 1, 3, 0.3);
-        
-        }
-        header ul{
-            display: flex;
-            list-style: none;
-            justify-content: space-around;
-        }
-        header ul li a{
-            color:rgb(216, 241, 235);
-            font:20px bold;
-            text-decoration: none;
-        }
-
-        img{
-            width: 300px;
-        }
-  
-       .flowers ,.diarys{
-           display: flex;
-           flex-wrap: wrap;
-       }
-
-    </style>
+    <title>トップページ</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- glide.jsの読み込み -->
+    <link rel="stylesheet" href="../css/glide.core.min.css">
+    <link rel="stylesheet" href="../css/glide.theme.min.css">
 </head>
-<body>
-    <header>
-        <ul>
-            <li><a href="/">ホーム</a></li>
-            <li><a href="/shops">店舗</a></li>
-            <li><a href="/diarys">日記</a></li>
-            <li><a href="/flowers">お花</a></li>
-            <li><a href="">検索</a></li>
-            <li><a href="/login">ログイン</a></li>
-        </ul>
-     </header>
-    <h1>店舗詳細ページ</h1>
-      <h2><%=item[0].name%></h2>
-     
-      <h3><%=item.title%></h3>
-      <div><img src="../images/uploads/<%= item[0].shop_img %>" alt=""></div>
-      <div><img src="../images/uploads/<%= item[0].img1 %>" alt=""></div>
-      <div><%=item[0].message%></div>
-      <div><%=item[0].comment%></div>
-      <a href="#">店舗詳細へ</a>
+<style>
 
-      <!-- ここに花一覧の記述 -->
-      <h2><%=item[0].name%>のお花一覧</h2>
-      <div class="flowers">
-      <% fitem.forEach((fite) => { %>
-      <div><a href="/flower/<%=fite.id%>">
-        <div class="flower"><img src="../images/uploads/<%= fite.image %>" alt=""></div>
-        <h3><%=fite.name%></h3>
-        <p><%=fite.price%></p>
-        <p><%=fite.feature%></p>
-    </a></div>
-      <% }) %>
-    </div>
+/* メインここから */
+.main-glid{
+    display:grid;
+    grid-template-rows: 0 auto auto ;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "header  header"
+        "main    main"
+        "title1  title1"
+      }
+/* ヘッダー */
+header{
+    grid-area:header;
+    background: rgba(177, 212, 238,0.3);
+    position: fixed;
+    width: 100%;
+    
+}
+/* メイン画像 */
+.main{
+    grid-area:main;
+    /* background: rgb(155, 153, 153); */
+    /* background-image: url(/images/top0.jpg); */
+    /* max-height: 900px; */
+    background-size: cover;
+}
+.mainTitle{
+    margin-top:20%;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 6rem;
+    /* color:wheat; */
+    color:rgb(241, 242, 232);
+}
+.mainspan1, .mainspan2{
+  background-color: rgba(37, 39, 43, 0.2);
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  padding:0.3%;
+  border-radius: 11%;
+}
+.mainspan1:before, .mainspan2:before{
+  content: '';
+  background: inherit;/*.bgImageで設定した背景画像を継承する*/
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  position: absolute;
+  /*ブラー効果で画像の端がボヤけた分だけ位置を調整*/
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+}
+
+.mainSubtitle{
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 4.8rem;
+    /* color:wheat; */
+    color:rgb(241, 242, 232);
+}
+/* タイトル１ */
+.title1{
+    grid-area:title1;
+    /* background: #f88; */
+}
+.title1 h1{
+    line-height: 300px;
+    text-align: center;
+}
+/* メインここまで＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
+.tips-glid{
+  display:grid;
+    grid-template-columns: 1.5fr 7fr 1.5fr;
+    grid-template-areas: 
+        "... tips1 ...";
+}
+.tips1{
+  margin-top:0;
+    grid-area:tips1;
+    white-space: pre-wrap;
+
+    /* background: rgb(155, 153, 153); */
+}
+.tips1 h3{
+    font-size: 2.6rem;
+    word-break: break-all;
+    line-height: 6rem;;
+}
 
 
-      <!-- ここに日記一覧の記述 -->
-      <h2><%=item[0].name%>の日記一覧</h2>
-    <div class="diarys">
-      <% ditem.forEach((dite) => { %>
-      <div><a href="/diary/<%=dite.id%>">
-        <div class="diary"><img src="../images/uploads/<%= dite.image %>" alt=""></div><br>
-        <p><%=dite.title%></p>
-        <p><%=dite.text%></p>
-    </a> </div>
-      <% }) %>
-    </div>
+/* 画像１ */
+.img-glid{
+  display:grid;
+    grid-template-rows:100px auto;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-areas: 
+        "...  ... ..."
+        "... img1 ...";
+}
+.img1{
+    grid-area:img1;
+    /* background: #f88; */
+}
+.img1 img{
+  width: 100%;
+  max-height: 400px;
+
+}
 
 
 
-      <h2>店舗詳細</h2>
-      <div><img src="../images/uploads/<%= item[0].img2 %>" alt=""></div>
-      <div>
-          <h3>営業時間：<%=item[0].open%>〜<%=item[0].close%></h3>
-          <h3>定休日：<%=item[0].holiday%></h3>
-          <h3>住所：<%=item[0].location%></h3>
-          <iframe src="<%=item[0].map %>" width='300px' frameborder="0"></iframe>
+/* お花一覧の設定 */
 
-      </div>
+.flower-glid{
+  display:grid;
+    grid-template-rows:50px auto 50px auto 50px auto 50px auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "...  ..."
+        "title2  title2"
+        "...  ..."
+        "flist  flist"
+        "...     ..."
+        "title3  title3"
+        "...     ..."
+        "dlist   dlist";
+}
+       
+.title2{
+    grid-area:title2;
+    /* background: rgb(155, 153, 153); */
+}
+.title2 h1{
+    text-align: center;
+}
+
+/* 花一覧表示 */
+
+
+  .flist{
+  grid-area: flist;
+  padding-top:2%;
+  background: rgb(243, 245, 248);
+  margin-left: 2%;
+  margin-right:2%;
+  }
+  
+
+  .flower-box{
+  /* background: rgb(179, 202, 236); */
+  width: 300px;
+  height: 450px;
+  border: 2px solid rgb(197, 213, 247);
+  box-shadow: 5px 5px 5px 1px rgb(163, 189, 197);
+  margin-right: 30px;
+  }
+  .flower {
+    width: 100%;
+  }
+  .flower img{
+    width: 100%;
+    height: 270px;
+  }
+
+  .fname{
+  text-overflow: ellipsis;
+  margin-top:0;
+  margin-bottom:0;
+  margin-left:5%;
+  font-size: 2rem;
+  }
+  .fprice, .ffeature{
+  margin-left:5%;
+  font-size: 1.6rem;
+
+  }
 
   
+  .fbl, .fbr{
+    background-color: rgb(139, 173, 235);
+  }
+
+/* 花一覧ここまで＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+.notAlert{
+  text-align: center;
+}
+      
+/* 日記一覧ここから */
+.title3{
+    grid-area:title3;
+    /* background: rgb(155, 153, 153); */
+}
+.title3 h1{
+    text-align: center;
+}
+
+
+
+.dlist{
+padding-top:2%;
+grid-area: dlist;
+margin-left: 2%;
+margin-right:2%;
+background: rgb(243, 245, 248);
+
+}
+
+.diary-box{
+/* background: rgba(243, 242, 234, 0.3); */
+width: 300px;
+height: 443px;
+border: 2px solid rgb(197, 213, 247);
+box-shadow: 5px 5px 5px 1px rgb(163, 189, 197);
+}
+.diary {
+  width: 100%;
+  margin-top: 0;
+}
+.diary img{
+  width: 100%;
+  height: 220px;
+
+}
+
+.dtitle{
+text-overflow: ellipsis;
+margin-top:0;
+margin-bottom:0;
+margin-left:5%;
+font-size: 2rem;
+}
+.dtext{
+font-size: 1.4rem;
+margin-top:5px;
+margin-left:7%;
+margin-right: 3%;
+word-break: keep-all;
+overflow: hidden;
+text-overflow: ellipsis;/*...を末尾にいれる(overflow:hiddenとセット)*/
+}
+  
+
+/* 日記一覧ここまで */
+
+
+.access-glid{
+   display:grid;
+    grid-template-rows:100px auto 50px auto 50px;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-areas: 
+    "...  ... ..."
+    "...  title4 ..."
+    "...  ...    ..."
+    "...  shopName  ..."
+    "...  ...    ...";
+
+}
+
+
+.title4{
+    grid-area:title4;
+    /* background: rgb(155, 153, 153); */
+}
+.title4 h1{
+  text-align: center;
+}
+.accessTitle{
+  padding-bottom:10px;
+  border-bottom: 1px inset rgba(48, 50, 53, 0.4);;
+
+}
+
+.shopName{
+    grid-area:shopName;
+    /* background: rgb(155, 153, 153); */
+}
+.shopName h2{
+  text-align: center;
+}
+
+.map-glid{
+  display:grid;
+    grid-template-rows: auto 100px 300px auto;
+    grid-template-columns: 1fr 4.5fr 1fr 4.5fr 1fr;
+    grid-template-areas: 
+    "... img3  ... access ..."
+    '...   ...   ... ... ...'
+    "... map  map  map ..."
+    "footer footer  footer footer footer";
+}
+.img3{
+  grid-area:img3;
+}
+.imgBox{
+  width: 100%;
+  height: 100%;
+  margin:0 auto;
+}
+.imgBox img{
+width: 100%;
+height: 100%;
+}
+
+.access{
+  grid-area:access;
+}
+
+.access h3{
+  /* text-align: center; */
+  line-height: 2rem;
+  margin-left:0;
+}
+
+.map{
+  grid-area:map;
+}
+.shopmap{
+  width: 100%;
+  height: 100%;
+}
+
+</style>
+<body>
+<div class="main-glid">
+
+
+    <header>
+       <ul>
+         <li>
+             <a href="/mypage">
+                <% if (typeof user !== 'undefined') { %>
+                    <img src="../images/account.jpg" class='aimg' alt="" >  
+                  <% } %>
+            </a>
+        </li>
+        <li><a href="/">Home</a></li>
+         <li><a href="/shops">Shop</a></li>
+         <li><a href="/diarys">Diary</a></li>
+         <li><a href="/flowers">Flower</a></li>
+         <!-- <li><div id='search'>検索</div></li> -->
+         <% if (typeof user == 'undefined') { %>
+         <li><a href="/login">Login</a></li>
+         <% } else{%>
+         <li><a href="/logout">Logout</a></li>
+         <% } %>
+       </ul>
+    </header>
+
+    <div class='main' style='background-image: url(/images/uploads/<%= item[0].shop_img %>)'>
+            <p class='mainTitle'><span class='mainspan1'>&nbsp;<%=item[0].name%>&nbsp;</span></p>
+            <p class='mainSubtitle'><span class='mainspan2'>&nbsp;<%=item[0].title%>&nbsp;</span></p>
+    </div>
+    <div class='title1'>
+          <h1><%=item[0].message%></h1>       
+    </div>
+  </div>
+
+  <div class="tips-glid">
+    <div class="tips1">
+        <h3><%=item[0].comment%></h3>
+    </div>
+  </div>
+
+  <div class="img-glid">
+    <div class='img1'>
+        <img src="../images/uploads/<%= item[0].img1 %>" alt="">
+    </div>
+  </div>
+
+  <div class="flower-glid">
+    <div class='title2'>
+      <h1>Our Flowers</h1>
+    </div>
+
+
+    <!-- お花一覧 -->
+
+
+    <% if (fitem.length) { %>
+      <div class="flist">
+        <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                <% fitem.forEach((fite) => { %>
+                  <div class="glide__slide">
+                    <div class="flower-box">
+                    <a href="/flower/<%=fite.id%>">
+                        <div class="flower"><img src="../images/uploads/<%= fite.image %>" alt=""></div>
+                        <h3 class='fname'><%=fite.name%></h3>
+                        <p class='fprice'><%=fite.price%>円（税別）</p>
+                        <p class='ffeature'><%=fite.feature%></p>
+                    </a>
+                  </div>
+                  </div>
+                <% }) %>
+
+              </ul>
+          
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--left fbl" data-glide-dir="<">←</button>
+                <button class="glide__arrow glide__arrow--right fbr" data-glide-dir=">">→</button>
+              </div>
+          </div>
+    </div>
+<% }else{ %>
+  <div class="flist">
+ <p class='notAlert'>お花は登録されてません</p>
+</div>
+
+  <% } %>
+<!-- お花一覧ここまで -->
+
+  <div class='title3'>
+    <h1>Our Diaries</h1>
+  </div>
     
+<!-- 日記一覧 -->
+
+<% if (ditem.length) { %>
+  <div class="dlist">
+    <div class="dglide">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            <% ditem.forEach((dite) => { %>
+              <div class="glide__slide">
+                <div class="diary-box">
+                <a href="/diary/<%=dite.id%>">
+                  <div class="diary"><img src="../images/uploads/<%= dite.image %>" alt=""></div>
+                  <div class='dtitle'><%=dite.title%></div>
+                  <div class='dtext'><%=dite.text%></div>
+                </a> 
+              </div>
+            </div>
+            <% }) %>
+          </ul>
+        </div>
+    </div>
+  </div>
+ 
+<% }else{ %>
+  <div class="dlist">
+ <p class='notAlert'>日記は登録されてません</p>
+</div>
+
+<% } %>
+
+
+
+
+
+</div>
+<!-- 日記一覧ここまで -->
+
+<!-- アクセスグリッド -->
+<div class="access-glid">
+
+<div class='title4'>
+  <h1>
+    <span class='accessTitle'>Access</span>
+  </h1>
+</div>
+
+<div class="shopName">
+  <h2> <%=item[0].name%></h2>
+</div>
+</div>
+<!-- アクセスここまで -->
+
+<!-- マップ -->
+<div class="map-glid">
+
+<div class="img3">
+  <div class="imgBox">
+    <img src="../images/uploads/<%= item[0].img2 %>" alt="">
+  </div>
+</div>
+
+
+<div class="access">
+      <h3>住所：<%=item[0].location%></h3>
+      <h3>営業時間：<%=item[0].open%>〜<%=item[0].close%></h3>
+      <h3>定休日：<%=item[0].holiday%></h3>
+      <h3>電話番号：<%=item[0].tell%></h3>
+      <h3>メールアドレス：<%=item[0].email%></h3>
+</div>
+
+
+<div class="map">
+  <iframe src="<%=item[0].map %>" class='shopmap'  frameborder="0"></iframe>
+</div>
+
+     <footer>
+         <h3>Copyright  second-cube</h3>
+     </footer>
+
+</div>
 
 
 
@@ -103,7 +522,49 @@
 
 
 
+<!-- glide.jsの読み込み -->
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+<script>
+const config = {
+  //お花のカルーセルの設定
+    type: 'carousel',
+    perView: 5,
+    breakpoints: {
+    1400: {
+      perView: 4
+    },
+    1250: {
+      perView: 3
+    },
+    850: {
+      perView: 2
+    },
+    600: {
+      perView: 1
+    }
+  }
+}
+//日記のカルーセルの設定
+const dconfig = {
+    type: 'carousel',
+    perView: 4,
+    breakpoints: {
+    
+    1350: {
+      perView: 3
+    },
+    950: {
+      perView: 2
+    },
+    600: {
+      perView: 1
+    }
+  }
+}
 
 
+    new Glide('.glide', config).mount()
+    new Glide('.dglide', dconfig).mount()
+  </script>
 </body>
 </html>

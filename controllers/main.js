@@ -4,8 +4,17 @@ const moment = require('moment');//日付取得用パッケージ読み込み
 //top
 exports.top = (req, res)=>{
     connection.query('SELECT * FROM user',(error,results)=>{
+      let uid = results[0].user_id;
+      var shop = 'SELECT account_img FROM shop WHERE user_id = '+uid+'';
+       connection.query(shop,(error,shops)=>{
       // res.renderで指定ファイルの画面表示させる
-      res.render('top.ejs');
+      res.render('top.ejs',{items:shops});
+      console.log(shops)
+      console.log(shops[0].account_img)
+       })
+
+
+
     })
   }
 

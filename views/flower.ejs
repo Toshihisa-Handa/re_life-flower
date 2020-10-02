@@ -3,34 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>花の詳細ページ</title>
+    <title>トップページ</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
+<style>
+
+/* メインここから */
+.main-glid{
+    display:grid;
+    grid-template-rows: 0 100px auto  auto  ;
+    grid-template-columns: 0.1fr 0.35fr 0.1fr 0.35fr 0.1fr;
+    grid-template-areas:
+        "header header header header header"
+        "...    ...     ...    ...    ..."
+        "...  title1 title1   title1  ...";       
+      }
+/* ヘッダー */
+header{
+    grid-area:header;
+    background: rgba(177, 212, 238,0.3);
+    position: fixed;
+    width: 100%;
+    
+}
+
+
+/* タイトル１ */
+.title1{
+    grid-area:title1;
+    /* background: #f88; */
+}
+.title1 h1{
+    padding-left:2%;
+    background: rgba(250, 207, 233, 0.6);
+}
+
+
+/* エディターエリア */
+.editar-area{
+    display:grid;
+    grid-template-rows: auto   ;
+    grid-template-columns: 0.1fr 0.35fr 0.1fr 0.35fr 0.1fr;
+    grid-template-areas:
+        "... container container container ..."
+
+      }
+
+.container {
+  grid-area:container;
+  display: -webkit-flex;
+  display: flex;
+}
+
+/*お花の記述 */
+.main {
+  display: block;
+  width: 40%;
+  margin-right: 20px;
+}
+.diaryImg{
+    width: 100%;
+    max-height: 500px;
+
+}
+.flowerName{
+  font-size: 2rem;
+}
+
+.main p{
+   font-size: 1.6rem;
+   /* line-height: 2rem; */
+}
+.diaryText{
+  white-space: pre-wrap;
+}
+
+
+
+/* コメント欄 */
+.dcomment{
+    /* background-color: rgba(235, 228, 161, 0.5); */
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    display:none;
+}
+.comment-box{
+  margin-top:2rem;
+  margin-left:1rem;
+}
+.dcname{
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #222;
+}
+.dccreatedAt{
+  font-size: 1.2rem;
+  display: block;
+  line-height: 1;
+  color: #787c7b;
+}
+.dccomment{
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: #222;
+  white-space: pre-wrap;
+}
+.btnClick{
+  color:black;
+}
+.btnClick:hover{
+  opacity: 0.7;
+}
+#cbtn{
+   color:black;
+   font-size: 1.4rem;
+   font-weight: 700;
+   line-height: 1;
+   color: #a8abb1;
+}
+#cbtn:hover{
+opacity: 0.7;
+
+}
+/* コメントここまで＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
+
+.sidebar {
+  width: 40%;
+  margin-left:5%
+  /* background-color: rgb(94, 227, 112); */
+}
+
+.sidebar__item {
+  margin-bottom: 20px;
+  /* background-color: blue; */
+}
+
+.form{
+    margin-top:-20px;
+    width: 100%;
+    padding: 15px;
+    background:#f8f8f8;
+    border:1px solid rgba(0, 0, 0, 0.075);
+    margin-bottom:25px;
+    color:#727272 !important;
+    font-size:13px;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  .textarea{
+    height: 200px;
+    max-height: 200px;
+    max-width: 100%;
+  }
+ 
+  .lbutton{
+    width: 60%;
+    padding: 7px;
+    border: 2px solid #d7dee2;
+    font-size: 13px;
+    margin-top:2%;
+    margin-left:20%;
+    color:#727272 !important;
+    vertical-align: middle;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* background-color: rgba(250, 208, 246, 0.4); */
+
+}
+
+
+.sidebar__item--fixed {
+  position: sticky;
+  margin-bottom: 0;
+  top: 100px;
+  z-index: 1;
+}
+
+/* エディタここまで ＝＝＝＝＝＝＝＝＝＝＝＝*/
+
+
+</style>
 <body>
+<div class="main-glid">
+
+
     <header>
-        <ul>
-        <li><a href="/">ホーム</a></li>
-          <li><a href="/shops">店舗</a></li>
-          <li><a href="/diarys">日記</a></li>
-          <li><a href="/flowers">お花</a></li>
-          <li><a href="">検索</a></li>
-          <li><a href="/login">ログイン</a></li>
-        </ul>
-     </header>
-    <h1>花の詳細ページ</h1>
+       <ul>
+         <li>
+             <a href="/mypage">
+                <% if (typeof user !== 'undefined') { %>
+                    <img src="../images/account.jpg" class='aimg' alt="" >  
+                  <% } %>
+            </a>
+        </li>
+        <li><a href="/">Home</a></li>
+         <li><a href="/shops">Shop</a></li>
+         <li><a href="/diarys">Diary</a></li>
+         <li><a href="/flowers">Flower</a></li>
+         <!-- <li><div id='search'>検索</div></li> -->
+         <% if (typeof user == 'undefined') { %>
+         <li><a href="/login">Login</a></li>
+         <% } else{%>
+         <li><a href="/logout">Logout</a></li>
+         <% } %>
+       </ul>
+    </header>
 
 
-    <div><img src="../images/uploads/<%= item.image %>" alt="" style="width: 300px;"></div>
-    <h2><%=item.name%></h2>
-    <h2>店舗：<%=item.shopname%></h2>
-    <h2>価格：<%=item.price%>円</h2>
-    <h2>特徴：<%=item.feature%></h2>
-    <h2>詳細</h2>
-    <textarea name="" id="" cols="30" rows="10"><%=item.text%></textarea>
+   <div class="title1">
+       <h1>Flower</h1>
+   </div>
+
+</div>
+
+
+<div class="editar-area">
+   <div class="container">
+    <main class="main">
+      <!-- メインコンテンツ -->
+      <div><img src="../images/uploads/<%= item.image %>" alt=""class='diaryImg'></div>
+      <h3 class='flowerName'><%=item.name%></h3>
+    <p>店舗：<%=item.shopname%></p>
+    <p>価格：<%=item.price%>円（税抜き）</p>
+    <p>特徴：<%=item.feature%></p>
+    <p class='diaryText'><%=item.text%></p>
+    <div id='cbtn'><span class='btnClick'>▶︎</span>コメント（<%=fitems.length %>）</div>
+
+    <div class="dcomment">
+
+      <% if (fitems.length) { %>
+                <% fitems.forEach(function(fitem) { %>
+                 <div class="comment-box">
+                  <div class="dcname"><%= fitem.user_name %></div>             
+                  <div class='dccreatedAt'> <%= fitem.created_at %></div>       
+                  <div class="dccomment"><%= fitem.fcomment %></div>
+                </div> 
+                <% }); %>
+    <% } %>
+
+   
+  </div>
+    </main>
+    <div class="sidebar">
+      <div class="sidebar__item">
+        <!-- 中身 -->
+      </div>
+      <div class="sidebar__item sidebar__item--fixed">
+        <!-- 固定・追従させたいエリア -->
+        <form action="/fcomment_post/<%= item.id %>" method="post">
+            <textarea name="fcomment" id="message" class="form textarea"  placeholder="Message"></textarea>
+            <button class="lbutton" type="submit" class="submit">submit</button>
+            
+        </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
 
 
 
 
 
+
+     <footer>
+         <h3>Copyright  second-cube</h3>
+     </footer>
+
+
+
+
+
+
+
+
+     <script>
+      const cbtn = document.querySelector('#cbtn')
+      const hideComment = document.querySelector('.dcomment')
+        cbtn.onclick = function(){
+          hideComment.classList.toggle('dcomment')
+         // alert('hit')
+      }
+     
+     </script>
 </body>
 </html>

@@ -17,6 +17,7 @@ router.post('/register',main_c.register_post);//register  店舗新規登録機�
 //diaryカテゴリのルーティング＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 router.get('/d_search', diary_c.d_search);//d_search  日記検索機能
 router.get('/diary/:id',diary_c.diary);//diary  日記詳細表示
+router.post('/dcomment_post/:diary_id',diary_c.dcomment_post);//drege  日記投稿画面コメント機能
 router.get('/diaryDelete/:id',diary_c.diaryDelete);//diaryDelete  日記削除機能
 router.get('/diaryEdit/:id',diary_c.diaryEdit);//diaryEdit  日記編集画面表示
 router.get('/diarys', diary_c.diarys);//diarys  日記一覧表示
@@ -27,6 +28,7 @@ router.get('/drege',diary_c.drege);//drege  日記投稿画面表示
 //flowerカテゴリのルーティング＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 router.get('/f_search',flower_c.f_search);//f_search  お花検索機能
 router.get('/flower/:id',flower_c.flower)//flower  お花詳細表示
+router.post('/fcomment_post/:flower_id',flower_c.fcomment_post);//drege  日記投稿画面表示
 router.get('/flowerDelete/:id',flower_c.flowerDelete)//flowerDelete  お花削除機能
 router.get('/flowerEdit/:id',flower_c.flowerEdit)//flowerEdit  お花編集画面表示
 router.get('/flowers',flower_c.flowers);//flowers  お花一覧画面表示

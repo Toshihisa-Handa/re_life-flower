@@ -19,11 +19,47 @@ exports.f_search = (req, res) => {
   }
 
   //flower
-  exports.flower =(req, res)=>{
-    connection.query('SELECT S.name AS shopname, F.id, F.user_id, F.image, F.name, F.price, F.feature, F.text FROM flower AS F LEFT JOIN shop S ON F.user_id = S.user_id WHERE F.id = ?',[req.params.id],(error,result)=>{
-      res.render('flower.ejs',{item:result[0]});
-    })
-  }
+  // exports.flower =(req, res)=>{
+  //   connection.query('SELECT S.name AS shopname, F.id, F.user_id, F.image, F.name, F.price, F.feature, F.text FROM flower AS F LEFT JOIN shop S ON F.user_id = S.user_id WHERE F.id = ?',[req.params.id],(error,result)=>{
+  //     res.render('flower.ejs',{item:result[0]});
+  //   })
+  // }
+
+  exports.flower = (req, res)=>{
+    var flowerId = req.params.id;
+    var sql = 'SELECT S.name AS shopname, F.id, F.user_id, F.image, F.name, F.price, F.feature, F.text FROM flower AS F LEFT JOIN shop S ON F.user_id = S.user_id WHERE F.id = ?';
+    var fsql = 'SELECT Fc.fcomment, ifnull(U.name, \'名無し\') AS user_name, DATE_FORMAT(Fc.created_at, \'%Y/%m/%d  %k:%i\') AS created_at FROM fcomment Fc LEFT OUTER JOIN user U ON Fc.user_id = U.user_id WHERE Fc.flower_id = ' + flowerId + ' ORDER BY Fc.created_at ASC'; 
+    connection.query(sql,[req.params.id],(error,result)=>{
+      connection.query(fsql,(error, dcomment)=>{
+        res.render('flower.ejs',{
+          item:result[0],
+          fitems:dcomment
+        });
+        // console.log(result[0])
+        console.log('hoge=================================')
+        console.log(req.params.id)
+      })
+     
+      })
+    }
+
+
+
+  
+//fcomment_post
+exports.fcomment_post =  (req, res) => {
+  var userId = req.session.user_id? req.session.user_id: 0; 
+  var flowerId = req.params.flower_id;
+  var fcomment = req.body.fcomment;
+  var createdAt = moment().format('YYYY-MM-DD HH:mm:ss');
+  var sql = 'INSERT INTO fcomment (flower_id, fcomment, created_at, user_id) VALUES (?,?,?,?)';
+  connection.query(sql,[flowerId, fcomment, createdAt, userId],(error,results)=>{
+    res.redirect('/flower/' + flowerId);
+    console.log('insert=============')
+    console.log(flowerId)
+  })
+}
+
 
   //flowerDelete
   exports.flowerDelete = (req,res)=>{
@@ -67,3 +103,4 @@ exports.f_search = (req, res) => {
         console.log(results)
       })
   }
+
